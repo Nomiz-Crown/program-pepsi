@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -115,7 +116,7 @@ public class ConvoHandler : MonoBehaviour
 
     private IEnumerator TypeSentence(string sentence)
     {
-         dialogueText.text = ""; // Clear the text before typing
+        dialogueText.text = ""; // Clear the text before typing
          foreach (char letter in sentence.ToCharArray())
        {
         dialogueText.text += letter; // Add one letter at a time
@@ -123,7 +124,7 @@ public class ConvoHandler : MonoBehaviour
        }
 
     
-       yield return new WaitForSeconds(2f); // Adjust the time here (2 seconds)
+       yield return new WaitForSeconds(1f); // Adjust the time here (2 seconds)
 
        typingCoroutine = null; // Reset the coroutine
 
@@ -187,9 +188,62 @@ public class ConvoHandler : MonoBehaviour
     // Button 2 click event to start path 2 dialogue
     public void OnButton2Click()
     {
-        if (!showingStartingMessage)
+        accusation(0,1,1,0);
+    }
+    float likeyouamount = 1;
+    float suspectyouamount = 0;
+    float suspectnpc1amount = 0;
+    float likenpc1amount = 0.5f;
+    void accusation(float morelikeamount, float moresuspiciousamount, int whoismentiond, int whoistalikng)
+    {
+        if (whoistalikng == 0)
         {
-            StartDialogue(dialogueLines2); // Start path 2 dialogue
+            if (whoismentiond == 1)
+            {
+                if (likeyouamount + suspectnpc1amount > suspectyouamount + likenpc1amount)
+                {
+                    if (likeyouamount - (suspectyouamount + likenpc1amount) > 0)
+                    {
+                        suspectnpc1amount += moresuspiciousamount * (1 + likeyouamount - (suspectyouamount + likenpc1amount));
+                    }
+                    else
+                    {
+                        suspectnpc1amount += moresuspiciousamount;
+                    }
+                    if (suspectnpc1amount > 3)
+                    {
+                        if (typingCoroutine != null)
+                        {
+                            StopCoroutine(typingCoroutine);
+                        }
+
+                        typingCoroutine = StartCoroutine(TypeSentence("(npc 1 namn) is the killer!!"));
+                        
+                    }
+                    else if(suspectnpc1amount > 1.5f)
+                    {
+                        if (typingCoroutine != null)
+                        {
+                            StopCoroutine(typingCoroutine);
+                        }
+
+                        typingCoroutine = StartCoroutine(TypeSentence("perhaps (npc 1 namn) is the killer?"));
+                    }
+                    else
+                    {
+                        if (typingCoroutine != null)
+                        {
+                            StopCoroutine(typingCoroutine);
+                        }
+
+                        typingCoroutine = StartCoroutine(TypeSentence("do you think (npc 1 namn) is the killer?"));
+                    }
+                }
+                else
+                {
+                    suspectyouamount += moresuspiciousamount * (suspectyouamount + likenpc1amount - (suspectnpc1amount + likeyouamount));
+                }
+            }
         }
     }
 }
