@@ -36,18 +36,18 @@ public class ConvoHandler : MonoBehaviour
     private bool isPlayerInTrigger = false;
     private bool showingStartingMessage = true; // Tracks if we’re in the starting phase
     float evidence;
-    public float likeyouamount = 1;
-    public float suspectyouamount = 0;
-    public float suspectnpc1amount = 0;
-    public float likenpc1amount = 0;
-    public float suspectnpc2amount = 0;
-    public float likenpc2amount = 0;
-    public float suspectnpc3amount = 0;
-    public float likenpc3amount = 0;
-    public float suspectnpc4amount = 0;
-    public float likenpc4amount = 0;
-    public float suspectnpc5amount = 0;
-    public float likenpc5amount = 0;
+    public float likeYouAmount = 1;
+    public float suspectYouAmount = 0;
+    public float suspectNpc1Amount = 0;
+    public float likeNpc1Amount = 0;
+    public float suspectNpc2Amount = 0;
+    public float likeNpc2Amount = 0;
+    public float suspectNpc3Amount = 0;
+    public float likeNpc3Amount = 0;
+    public float suspectNpc4Amount = 0;
+    public float likeNpc4Amount = 0;
+    public float suspectNpc5Amount = 0;
+    public float likeNpc5Amount = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -80,26 +80,7 @@ public class ConvoHandler : MonoBehaviour
             {
                 gregerUi.SetActive(false);
             }
-            if (npc1button != null)
-            {
-                npc1button.gameObject.SetActive(false);
-            }
-            if (npc2button != null)
-            {
-                npc2button.gameObject.SetActive(false);
-            }
-            if (npc3button != null)
-            {
-                npc3button.gameObject.SetActive(false);
-            }
-            if (npc4button != null)
-            {
-                npc4button.gameObject.SetActive(false);
-            }
-            if (npc5button != null)
-            {
-                npc5button.gameObject.SetActive(false);
-            }
+            npcbuttons(false);
             corpsevidencebutton.gameObject.SetActive(false);
 
             ShowButtons(false, false); // Hide both buttons
@@ -237,84 +218,96 @@ public class ConvoHandler : MonoBehaviour
     }
     public void sayevidencebuttonclick()
     {
-       corpsevidencebutton.gameObject.SetActive(true);
+        if (corpsevidencebutton != null)
+        {
+            corpsevidencebutton.gameObject.SetActive(true);
+        }
     }
     public void corpse()
     {
         evidence = 0.5f;
+        npcbuttons(true);
+    }
+    void npcbuttons(bool e)
+    {
         if (npc1button != null)
         {
-            npc1button.gameObject.SetActive(true);
+            npc1button.gameObject.SetActive(e);
         }
         if (npc2button != null)
         {
-            npc2button.gameObject.SetActive(true);
+            npc2button.gameObject.SetActive(e);
         }
         if (npc3button != null)
         {
-            npc3button.gameObject.SetActive(true);
+            npc3button.gameObject.SetActive(e);
         }
         if (npc4button != null)
         {
-            npc4button.gameObject.SetActive(true);
+            npc4button.gameObject.SetActive(e);
         }
         if (npc5button != null)
         {
-            npc5button.gameObject.SetActive(true);
+            npc5button.gameObject.SetActive(e);
         }
     }
     public void npc1buttonpress()
     {
-        if (npcroom == playeroom)
+        if (npcroom == playeroom && evidence != 0)
         {
             accusation(evidence, 1, 0);
         }
     }
     public void npc2buttonpress()
     {
-        if (npcroom == playeroom)
+        if (npcroom == playeroom && evidence != 0)
         {
             accusation(evidence, 2, 0);
         }
     }
     public void npc3buttonpress()
     {
-        if (npcroom == playeroom)
+        if (npcroom == playeroom && evidence != 0)
         {
             accusation(evidence, 3, 0);
         }
     }
     public void npc4buttonpress()
     {
-        if (npcroom == playeroom)
+        if (npcroom == playeroom && evidence != 0)
         {
             accusation(evidence, 4, 0);
         }
     }
     public void npc5buttonpress()
     {
-        if (npcroom == playeroom)
+        if (npcroom == playeroom && evidence != 0)
         {
             accusation(evidence, 5, 0);
         }
     }
     void accusation(float moresuspiciousamount, int whoismentiond, int whoistalikng)
     {
+        npcbuttons(false);
+        if (corpsevidencebutton != null)
+        {
+            corpsevidencebutton.gameObject.SetActive(false);
+        }
         if (whoistalikng == 0)
         {
             if (whoismentiond == 1)
             {
-                if (likeyouamount + suspectnpc1amount > suspectyouamount + likenpc1amount)
+                if (likeYouAmount + suspectNpc1Amount > suspectYouAmount + likeNpc1Amount)
                 {
-                    if (likeyouamount - (suspectyouamount + likenpc1amount) > 0)
+                    if (likeYouAmount - (suspectYouAmount + likeNpc1Amount) > 0)
                     {
-                        suspectnpc1amount += moresuspiciousamount * (1 + likeyouamount - (suspectyouamount + likenpc1amount));
+                        suspectNpc1Amount += moresuspiciousamount * (1 + likeYouAmount - (suspectYouAmount + likeNpc1Amount));
                     }
                     else
                     {
-                        suspectnpc1amount += moresuspiciousamount;
+                        suspectNpc1Amount += moresuspiciousamount;
                     }
-                    if (suspectnpc1amount > 3)
+                    if (suspectNpc1Amount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -324,7 +317,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("(npc 1 namn) is the killer!!"));
                         
                     }
-                    else if(suspectnpc1amount > 1.5f)
+                    else if(suspectNpc1Amount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -345,15 +338,15 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
-                    if (likenpc1amount - (suspectnpc1amount + likeyouamount) > 0)
+                    if (likeNpc1Amount - (suspectNpc1Amount + likeYouAmount) > 0)
                     {
-                        suspectyouamount += moresuspiciousamount * (1 + likenpc1amount - (likeyouamount + suspectnpc1amount));
+                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc1Amount - (likeYouAmount + suspectNpc1Amount));
                     }
                     else
                     {
-                        suspectyouamount += moresuspiciousamount;
+                        suspectYouAmount += moresuspiciousamount;
                     }
-                    if (suspectnpc1amount > 3)
+                    if (suspectYouAmount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -363,7 +356,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("..."));
 
                     }
-                    else if (suspectnpc1amount > 1.5f)
+                    else if (suspectYouAmount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -385,17 +378,17 @@ public class ConvoHandler : MonoBehaviour
             }
             else if (whoismentiond == 2)
             {
-                if (likeyouamount + suspectnpc2amount > suspectyouamount + likenpc2amount)
+                if (likeYouAmount + suspectNpc2Amount > suspectYouAmount + likeNpc2Amount)
                 {
-                    if (likeyouamount - (suspectyouamount + likenpc2amount) > 0)
+                    if (likeYouAmount - (suspectYouAmount + likeNpc2Amount) > 0)
                     {
-                        suspectnpc2amount += moresuspiciousamount * (1 + likeyouamount - (suspectyouamount + likenpc2amount));
+                        suspectNpc2Amount += moresuspiciousamount * (1 + likeYouAmount - (suspectYouAmount + likeNpc2Amount));
                     }
                     else
                     {
-                        suspectnpc2amount += moresuspiciousamount;
+                        suspectNpc2Amount += moresuspiciousamount;
                     }
-                    if (suspectnpc2amount > 3)
+                    if (suspectNpc2Amount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -405,7 +398,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("(npc 2 namn) is the killer!!"));
 
                     }
-                    else if (suspectnpc2amount > 1.5f)
+                    else if (suspectNpc2Amount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -426,15 +419,15 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
-                    if (likenpc2amount - (suspectnpc2amount + likeyouamount) > 0)
+                   if (likeNpc2Amount - (suspectNpc2Amount + likeYouAmount) > 0)
                     {
-                        suspectyouamount += moresuspiciousamount * (1 + likenpc2amount - (likeyouamount + suspectnpc2amount));
+                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc2Amount - (likeYouAmount + suspectNpc2Amount));
                     }
                     else
                     {
-                        suspectyouamount += moresuspiciousamount;
+                        suspectYouAmount += moresuspiciousamount;
                     }
-                    if (suspectyouamount > 3)
+                    if (suspectYouAmount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -444,7 +437,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("..."));
 
                     }
-                    else if (suspectyouamount > 1.5f)
+                    else if (suspectYouAmount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -466,17 +459,17 @@ public class ConvoHandler : MonoBehaviour
             }
             else if (whoismentiond == 3)
             {
-                if (likeyouamount + suspectnpc3amount > suspectyouamount + likenpc3amount)
+                if (likeYouAmount + suspectNpc3Amount > suspectYouAmount + likeNpc3Amount)
                 {
-                    if (likeyouamount - (suspectyouamount + likenpc3amount) > 0)
+                    if (likeYouAmount - (suspectYouAmount + likeNpc3Amount) > 0)
                     {
-                        suspectnpc3amount += moresuspiciousamount * (1 + likeyouamount - (suspectyouamount + likenpc3amount));
+                        suspectNpc3Amount += moresuspiciousamount * (1 + likeYouAmount - (suspectYouAmount + likeNpc3Amount));
                     }
                     else
                     {
-                        suspectnpc3amount += moresuspiciousamount;
+                        suspectNpc3Amount += moresuspiciousamount;
                     }
-                    if (suspectnpc3amount > 3)
+                    if (suspectYouAmount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -486,7 +479,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("(npc 3 namn) is the killer!!"));
 
                     }
-                    else if (suspectnpc3amount > 1.5f)
+                    else if (suspectYouAmount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -507,15 +500,15 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
-                    if (likenpc3amount - (suspectnpc3amount + likeyouamount) > 0)
+                    if (likeNpc3Amount - (suspectNpc3Amount + likeYouAmount) > 0)
                     {
-                        suspectyouamount += moresuspiciousamount * (1 + likenpc3amount - (likeyouamount + suspectnpc3amount));
+                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc3Amount - (likeYouAmount + suspectNpc3Amount));
                     }
                     else
                     {
-                        suspectyouamount += moresuspiciousamount;
+                        suspectYouAmount += moresuspiciousamount;
                     }
-                    if (suspectyouamount > 3)
+                    if (suspectYouAmount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -525,7 +518,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("..."));
 
                     }
-                    else if (suspectyouamount > 1.5f)
+                    else if (suspectYouAmount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -547,17 +540,17 @@ public class ConvoHandler : MonoBehaviour
             }
             else if (whoismentiond == 4)
             {
-                if (likeyouamount + suspectnpc4amount > suspectyouamount + likenpc4amount)
+                if (likeYouAmount + suspectNpc4Amount > suspectYouAmount + likeNpc4Amount)
                 {
-                    if (likeyouamount - (suspectyouamount + likenpc4amount) > 0)
+                    if (likeYouAmount - (suspectYouAmount + likeNpc4Amount) > 0)
                     {
-                        suspectnpc4amount += moresuspiciousamount * (1 + likeyouamount - (suspectyouamount + likenpc4amount));
+                        suspectNpc4Amount += moresuspiciousamount * (1 + likeYouAmount - (suspectYouAmount + likeNpc4Amount));
                     }
                     else
                     {
-                        suspectnpc4amount += moresuspiciousamount;
+                        suspectNpc4Amount += moresuspiciousamount;
                     }
-                    if (suspectnpc4amount > 3)
+                    if (suspectNpc4Amount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -567,7 +560,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("(npc 4 namn) is the killer!!"));
 
                     }
-                    else if (suspectnpc4amount > 1.5f)
+                    else if (suspectNpc4Amount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -588,15 +581,15 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
-                    if (likenpc4amount - (suspectnpc4amount + likeyouamount) > 0)
+                    if (likeNpc4Amount - (suspectNpc4Amount + likeYouAmount) > 0)
                     {
-                        suspectyouamount += moresuspiciousamount * (1 + likenpc4amount - (likeyouamount + suspectnpc4amount));
+                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc4Amount - (likeYouAmount + suspectNpc4Amount));
                     }
                     else
                     {
-                        suspectyouamount += moresuspiciousamount;
+                        suspectYouAmount += moresuspiciousamount;
                     }
-                    if (suspectyouamount > 3)
+                    if (suspectYouAmount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -606,7 +599,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("..."));
 
                     }
-                    else if (suspectyouamount > 1.5f)
+                    else if (suspectYouAmount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -628,17 +621,17 @@ public class ConvoHandler : MonoBehaviour
             }
             else if (whoismentiond == 5)
             {
-                if (likeyouamount + suspectnpc5amount > suspectyouamount + likenpc5amount)
+                if (likeYouAmount + suspectNpc5Amount > suspectYouAmount + likeNpc5Amount)
                 {
-                    if (likeyouamount - (suspectyouamount + likenpc5amount) > 0)
+                    if (likeYouAmount - (suspectYouAmount + likeNpc5Amount) > 0)
                     {
-                        suspectnpc5amount += moresuspiciousamount * (1 + likeyouamount - (suspectyouamount + likenpc5amount));
+                        suspectNpc5Amount += moresuspiciousamount * (1 + likeYouAmount - (suspectYouAmount + likeNpc5Amount));
                     }
                     else
                     {
-                        suspectnpc5amount += moresuspiciousamount;
+                        suspectNpc5Amount += moresuspiciousamount;
                     }
-                    if (suspectnpc5amount > 3)
+                    if (suspectNpc5Amount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -648,7 +641,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("(npc 5 namn) is the killer!!"));
 
                     }
-                    else if (suspectnpc5amount > 1.5f)
+                    else if (suspectNpc5Amount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -669,15 +662,15 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
-                    if (likenpc5amount - (suspectnpc5amount + likeyouamount) > 0)
+                    if (likeNpc5Amount - (suspectNpc5Amount + likeYouAmount) > 0)
                     {
-                        suspectyouamount += moresuspiciousamount * (1 + likenpc5amount - (likeyouamount + suspectnpc5amount));
+                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc5Amount - (likeYouAmount + suspectNpc5Amount));
                     }
                     else
                     {
-                        suspectyouamount += moresuspiciousamount;
+                        suspectYouAmount += moresuspiciousamount;
                     }
-                    if (suspectyouamount > 3)
+                    if (suspectYouAmount > 3)
                     {
                         if (typingCoroutine != null)
                         {
@@ -687,7 +680,7 @@ public class ConvoHandler : MonoBehaviour
                         typingCoroutine = StartCoroutine(TypeSentence("..."));
 
                     }
-                    else if (suspectyouamount > 1.5f)
+                    else if (suspectYouAmount > 1.5f)
                     {
                         if (typingCoroutine != null)
                         {
@@ -708,5 +701,6 @@ public class ConvoHandler : MonoBehaviour
                 }
             }
         }
+        evidence = 0;
     }
 }
