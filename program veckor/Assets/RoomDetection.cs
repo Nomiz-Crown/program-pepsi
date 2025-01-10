@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class RoomDetection : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class RoomDetection : MonoBehaviour
         {
             SetAlpha(alphaWhenTouched);
             AdjustRoomObjectsZPosition(1f); // Move room objects to Z = 11 when player enters
+
         }
     }
 
