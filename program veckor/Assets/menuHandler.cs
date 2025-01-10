@@ -9,15 +9,24 @@ public class menuHandler : MonoBehaviour
     public GameObject settingsButton;
     public GameObject creditsButton;
     public GameObject creditsPanel;
+    public GameObject settingsPanel;
 
-    // Method to load a scene
+    // Load the game scene
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("startcutscene");  // Replace with your target scene name
+        SceneManager.LoadScene("startcutscene");
     }
 
-    public void ShowCredits()
+    // Toggle the credits panel on/off
+    public void ToggleCredits()
     {
-        creditsPanel.SetActive(true);
+        // Switch between active and inactive states
+        creditsPanel.SetActive(!creditsPanel.activeSelf);
+    }
+
+    public void ToggleSettings()
+    {
+        // Switch between active and inactive states
+        settingsPanel.SetActive(!settingsPanel.activeSelf);
     }
 }
