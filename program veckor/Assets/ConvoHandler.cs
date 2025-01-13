@@ -10,6 +10,7 @@ public class ConvoHandler : MonoBehaviour
     public GameObject gregerUi;       // The main UI that activates with E
     public GameObject interactUi;     // "Press E to Interact" UI
     public Text dialogueText;         // Text component for dialogue
+    public GameObject caseFile;
     public Button button1;            // First button for primary dialogue
     public Button button2;            // Second button for alternate dialogue
     public Button npc1button;
@@ -18,9 +19,11 @@ public class ConvoHandler : MonoBehaviour
     public Button npc4button;
     public Button npc5button;
     public Button corpsevidencebutton;
+    
     public int corpsevidence = 0;
 
     public int npcroom;
+    public int witchNpcIsThis;
     static int playeroom;
 
     [TextArea(3, 10)]
@@ -220,7 +223,8 @@ public class ConvoHandler : MonoBehaviour
     }
     public void sayevidencebuttonclick()
     {
-        if (corpsevidence == 1 && npcroom == playeroom)
+        caseFile.gameObject.SetActive(true);
+        if (corpsevidence == 1 && npcroom == playeroom && corpsevidencebutton != null)
         {
             corpsevidencebutton.gameObject.SetActive(true);
         }
@@ -239,6 +243,7 @@ public class ConvoHandler : MonoBehaviour
     }
     void npcbuttons(bool e)
     {
+        caseFile.gameObject.SetActive(false);
         if (npc1button != null)
         {
             npc1button.gameObject.SetActive(e);
@@ -300,8 +305,13 @@ public class ConvoHandler : MonoBehaviour
         npcbuttons(false);
 
         corpsevidencebutton.gameObject.SetActive(false);
-        
-        if (whoistalikng == 0)
+        if (whoismentiond == witchNpcIsThis)
+        {
+            likeYouAmount -= 1.2f;
+            suspectYouAmount += 0.3f;
+            typingCoroutine = StartCoroutine(TypeSentence("how dare you acuse me"));
+        }
+        else if (whoistalikng == 0)
         {
             if (whoismentiond == 1)
             {
