@@ -220,7 +220,7 @@ public class ConvoHandler : MonoBehaviour
     }
     public void sayevidencebuttonclick()
     {
-        if (corpsevidence > 0)
+        if (corpsevidence == 1 && npcroom == playeroom)
         {
             corpsevidencebutton.gameObject.SetActive(true);
         }
@@ -231,6 +231,9 @@ public class ConvoHandler : MonoBehaviour
         npcbuttons(true);
         if (playeroom == npcroom)
         {
+            Debug.Log(npcroom);
+            Debug.Log(playeroom);
+            Debug.Log(corpsevidence);
             corpsevidence = 0;
         }
     }
@@ -295,10 +298,9 @@ public class ConvoHandler : MonoBehaviour
     void accusation(float moresuspiciousamount, int whoismentiond, int whoistalikng)
     {
         npcbuttons(false);
-        if (corpsevidencebutton != null)
-        {
-            corpsevidencebutton.gameObject.SetActive(false);
-        }
+
+        corpsevidencebutton.gameObject.SetActive(false);
+        
         if (whoistalikng == 0)
         {
             if (whoismentiond == 1)

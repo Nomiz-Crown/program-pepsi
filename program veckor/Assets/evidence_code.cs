@@ -52,12 +52,26 @@ public class evidence_code : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (evidenctype != 0)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                isPlayerInTrigger = true;
+                if (interactUi != null)
+                {
+                    interactUi.SetActive(true);
+                }
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.CompareTag("Player"))
         {
-            isPlayerInTrigger = true;
+            isPlayerInTrigger = false;
             if (interactUi != null)
             {
-                interactUi.SetActive(true);
+                interactUi.SetActive(false);
             }
         }
     }
