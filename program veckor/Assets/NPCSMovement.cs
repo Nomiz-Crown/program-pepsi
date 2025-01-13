@@ -27,8 +27,9 @@ public class NPCSMovement : MonoBehaviour
         // Denna Kod bestämmer vilket håll NPCn ska röra på sig.
         Unity.Mathematics.Random ran = new Unity.Mathematics.Random();
         float MovementDirection = ran.NextInt(1, 4);
+        // Denna kod bstämmer hur länge den kommer  röra på sig
         Unity.Mathematics.Random ra = new Unity.Mathematics.Random();
-        float MovementAmount = ra.NextInt(1, 4);
+        float MovementAmount = ra.NextInt(1, 3);
         if (MovementDirection == 1)
         {
             rb.velocity = new Vector2(0, 5);
