@@ -14,20 +14,29 @@ public class evidence_code : MonoBehaviour
     ConvoHandler npc3convo;
     ConvoHandler npc4convo;
     ConvoHandler npc5convo;
+    inventory playerinventory;
+    public GameObject player;
     public GameObject npc1;
     public GameObject npc2;
     public GameObject npc3;
     public GameObject npc4;
     public GameObject npc5;
-    public int evidenctype = 1;
+    public int evidenceOrItemType = 0;
 
     void Start()
     {
-        npc1convo = npc1.GetComponent<ConvoHandler>();
-        npc2convo = npc2.GetComponent<ConvoHandler>();
-        npc3convo = npc3.GetComponent<ConvoHandler>();
-        npc4convo = npc4.GetComponent<ConvoHandler>();
-        npc5convo = npc5.GetComponent<ConvoHandler>();
+        if (player != null)
+        {
+            playerinventory = player.GetComponent<inventory>();
+        }
+        if (npc1 != null)
+        {
+            npc1convo = npc1.GetComponent<ConvoHandler>();
+            npc2convo = npc2.GetComponent<ConvoHandler>();
+            npc3convo = npc3.GetComponent<ConvoHandler>();
+            npc4convo = npc4.GetComponent<ConvoHandler>();
+            npc5convo = npc5.GetComponent<ConvoHandler>();
+        }
     }
 
     // Update is called once per frame
@@ -39,20 +48,26 @@ public class evidence_code : MonoBehaviour
             {
                 interactUi.SetActive(false);
             }
-            if (evidenctype == 1)
+            if (evidenceOrItemType == 1)
             {
                 npc1convo.corpsevidence = 1;
                 npc2convo.corpsevidence = 1;
                 npc3convo.corpsevidence = 1;
                 npc4convo.corpsevidence = 1;
                 npc5convo.corpsevidence = 1;
-                evidenctype = 0;
+                playerinventory.corpse += 1;
+                evidenceOrItemType = 0;
+            }
+            if (evidenceOrItemType == 2)
+            {
+                playerinventory.money += 1;
+                Destroy(gameObject);
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (evidenctype != 0)
+        if (evidenceOrItemType != 0)
         {
             if (collision.CompareTag("Player"))
             {

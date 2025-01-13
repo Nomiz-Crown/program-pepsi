@@ -86,7 +86,6 @@ public class ConvoHandler : MonoBehaviour
                 gregerUi.SetActive(false);
             }
             npcbuttons(false);
-            corpsevidencebutton.gameObject.SetActive(false);
 
             ShowButtons(false, false); // Hide both buttons
 
@@ -219,31 +218,22 @@ public class ConvoHandler : MonoBehaviour
     // Button 2 click event to start path 2 dialogue
     public void OnButton2Click()
     {
-
-    }
-    public void sayevidencebuttonclick()
-    {
-        caseFile.gameObject.SetActive(true);
-        if (corpsevidence == 1 && npcroom == playeroom && corpsevidencebutton != null)
+        if (!showingStartingMessage && activeDialogue == null)
         {
-            corpsevidencebutton.gameObject.SetActive(true);
+            StartDialogue(dialogueLines2); // Start path 2 dialogue
         }
     }
     public void corpse()
     {
-        evidence = 0.5f;
-        npcbuttons(true);
-        if (playeroom == npcroom)
+        if (corpsevidence > 0)
         {
-            Debug.Log(npcroom);
-            Debug.Log(playeroom);
-            Debug.Log(corpsevidence);
+            evidence = 0.5f;
             corpsevidence = 0;
         }
+        npcbuttons(true);
     }
     void npcbuttons(bool e)
     {
-        caseFile.gameObject.SetActive(false);
         if (npc1button != null)
         {
             npc1button.gameObject.SetActive(e);
@@ -302,6 +292,7 @@ public class ConvoHandler : MonoBehaviour
     }
     void accusation(float moresuspiciousamount, int whoismentiond, int whoistalikng)
     {
+        caseFile.gameObject.SetActive(false);
         npcbuttons(false);
 
         corpsevidencebutton.gameObject.SetActive(false);
