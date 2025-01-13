@@ -47,8 +47,16 @@ public class Movement : MonoBehaviour
                 anxiety += 1;
                 anxietyIncreaseTimer = 0f; // Nollställ timern
             }
+            if (anxiety < 70)
+            {
+                rb.velocity = movement * speed * 1.5f;
+            }
+            else
+            {
+                rb.velocity = movement * speed * (1.5f - anxiety / 200);
+            }
         }
-        else if (isBreathing)
+        else
         {
             // Minska ångest varje 0.05 sekund när spelaren andas
             anxietyDecreaseTimer += Time.deltaTime;

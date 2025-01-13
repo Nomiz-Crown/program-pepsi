@@ -57,14 +57,17 @@ public class RoomDetection : MonoBehaviour
     void AdjustRoomObjectsZPosition(float zPosition)
     {
         // Change the Z position of all objects in the roomObjects list
-        foreach (GameObject roomObject in roomObjects)
+        if (1 == 2)
         {
-            if (roomObject != null)
+            foreach (GameObject roomObject in roomObjects)
             {
-                // Adjust Z position
-                Vector3 objectPosition = roomObject.transform.position;
-                objectPosition.z = zPosition;
-                roomObject.transform.position = objectPosition;
+                if (roomObject != null)
+                {
+                    // Adjust Z position
+                    Vector3 objectPosition = roomObject.transform.position;
+                    objectPosition.z = zPosition;
+                    roomObject.transform.position = objectPosition;
+                }
             }
         }
     }
