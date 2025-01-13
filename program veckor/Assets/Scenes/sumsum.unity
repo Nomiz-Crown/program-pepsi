@@ -839,6 +839,7 @@ MonoBehaviour:
   npc4button: {fileID: 693400490}
   npc5button: {fileID: 680476732}
   corpsevidencebutton: {fileID: 1632062887}
+  corpsevidence: 0
   npcroom: 0
   startingMessage: i love money
   dialogueLines1:
@@ -846,18 +847,18 @@ MonoBehaviour:
   dialogueLines2:
   - my jewlery is only perfect when its reflecting your beautiful eyes.
   typingSpeed: 0.05
-  likeyouamount: 1
-  suspectyouamount: 0
-  suspectnpc1amount: 0
-  likenpc1amount: 0.5
-  suspectnpc2amount: 0
-  likenpc2amount: 0
-  suspectnpc3amount: 0
-  likenpc3amount: 0
-  suspectnpc4amount: 0
-  likenpc4amount: 0
-  suspectnpc5amount: 0
-  likenpc5amount: 0
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  suspectNpc5Amount: 0
+  likeNpc5Amount: 0
 --- !u!70 &55231601
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1841,6 +1842,7 @@ MonoBehaviour:
   npc4button: {fileID: 693400490}
   npc5button: {fileID: 680476732}
   corpsevidencebutton: {fileID: 1632062887}
+  corpsevidence: 0
   npcroom: 0
   startingMessage: RATATATATAAAA
   dialogueLines1:
@@ -1848,18 +1850,18 @@ MonoBehaviour:
   dialogueLines2:
   - YIPPIIII
   typingSpeed: 0.05
-  likeyouamount: 1
-  suspectyouamount: 0
-  suspectnpc1amount: 0
-  likenpc1amount: 0.5
-  suspectnpc2amount: 0
-  likenpc2amount: 0
-  suspectnpc3amount: 0
-  likenpc3amount: 0
-  suspectnpc4amount: 0
-  likenpc4amount: 0
-  suspectnpc5amount: 0
-  likenpc5amount: 0
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  suspectNpc5Amount: 0
+  likeNpc5Amount: 0
 --- !u!70 &172169761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2168,7 +2170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: corse
+  m_Text: corpse
 --- !u!222 &205159239
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3675,6 +3677,8 @@ GameObject:
   m_Component:
   - component: {fileID: 399292975}
   - component: {fileID: 399292974}
+  - component: {fileID: 399292976}
+  - component: {fileID: 399292977}
   m_Layer: 0
   m_Name: dead alice
   m_TagString: Untagged
@@ -3749,6 +3753,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &399292976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399292973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187180faa62c33c4bb6eb7faee6a9052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactUi: {fileID: 1619943348}
+  npc1: {fileID: 1174739400}
+  npc2: {fileID: 55231597}
+  npc3: {fileID: 1108783686}
+  npc4: {fileID: 1373687613}
+  npc5: {fileID: 172169757}
+  evidenctype: 1
+--- !u!61 &399292977
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399292973}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 3, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &401230644
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +4044,8 @@ GameObject:
   m_Component:
   - component: {fileID: 417778834}
   - component: {fileID: 417778833}
+  - component: {fileID: 417778835}
+  - component: {fileID: 417778836}
   m_Layer: 0
   m_Name: dead drawing5
   m_TagString: Untagged
@@ -4050,6 +4120,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417778835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417778832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187180faa62c33c4bb6eb7faee6a9052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactUi: {fileID: 1619943348}
+  npc1: {fileID: 1174739400}
+  npc2: {fileID: 55231597}
+  npc3: {fileID: 1108783686}
+  npc4: {fileID: 1373687613}
+  npc5: {fileID: 172169757}
+  evidenctype: 1
+--- !u!61 &417778836
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417778832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 3, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &430303574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4896,7 +5030,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9495,6 +9629,7 @@ MonoBehaviour:
   npc4button: {fileID: 693400490}
   npc5button: {fileID: 680476732}
   corpsevidencebutton: {fileID: 1632062887}
+  corpsevidence: 0
   npcroom: 0
   startingMessage: does my pink hairclip give Y2K vibes?
   dialogueLines1:
@@ -9502,18 +9637,18 @@ MonoBehaviour:
   dialogueLines2:
   - exactly, hes so cool for giving me this Y2K hairclip
   typingSpeed: 0.05
-  likeyouamount: 1
-  suspectyouamount: 0
-  suspectnpc1amount: 0
-  likenpc1amount: 0.5
-  suspectnpc2amount: 0
-  likenpc2amount: 0
-  suspectnpc3amount: 0
-  likenpc3amount: 0
-  suspectnpc4amount: 0
-  likenpc4amount: 0
-  suspectnpc5amount: 0
-  likenpc5amount: 0
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 4
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  suspectNpc5Amount: 0
+  likeNpc5Amount: 0
 --- !u!1 &1121293168
 GameObject:
   m_ObjectHideFlags: 0
@@ -10390,6 +10525,7 @@ MonoBehaviour:
   npc4button: {fileID: 693400490}
   npc5button: {fileID: 680476732}
   corpsevidencebutton: {fileID: 1632062887}
+  corpsevidence: 0
   npcroom: 0
   startingMessage: i love pepsi like a real sigma
   dialogueLines1:
@@ -10398,18 +10534,18 @@ MonoBehaviour:
   dialogueLines2:
   - lets get married and have children
   typingSpeed: 0.05
-  likeyouamount: 1
-  suspectyouamount: 0
-  suspectnpc1amount: 0
-  likenpc1amount: 0.5
-  suspectnpc2amount: 0
-  likenpc2amount: 0
-  suspectnpc3amount: 0
-  likenpc3amount: 0
-  suspectnpc4amount: 0
-  likenpc4amount: 0
-  suspectnpc5amount: 0
-  likenpc5amount: 0
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  suspectNpc5Amount: 0
+  likeNpc5Amount: 0
 --- !u!1 &1175371529
 GameObject:
   m_ObjectHideFlags: 0
@@ -11187,6 +11323,7 @@ MonoBehaviour:
   npc4button: {fileID: 693400490}
   npc5button: {fileID: 680476732}
   corpsevidencebutton: {fileID: 1632062887}
+  corpsevidence: 0
   npcroom: 0
   startingMessage: IM SPECIAL, IM SPECIAl, I WAS NOT MADE IN 5 SECONDS USING MS.PAINT.
     I AM ORIGINAL
@@ -11195,18 +11332,18 @@ MonoBehaviour:
   dialogueLines2:
   - i love you forever <3
   typingSpeed: 0.05
-  likeyouamount: 1
-  suspectyouamount: 0
-  suspectnpc1amount: 0
-  likenpc1amount: 0.5
-  suspectnpc2amount: 0
-  likenpc2amount: 0
-  suspectnpc3amount: 0
-  likenpc3amount: 0
-  suspectnpc4amount: 0
-  likenpc4amount: 0
-  suspectnpc5amount: 0
-  likenpc5amount: 0
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  suspectNpc5Amount: 0
+  likeNpc5Amount: 0
 --- !u!70 &1373687617
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11297,6 +11434,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1380547798}
   - component: {fileID: 1380547797}
+  - component: {fileID: 1380547800}
+  - component: {fileID: 1380547799}
   m_Layer: 0
   m_Name: dead sushi
   m_TagString: Untagged
@@ -11371,6 +11510,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380547799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380547796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187180faa62c33c4bb6eb7faee6a9052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactUi: {fileID: 1619943348}
+  npc1: {fileID: 1174739400}
+  npc2: {fileID: 55231597}
+  npc3: {fileID: 1108783686}
+  npc4: {fileID: 1373687613}
+  npc5: {fileID: 172169757}
+  evidenctype: 1
+--- !u!61 &1380547800
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380547796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 3, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1384679072
 GameObject:
   m_ObjectHideFlags: 0
@@ -14215,6 +14418,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1733670432}
   - component: {fileID: 1733670431}
+  - component: {fileID: 1733670433}
+  - component: {fileID: 1733670434}
   m_Layer: 0
   m_Name: dead skatteverket
   m_TagString: Untagged
@@ -14289,6 +14494,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1733670433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733670430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187180faa62c33c4bb6eb7faee6a9052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactUi: {fileID: 1619943348}
+  npc1: {fileID: 1174739400}
+  npc2: {fileID: 55231597}
+  npc3: {fileID: 1108783686}
+  npc4: {fileID: 1373687613}
+  npc5: {fileID: 172169757}
+  evidenctype: 1
+--- !u!61 &1733670434
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733670430}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 3, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1742692707
 GameObject:
   m_ObjectHideFlags: 0
@@ -14931,6 +15200,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1844769587}
   - component: {fileID: 1844769586}
+  - component: {fileID: 1844769588}
+  - component: {fileID: 1844769589}
   m_Layer: 0
   m_Name: dead greger
   m_TagString: Untagged
@@ -15005,6 +15276,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1844769588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844769585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187180faa62c33c4bb6eb7faee6a9052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactUi: {fileID: 1619943348}
+  npc1: {fileID: 1174739400}
+  npc2: {fileID: 55231597}
+  npc3: {fileID: 1108783686}
+  npc4: {fileID: 1373687613}
+  npc5: {fileID: 172169757}
+  evidenctype: 1
+--- !u!61 &1844769589
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844769585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 3, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1863906488
 GameObject:
   m_ObjectHideFlags: 0
@@ -16100,13 +16435,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1864678231}
-  chaseSpeed: 4
+  chaseSpeed: 6.5
   detectionRange: 10
   stopDistance: 0.5
   raycastDistance: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   waypoints:
   - {fileID: 1348390932}
   - {fileID: 1616174571}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; // Required for UI components
 
@@ -17,6 +18,7 @@ public class ConvoHandler : MonoBehaviour
     public Button npc4button;
     public Button npc5button;
     public Button corpsevidencebutton;
+    public int corpsevidence = 0;
 
     public int npcroom;
     static int playeroom;
@@ -218,7 +220,7 @@ public class ConvoHandler : MonoBehaviour
     }
     public void sayevidencebuttonclick()
     {
-        if (corpsevidencebutton != null)
+        if (corpsevidence > 0)
         {
             corpsevidencebutton.gameObject.SetActive(true);
         }
@@ -227,6 +229,10 @@ public class ConvoHandler : MonoBehaviour
     {
         evidence = 0.5f;
         npcbuttons(true);
+        if (playeroom == npcroom)
+        {
+            corpsevidence = 0;
+        }
     }
     void npcbuttons(bool e)
     {
@@ -297,7 +303,7 @@ public class ConvoHandler : MonoBehaviour
         {
             if (whoismentiond == 1)
             {
-                if (likeYouAmount + suspectNpc1Amount > suspectYouAmount + likeNpc1Amount)
+                if (likeYouAmount + suspectNpc1Amount> suspectYouAmount + likeNpc1Amount)
                 {
                     if (likeYouAmount - (suspectYouAmount + likeNpc1Amount) > 0)
                     {
@@ -306,7 +312,7 @@ public class ConvoHandler : MonoBehaviour
                     else
                     {
                         suspectNpc1Amount += moresuspiciousamount;
-                    }
+                    } 
                     if (suspectNpc1Amount > 3)
                     {
                         if (typingCoroutine != null)
