@@ -58,7 +58,7 @@ public class ConvoHandler : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playeroom = npcroom;
+            playeroom = npcroom;   
             isPlayerInTrigger = true;
 
             // Show the interaction UI when player enters the trigger
@@ -214,7 +214,13 @@ public class ConvoHandler : MonoBehaviour
         }
     }
     
-
+    public void giveMoney()
+    {
+        if (isPlayerInTrigger == true)
+        {
+            likeYouAmount += 0.5f;
+        }
+    }
     // Button 2 click event to start path 2 dialogue
     public void OnButton2Click()
     {
@@ -230,7 +236,10 @@ public class ConvoHandler : MonoBehaviour
             evidence = 0.5f;
             corpsevidence = 0;
         }
-        npcbuttons(true);
+        if (isPlayerInTrigger == true)
+        {
+            npcbuttons(true);
+        }
     }
     void npcbuttons(bool e)
     {
@@ -292,10 +301,7 @@ public class ConvoHandler : MonoBehaviour
     }
     void accusation(float moresuspiciousamount, int whoismentiond, int whoistalikng)
     {
-        caseFile.gameObject.SetActive(false);
         npcbuttons(false);
-
-        corpsevidencebutton.gameObject.SetActive(false);
         if (whoismentiond == witchNpcIsThis)
         {
             likeYouAmount -= 1.2f;
