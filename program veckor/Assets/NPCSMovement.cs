@@ -20,11 +20,9 @@ public class NPCSMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // jag tror vi behöver mer än att npc's går runt randomly 
 
 
-
-      // Denna kod bestämmer OM NPCn ska röra på sig
+        // Denna kod bestämmer OM NPCn ska röra på sig
         Unity.Mathematics.Random rand = new Unity.Mathematics.Random();
         float MovementChance = rand.NextInt(1, 2);
 
