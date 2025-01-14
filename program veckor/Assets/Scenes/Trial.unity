@@ -529,7 +529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 2}
+  m_AnchoredPosition: {x: -2, y: -6.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1007249197
@@ -566,7 +566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 2}
+  m_AnchoredPosition: {x: -2, y: -0.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007249199
@@ -1185,8 +1185,12 @@ MonoBehaviour:
     imageToDisable: {fileID: 1448011922}
     imageToEnable: {fileID: 944120472}
   - lineText: RAHHHH
+    changeImage: 1
+    imageToDisable: {fileID: 944120472}
+    imageToEnable: {fileID: 1007249199}
+  - lineText: "jag kommer att hitta dig din FUCKING HOR FITTA DU \xC4R INGET. INGET"
     changeImage: 0
-    imageToDisable: {fileID: 1448011922}
+    imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 944120472}
 --- !u!4 &2023766131
 Transform:
