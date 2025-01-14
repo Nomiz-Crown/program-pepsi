@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCSMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+<<<<<<< HEAD
     Vector2 startPosition;
     Vector2 targetPosition;
     bool isMoving = false;
@@ -13,6 +14,20 @@ public class NPCSMovement : MonoBehaviour
     float moveDistance = 2f; // Move distance in Unity units
 
     void Start()
+=======
+    float MovementChance;
+    float MovementDirection;
+    float MovementAmount;
+
+
+
+
+
+
+
+    // Start is called before the first frame update
+     void Start()
+>>>>>>> 132524fcbaad071f5a213db92f686b7f3bb89bfe
     {
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(MoveRoutine());
@@ -20,12 +35,46 @@ public class NPCSMovement : MonoBehaviour
 
     IEnumerator MoveRoutine()
     {
+<<<<<<< HEAD
         while (true)
+=======
+        System.Random rand = new System.Random();
+            int Movement = rand.Next(1, 4);
+
+
+        if (Movement == 1)
+>>>>>>> 132524fcbaad071f5a213db92f686b7f3bb89bfe
         {
             ChooseNewDirection();
             yield return new WaitUntil(() => isMoving == false);
             yield return new WaitForSeconds(waitTime);
         }
+<<<<<<< HEAD
+=======
+        else if (Movement == 2)
+        {
+            rb.velocity = new Vector2(5, 0);
+
+        }
+        else if (Movement == 3)
+        {
+            rb.velocity = new Vector2(-5, 0);
+
+        }
+        else if (Movement == 4)
+        {
+            rb.velocity = new Vector2(0, -5);
+        }
+
+            
+           
+   
+
+
+
+
+
+>>>>>>> 132524fcbaad071f5a213db92f686b7f3bb89bfe
     }
 
     void ChooseNewDirection()
