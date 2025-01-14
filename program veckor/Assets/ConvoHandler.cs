@@ -19,12 +19,14 @@ public class ConvoHandler : MonoBehaviour
     public Button npc4button;
     public Button npc5button;
     public Button corpsevidencebutton;
-    
+
+
     public int corpsevidence = 0;
 
     public int npcroom;
     public int witchNpcIsThis;
     static int playeroom;
+    static int whoistalking;
 
     [TextArea(3, 10)]
     public string startingMessage;    // Message displayed before paths
@@ -32,7 +34,6 @@ public class ConvoHandler : MonoBehaviour
     public List<string> dialogueLines1 = new List<string>(); // Dialogue path 1
     [TextArea(3, 10)]
     public List<string> dialogueLines2 = new List<string>(); // Dialogue path 2
-
     public float typingSpeed = 0.05f; // Time delay between letters
 
     private int currentLineIndex = 0; // Tracks the current dialogue line
@@ -41,6 +42,11 @@ public class ConvoHandler : MonoBehaviour
     private bool isPlayerInTrigger = false;
     private bool showingStartingMessage = true; // Tracks if we’re in the starting phase
     float evidence;
+    static string npc1says;
+    static string npc2says;
+    static string npc3says;
+    static string npc4says;
+    static string npc5says;
     public float likeYouAmount = 1;
     public float suspectYouAmount = 0;
     public float suspectNpc1Amount = 0;
@@ -105,6 +111,8 @@ public class ConvoHandler : MonoBehaviour
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             // Hide interact UI and show greger UI
+            whoistalking = witchNpcIsThis;
+            dialogueText.text = "";
             if (interactUi != null)
             {
                 interactUi.SetActive(false);
@@ -145,6 +153,29 @@ public class ConvoHandler : MonoBehaviour
 
     private IEnumerator TypeSentence(string sentence)
     {
+        if (whoistalking != witchNpcIsThis) // om en npc inte är den som pratar så blir vad den säger till en statci variable.
+        {
+            if (witchNpcIsThis == 1)
+            {
+                npc1says = sentence + "  (npc 1)"; // texten "(npc 1)" är temporär och ska bytas ut nån gång
+            }
+            else if (witchNpcIsThis == 2)
+            {
+                npc2says = sentence + "  (npc 2)";
+            }
+            else if (witchNpcIsThis == 3)
+            {
+                npc3says = sentence + "  (npc 3)";
+            }
+            else if (witchNpcIsThis == 4)
+            {
+                npc4says = sentence + "  (npc 4)";
+            }
+            else if (witchNpcIsThis == 5)
+            {
+                npc5says = sentence + "  (npc 5)";
+            }
+        }
         dialogueText.text = ""; // Clear the text before typing
          foreach (char letter in sentence.ToCharArray())
        {
@@ -166,18 +197,62 @@ public class ConvoHandler : MonoBehaviour
        else
        {
         // If in the middle of a dialogue path, show button1 if there are more lines
-        if (currentLineIndex + 1 < activeDialogue.Count)
-        {
-            ShowButtons(true, false); // Only button1 for next line
+            if (activeDialogue != null)
+            {
+                if (currentLineIndex + 1 < activeDialogue.Count)
+                {
+                    currentLineIndex++;
+                    if (currentLineIndex < activeDialogue.Count)
+                    {
+                        if (typingCoroutine != null)
+                        {
+                            StopCoroutine(typingCoroutine);
+                        }
+                        typingCoroutine = StartCoroutine(TypeSentence(activeDialogue[currentLineIndex]));
+                    }
+                }
+                else
+                {
+                    ShowButtons(false, false); // No buttons if dialogue is finished
+                    gregerUi.SetActive(false); // Hide the UI
+                }
+            }
+            else if (npc1says != null || npc2says != null || npc3says != null || npc4says != null || npc5says != null) // den npc som pratar säger vad dom andar npc skulle säga
+            {
+                if (npc1says != null)
+                {
+                    typingCoroutine = StartCoroutine(TypeSentence(npc1says));
+                    npc1says = null;
+                }
+                else if (npc2says != null)
+                {
+                    typingCoroutine = StartCoroutine(TypeSentence(npc2says));
+                    npc2says = null;
+                }
+                else if (npc3says != null)
+                {
+                    typingCoroutine = StartCoroutine(TypeSentence(npc3says));
+                    npc3says = null;
+                }
+                else if (npc4says != null)
+                {
+                    typingCoroutine = StartCoroutine(TypeSentence(npc4says));
+                    npc4says = null;
+                }
+                else if (npc5says != null)
+                {
+                    typingCoroutine = StartCoroutine(TypeSentence(npc5says));
+                    npc5says = null;
+                }
+            }
+            else
+            {
+                ShowButtons(false, false); // No buttons if dialogue is finished
+                gregerUi.SetActive(false); // Hide the UI
+            }
         }
-        else
-        {
-            ShowButtons(false, false); // No buttons if dialogue is finished
-            gregerUi.SetActive(false); // Hide the UI
-        }
-       }
     }
-
+    
 
     private void ShowButtons(bool showButton1, bool showButton2)
     {
@@ -213,10 +288,10 @@ public class ConvoHandler : MonoBehaviour
             }
         }
     }
-    
+
     public void giveMoney()
     {
-        if (isPlayerInTrigger == true)
+        if (witchNpcIsThis == whoistalking)
         {
             likeYouAmount += 0.5f;
         }
@@ -234,7 +309,7 @@ public class ConvoHandler : MonoBehaviour
         if (corpsevidence > 0)
         {
             evidence = 0.5f;
-            corpsevidence = 0;
+            corpsevidence = 0; // so npc can only hear the same evidence once
         }
         if (isPlayerInTrigger == true)
         {

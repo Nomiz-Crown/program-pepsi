@@ -28,16 +28,16 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false && caseFileOpen == false)
+        if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false && caseFileOpen == false) // öppnar inventory om inventory och case file är stängt
         {
-            inventoryopen = true;
+            inventoryopen = true; 
             backpack.SetActive(true);
             openCasefile.gameObject.SetActive(true);
             page = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == true)
+        else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == true) // stänger inventory om inventory är öppet
         {
-            inventoryopen = false;
+            inventoryopen = false; 
             backpack.SetActive(false);
             page = 0;
             nextPageInventory.gameObject.SetActive(false);
@@ -46,7 +46,7 @@ public class inventory : MonoBehaviour
             {
                 moneyItem.gameObject.SetActive(false);
             }
-        }else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false)
+        }else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false) // stänger case file om inventory är stängt och case file är öppet
         {
             caseFileOpen = false;
             casefile.SetActive(false);
@@ -58,13 +58,17 @@ public class inventory : MonoBehaviour
         if (caseFileOpen == true)
         {
             int position = 80;
-            if (corpse > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (corpse > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40) 
             {
                 corpsevidence.gameObject.SetActive(true);
                 corpsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
                 position -= 30;
             }
-            if (position < -40)
+            else
+            {
+                corpsevidence.gameObject.SetActive(false);
+            }
+            if (position < -40) 
             {
                 nextPageCaseFile.gameObject.SetActive(true);
             }
@@ -78,6 +82,10 @@ public class inventory : MonoBehaviour
                 moneyItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 120);
                 position -= 30;
             }
+            else
+            {
+                moneyItem.gameObject.SetActive(false);
+            }
             if (position < -35)
             {
                 nextPageInventory.gameObject.SetActive(true);
@@ -88,16 +96,16 @@ public class inventory : MonoBehaviour
     {
         page += 1;
     }
-    public void useitem(int e)
+    public void useitem(int witchitem)
     {
-        if (e == 1)
+        if (witchitem == 1)
         {
             money -= 1;
         }
     }
     public void openingCaseFile()
     {
-        inventoryopen = false;
+        inventoryopen = false; // öppnar case file
         backpack.SetActive(false);
         openCasefile.gameObject.SetActive(false);
         page = 0;

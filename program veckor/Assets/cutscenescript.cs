@@ -78,7 +78,7 @@ public class cutscenescript : MonoBehaviour
             continueButton.gameObject.SetActive(false);  // Hide button
 
             // Load the new scene after dialogue ends
-            SceneManager.LoadScene("spelet");  // Replace with your scene name
+            SceneManager.LoadScene(0);  // Replace with your scene name
         }
     }
 }
