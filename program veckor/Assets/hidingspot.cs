@@ -68,37 +68,20 @@ public class hidingspot : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Check if the player presses "E" while in the trigger zone
-        if (interactUI.activeSelf && Input.GetKeyDown(KeyCode.E))
+        // Check if the player is inside the trigger zone (using OnTriggerStay2D) and presses "E"
+        if (isHiding && Input.GetKeyDown(KeyCode.E) && player != null)
         {
-            if (isHiding)
-            {
-                // Stop hiding: reactivate the player and hide the "stop hiding" UI
-                if (player != null)
-                {
-                    player.SetActive(true);
-                }
-
-                if (stopHidingUI != null)
-                {
-                    stopHidingUI.SetActive(false);
-                }
-                isHiding = false;
-            }
-            else
-            {
-                // Start hiding: deactivate the player and show the "stop hiding" UI
-                if (player != null)
-                {
-                    player.SetActive(false);
-                }
-
-                if (stopHidingUI != null)
-                {
-                    stopHidingUI.SetActive(true);
-                }
-                isHiding = true;
-            }
+            // Stop hiding: reactivate the player and hide the "stop hiding" UI
+            player.SetActive(true);
+            stopHidingUI.SetActive(false);
+            isHiding = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && interactUI.activeSelf && player != null)
+        {
+            // Start hiding: deactivate the player and show the "stop hiding" UI
+            player.SetActive(false);
+            stopHidingUI.SetActive(true);
+            isHiding = true;
         }
     }
 }
