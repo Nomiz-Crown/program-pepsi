@@ -1,61 +1,67 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
-
 
 public class NPCSMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    float MovementChance;
-    float MovementDirection;
-    float MovementAmount;
-    System.Random 
-    
+    Vector2 startPosition;
+    Vector2 targetPosition;
+    bool isMoving = false;
+    float speed = 2f; // Movement speed
+    float waitTime = 5f; // Wait time between movements
+    float moveDistance = 2f; // Move distance in Unity units
 
-    
-    
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(MoveRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator MoveRoutine()
     {
-        System.Random rand = new System.Random();
-            int Movement = rand.Next(1, 4);
-
-        if ()
+        while (true)
         {
-            rb.velocity = new Vector2(0, 5);
+            ChooseNewDirection();
+            yield return new WaitUntil(() => isMoving == false);
+            yield return new WaitForSeconds(waitTime);
         }
-        else if (MovementDirection == 2)
+    }
+
+    void ChooseNewDirection()
+    {
+        int direction = Random.Range(1, 5); // 1-Up, 2-Right, 3-Left, 4-Down
+        startPosition = transform.position;
+
+        switch (direction)
         {
-            rb.velocity = new Vector2(5, 0);
-
+            case 1: // Up
+                targetPosition = startPosition + Vector2.up * moveDistance;
+                break;
+            case 2: // Right
+                targetPosition = startPosition + Vector2.right * moveDistance;
+                break;
+            case 3: // Left
+                targetPosition = startPosition + Vector2.left * moveDistance;
+                break;
+            case 4: // Down
+                targetPosition = startPosition + Vector2.down * moveDistance;
+                break;
         }
-        else if (MovementDirection == 3)
+
+        StartCoroutine(MoveToTarget());
+    }
+
+    IEnumerator MoveToTarget()
+    {
+        isMoving = true;
+
+        while ((Vector2)transform.position != targetPosition)
         {
-            rb.velocity= new Vector2(-5, 0);
-
-        }
-        else if (MovementDirection == 4)
-        {
-            rb.velocity= new Vector2(0, -5);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            yield return null;
         }
 
-            
-           
-   
-
-
-
-
-
+        isMoving = false;
     }
 }
