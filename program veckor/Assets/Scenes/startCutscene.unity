@@ -394,6 +394,10 @@ MonoBehaviour:
     changeImage: 0
     imageToDisable: {fileID: 0}
     imageToEnable: {fileID: 0}
+  - lineText: RAHHHHh
+    changeImage: 0
+    imageToDisable: {fileID: 0}
+    imageToEnable: {fileID: 0}
 --- !u!4 &465737598
 Transform:
   m_ObjectHideFlags: 0
