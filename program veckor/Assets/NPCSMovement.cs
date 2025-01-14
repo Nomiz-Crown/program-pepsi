@@ -12,14 +12,15 @@ public class NPCSMovement : MonoBehaviour
     float MovementChance;
     float MovementDirection;
     float MovementAmount;
-    System.Random 
-    
 
-    
-    
+
+
+
+
+
 
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
         
     }
@@ -30,23 +31,24 @@ public class NPCSMovement : MonoBehaviour
         System.Random rand = new System.Random();
             int Movement = rand.Next(1, 4);
 
-        if ()
+
+        if (Movement == 1)
         {
             rb.velocity = new Vector2(0, 5);
         }
-        else if (MovementDirection == 2)
+        else if (Movement == 2)
         {
             rb.velocity = new Vector2(5, 0);
 
         }
-        else if (MovementDirection == 3)
+        else if (Movement == 3)
         {
-            rb.velocity= new Vector2(-5, 0);
+            rb.velocity = new Vector2(-5, 0);
 
         }
-        else if (MovementDirection == 4)
+        else if (Movement == 4)
         {
-            rb.velocity= new Vector2(0, -5);
+            rb.velocity = new Vector2(0, -5);
         }
 
             
