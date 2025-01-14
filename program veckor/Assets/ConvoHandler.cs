@@ -19,7 +19,8 @@ public class ConvoHandler : MonoBehaviour
     public Button npc4button;
     public Button npc5button;
     public Button corpsevidencebutton;
-    
+
+
     public int corpsevidence = 0;
 
     public int npcroom;
@@ -41,6 +42,11 @@ public class ConvoHandler : MonoBehaviour
     private bool isPlayerInTrigger = false;
     private bool showingStartingMessage = true; // Tracks if we’re in the starting phase
     float evidence;
+    static string npc1says;
+    static string npc2says;
+    static string npc3says;
+    static string npc4says;
+    static string npc5says;
     public float likeYouAmount = 1;
     public float suspectYouAmount = 0;
     public float suspectNpc1Amount = 0;
@@ -151,7 +157,7 @@ public class ConvoHandler : MonoBehaviour
         {
             if (witchNpcIsThis == 1)
             {
-                npc1says = sentence + "  (npc 1)"; // texten efter "(npc 1)" är temporär och ska bytas ut nån gång
+                npc1says = sentence + "  (npc 1)"; // texten "(npc 1)" är temporär och ska bytas ut nån gång
             }
             else if (witchNpcIsThis == 2)
             {
@@ -282,15 +288,10 @@ public class ConvoHandler : MonoBehaviour
             }
         }
     }
-    static string npc1says;
-    static string npc2says;
-    static string npc3says;
-    static string npc4says;
-    static string npc5says;
 
     public void giveMoney()
     {
-        if (isPlayerInTrigger == true)
+        if (witchNpcIsThis == whoistalking)
         {
             likeYouAmount += 0.5f;
         }
@@ -308,7 +309,7 @@ public class ConvoHandler : MonoBehaviour
         if (corpsevidence > 0)
         {
             evidence = 0.5f;
-            corpsevidence = 0;
+            corpsevidence = 0; // so npc can only hear the same evidence once
         }
         if (isPlayerInTrigger == true)
         {
