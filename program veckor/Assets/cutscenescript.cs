@@ -15,6 +15,8 @@ class DialogueLine
 
 public class cutscenescript : MonoBehaviour
 {
+    public string scene;
+
     [SerializeField] private Text dialogueText;      // Legacy Text UI
     [SerializeField] private Button continueButton;  // Continue Button
     [SerializeField] private float typingSpeed = 0.05f;
@@ -78,7 +80,7 @@ public class cutscenescript : MonoBehaviour
             continueButton.gameObject.SetActive(false);  // Hide button
 
             // Load the new scene after dialogue ends
-            SceneManager.LoadScene(0);  // Replace with your scene name
+            SceneManager.LoadScene(scene);  // Replace with your scene name
         }
     }
 }

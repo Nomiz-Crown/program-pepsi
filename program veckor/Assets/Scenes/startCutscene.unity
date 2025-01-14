@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58627ebe9db8be4da43f191eb265e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: sumsum
   dialogueText: {fileID: 789796663}
   continueButton: {fileID: 1484451554}
   typingSpeed: 0.05
