@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class NPCSMovement : MonoBehaviour
@@ -11,6 +12,12 @@ public class NPCSMovement : MonoBehaviour
     float MovementChance;
     float MovementDirection;
     float MovementAmount;
+    System.Random 
+    
+
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +27,10 @@ public class NPCSMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      // Denna kod bestämmer OM NPCn ska röra på sig
-        Unity.Mathematics.Random rand = new Unity.Mathematics.Random();
-        float MovementChance = rand.NextInt(1, 2);
+        System.Random rand = new System.Random();
+            int Movement = rand.Next(1, 4);
 
-        // Denna Kod bestämmer vilket håll NPCn ska röra på sig.
-        Unity.Mathematics.Random ran = new Unity.Mathematics.Random();
-        float MovementDirection = ran.NextInt(1, 4);
-        // Denna kod bstämmer hur länge den kommer  röra på sig
-        Unity.Mathematics.Random ra = new Unity.Mathematics.Random();
-        float MovementAmount = ra.NextInt(1, 3);
-        if (MovementDirection == 1)
+        if ()
         {
             rb.velocity = new Vector2(0, 5);
         }
@@ -50,7 +50,7 @@ public class NPCSMovement : MonoBehaviour
         }
 
             
-            
+           
    
 
 
