@@ -64,6 +64,10 @@ public class inventory : MonoBehaviour
                 corpsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
                 position -= 30;
             }
+            else
+            {
+                corpsevidence.gameObject.SetActive(false);
+            }
             if (position < -40)
             {
                 nextPageCaseFile.gameObject.SetActive(true);
@@ -77,6 +81,10 @@ public class inventory : MonoBehaviour
                 moneyItem.gameObject.SetActive(true);
                 moneyItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 120);
                 position -= 30;
+            }
+            else
+            {
+                moneyItem.gameObject.SetActive(false);
             }
             if (position < -35)
             {
