@@ -133,7 +133,7 @@ public class EnemyAI : MonoBehaviour
             {
                 Vector2 direction = (player.position - transform.position).normalized;
                 Vector3 newPosition = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
-                newPosition.z = 2; // Set Z to 2
+                newPosition.z = 0; // Set Z to 2
                 transform.position = newPosition;
             }
             else
