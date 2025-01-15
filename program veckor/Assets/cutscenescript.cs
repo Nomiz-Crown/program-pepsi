@@ -3,25 +3,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]  // This makes the class editable in the Inspector
+[System.Serializable]
 class DialogueLine
 {
     [TextArea(3, 10)]
-    public string lineText;          // The dialogue text
-    public bool changeImage;         // Should the image change?
-    public RawImage imageToDisable;  // Image to hide
-    public RawImage imageToEnable;   // Image to show
+    public string lineText;
+    public bool changeImage;
+    public RawImage imageToDisable;
+    public RawImage imageToEnable;
+    public bool triggerEvent;
 }
 
 public class cutscenescript : MonoBehaviour
 {
     public string scene;
 
-    [SerializeField] private Text dialogueText;      // Legacy Text UI
-    [SerializeField] private Button continueButton;  // Continue Button
+    [SerializeField] private Text dialogueText;
+    [SerializeField] private Button continueButton;
     [SerializeField] private float typingSpeed = 0.05f;
 
-    [SerializeField] private DialogueLine[] dialogueLines; // Dialogue array with image options
+    [SerializeField] private DialogueLine[] dialogueLines;
 
     private int currentLineIndex = 0;
     private bool isTyping = false;
@@ -29,7 +30,7 @@ public class cutscenescript : MonoBehaviour
     void Start()
     {
         continueButton.onClick.AddListener(OnContinueClicked);
-        continueButton.gameObject.SetActive(false); // Hide button initially
+        continueButton.gameObject.SetActive(false);
         StartCoroutine(TypeLine());
     }
 
@@ -47,7 +48,11 @@ public class cutscenescript : MonoBehaviour
         }
 
         isTyping = false;
-        continueButton.gameObject.SetActive(true); // Show button after typing
+
+        if (!currentLine.triggerEvent)
+        {
+            continueButton.gameObject.SetActive(true);
+        }
     }
 
     private void OnContinueClicked()
@@ -58,7 +63,6 @@ public class cutscenescript : MonoBehaviour
 
         DialogueLine currentLine = dialogueLines[currentLineIndex];
 
-        // Handle image change if enabled
         if (currentLine.changeImage)
         {
             if (currentLine.imageToDisable != null)
@@ -66,6 +70,11 @@ public class cutscenescript : MonoBehaviour
 
             if (currentLine.imageToEnable != null)
                 currentLine.imageToEnable.gameObject.SetActive(true);
+        }
+
+        if (currentLine.triggerEvent)
+        {
+            TriggerEvent();
         }
 
         currentLineIndex++;
@@ -76,11 +85,14 @@ public class cutscenescript : MonoBehaviour
         }
         else
         {
-            dialogueText.text = "";  // Optional: Clear text after finishing
-            continueButton.gameObject.SetActive(false);  // Hide button
-
-            // Load the new scene after dialogue ends
-            SceneManager.LoadScene(scene);  // Replace with your scene name
+            dialogueText.text = "";
+            continueButton.gameObject.SetActive(false);
+            SceneManager.LoadScene(scene);
         }
+    }
+
+    private void TriggerEvent()
+    {
+        Debug.Log("Event Triggered!");
     }
 }
