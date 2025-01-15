@@ -19,6 +19,12 @@ public class inventory : MonoBehaviour
     public Button moneyItem;
     public int corpse = 0;
     public Button corpsevidence;
+    public int rats;
+    public Button ratsevidence;
+    public int ratpoison;
+    public Button ratpoisonevidence;
+    public int ratpoisonbottle;
+    public Button ratpoisonitem;
 
     void Start()
     {
@@ -46,11 +52,15 @@ public class inventory : MonoBehaviour
             {
                 moneyItem.gameObject.SetActive(false);
             }
-        }else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false) // stänger case file om inventory är stängt och case file är öppet
+            ratpoisonitem.gameObject.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false) // stänger case file om inventory är stängt och case file är öppet
         {
             caseFileOpen = false;
             casefile.SetActive(false);
             corpsevidence.gameObject.SetActive(false);
+            ratpoisonevidence.gameObject.SetActive(false);
+            ratsevidence.gameObject.SetActive(false);
             page = 0;
             nextPageCaseFile.gameObject.SetActive(false);
         }
@@ -67,6 +77,26 @@ public class inventory : MonoBehaviour
             else
             {
                 corpsevidence.gameObject.SetActive(false);
+            }
+            if (rats > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            {
+                ratsevidence.gameObject.SetActive(true);
+                ratsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
+                position -= 30;
+            }
+            else
+            {
+                ratsevidence.gameObject.SetActive(false);
+            }
+            if (ratpoison > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            {
+                ratpoisonevidence.gameObject.SetActive(true);
+                ratpoisonevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
+                position -= 30;
+            }
+            else
+            {
+                ratpoisonevidence.gameObject.SetActive(false);
             }
             if (position < -40) 
             {
@@ -86,6 +116,16 @@ public class inventory : MonoBehaviour
             {
                 moneyItem.gameObject.SetActive(false);
             }
+            if (ratpoisonbottle > 0 && position + (page * 120) <= 55 && position + (page * 120) >= -35)
+            {
+                ratpoisonitem.gameObject.SetActive(true);
+                ratpoisonitem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 120);
+                position -= 30;
+            }
+            else
+            {
+                ratpoisonitem.gameObject.SetActive(false);
+            }
             if (position < -35)
             {
                 nextPageInventory.gameObject.SetActive(true);
@@ -102,6 +142,10 @@ public class inventory : MonoBehaviour
         {
             money -= 1;
         }
+        if (witchitem == 2)
+        {
+            ratpoisonbottle -= 1;
+        }
     }
     public void openingCaseFile()
     {
@@ -113,6 +157,7 @@ public class inventory : MonoBehaviour
         {
             moneyItem.gameObject.SetActive(false);
         }
+        ratpoisonitem.gameObject.SetActive(false);
 
         caseFileOpen = true;
         casefile.SetActive(true);

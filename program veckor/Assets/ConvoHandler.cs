@@ -20,7 +20,8 @@ public class ConvoHandler : MonoBehaviour
     public Button npc5button;
     public Button corpsevidencebutton;
 
-
+    public int ratholevidence = 0;
+    public int ratpoisonevidence = 0;
     public int corpsevidence = 0;
 
     public int npcroom;
@@ -294,6 +295,7 @@ public class ConvoHandler : MonoBehaviour
         if (witchNpcIsThis == whoistalking)
         {
             likeYouAmount += 0.5f;
+            typingCoroutine = StartCoroutine(TypeSentence("thanks"));
         }
     }
     // Button 2 click event to start path 2 dialogue
@@ -304,12 +306,23 @@ public class ConvoHandler : MonoBehaviour
             StartDialogue(dialogueLines2); // Start path 2 dialogue
         }
     }
-    public void corpse()
+    public void corpse(int evidencetype)
     {
-        if (corpsevidence > 0)
+        if (evidencetype == 1)
         {
-            evidence = 0.5f;
-            corpsevidence = 0; // so npc can only hear the same evidence once
+            if (corpsevidence > 0)
+            {
+                evidence = 0.5f;
+                corpsevidence = 0; // so npc can only hear the same evidence once
+            }
+        }
+        else
+        {
+            if (ratpoisonevidence > 0)
+            {
+                evidence = 0.5f;
+                corpsevidence = 0; // so npc can only hear the same evidence once
+            }
         }
         if (isPlayerInTrigger == true)
         {
@@ -374,10 +387,10 @@ public class ConvoHandler : MonoBehaviour
             accusation(evidence, 5, 0);
         }
     }
-    void accusation(float moresuspiciousamount, int whoismentiond, int whoistalikng)
+    void accusation(float moresuspiciousamount, int whoismentiond1, int whoistalikng)
     {
         npcbuttons(false);
-        if (whoismentiond == witchNpcIsThis)
+        if (whoismentiond1 == witchNpcIsThis)
         {
             likeYouAmount -= 1.2f;
             suspectYouAmount += 0.3f;
@@ -385,7 +398,7 @@ public class ConvoHandler : MonoBehaviour
         }
         else if (whoistalikng == 0)
         {
-            if (whoismentiond == 1)
+            if (whoismentiond1 == 1)
             {
                 if (likeYouAmount + suspectNpc1Amount> suspectYouAmount + likeNpc1Amount)
                 {
@@ -396,77 +409,23 @@ public class ConvoHandler : MonoBehaviour
                     else
                     {
                         suspectNpc1Amount += moresuspiciousamount;
-                    } 
-                    if (suspectNpc1Amount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("(npc 1 namn) is the killer!!"));
-                        
                     }
-                    else if(suspectNpc1Amount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("perhaps (npc 1 namn) is the killer?"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("you think (npc 1 namn) is the killer?"));
-                    }
+                    writestuff(suspectYouAmount, "Sabrina Bellagamba");
                 }
                 else
                 {
                     if (likeNpc1Amount - (suspectNpc1Amount + likeYouAmount) > 0)
                     {
-                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc1Amount - (likeYouAmount + suspectNpc1Amount));
+                        likeYouAmount += moresuspiciousamount * (1 + likeNpc1Amount - (likeYouAmount + suspectNpc1Amount));
                     }
                     else
                     {
-                        suspectYouAmount += moresuspiciousamount;
+                        likeYouAmount += moresuspiciousamount;
                     }
-                    if (suspectYouAmount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("..."));
-
-                    }
-                    else if (suspectYouAmount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("stop lying"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("he's/she's inocent"));
-                    }
+                    writestuff(likeYouAmount, "you");
                 }
             }
-            else if (whoismentiond == 2)
+            else if (whoismentiond1 == 2)
             {
                 if (likeYouAmount + suspectNpc2Amount > suspectYouAmount + likeNpc2Amount)
                 {
@@ -478,76 +437,22 @@ public class ConvoHandler : MonoBehaviour
                     {
                         suspectNpc2Amount += moresuspiciousamount;
                     }
-                    if (suspectNpc2Amount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("(npc 2 namn) is the killer!!"));
-
-                    }
-                    else if (suspectNpc2Amount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("perhaps (npc 2 namn) is the killer?"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("you think (npc 2 namn) is the killer?"));
-                    }
+                    writestuff(suspectYouAmount, "Giovane Donna");
                 }
                 else
                 {
                    if (likeNpc2Amount - (suspectNpc2Amount + likeYouAmount) > 0)
                     {
-                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc2Amount - (likeYouAmount + suspectNpc2Amount));
+                        likeYouAmount += moresuspiciousamount * (1 + likeNpc2Amount - (likeYouAmount + suspectNpc2Amount));
                     }
                     else
                     {
-                        suspectYouAmount += moresuspiciousamount;
+                        likeYouAmount += moresuspiciousamount;
                     }
-                    if (suspectYouAmount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("..."));
-
-                    }
-                    else if (suspectYouAmount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("stop lying"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("he's/she's inocent"));
-                    }
+                    writestuff(likeYouAmount, "you");
                 }
             }
-            else if (whoismentiond == 3)
+            else if (whoismentiond1 == 3)
             {
                 if (likeYouAmount + suspectNpc3Amount > suspectYouAmount + likeNpc3Amount)
                 {
@@ -559,76 +464,22 @@ public class ConvoHandler : MonoBehaviour
                     {
                         suspectNpc3Amount += moresuspiciousamount;
                     }
-                    if (suspectYouAmount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("(npc 3 namn) is the killer!!"));
-
-                    }
-                    else if (suspectYouAmount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("perhaps (npc 3 namn) is the killer?"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("you think (npc 3 namn) is the killer?"));
-                    }
+                    writestuff(suspectYouAmount, "lucina");
                 }
                 else
                 {
                     if (likeNpc3Amount - (suspectNpc3Amount + likeYouAmount) > 0)
                     {
-                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc3Amount - (likeYouAmount + suspectNpc3Amount));
+                        likeYouAmount += moresuspiciousamount * (1 + likeNpc3Amount - (likeYouAmount + suspectNpc3Amount));
                     }
                     else
                     {
-                        suspectYouAmount += moresuspiciousamount;
+                        likeYouAmount += moresuspiciousamount;
                     }
-                    if (suspectYouAmount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("..."));
-
-                    }
-                    else if (suspectYouAmount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("stop lying"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("he's/she's inocent"));
-                    }
+                    writestuff(likeYouAmount, "you");
                 }
             }
-            else if (whoismentiond == 4)
+            else if (whoismentiond1 == 4)
             {
                 if (likeYouAmount + suspectNpc4Amount > suspectYouAmount + likeNpc4Amount)
                 {
@@ -640,76 +491,22 @@ public class ConvoHandler : MonoBehaviour
                     {
                         suspectNpc4Amount += moresuspiciousamount;
                     }
-                    if (suspectNpc4Amount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("(npc 4 namn) is the killer!!"));
-
-                    }
-                    else if (suspectNpc4Amount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("perhaps (npc 4 namn) is the killer?"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("you think (npc 4 namn) is the killer?"));
-                    }
+                    writestuff(suspectYouAmount, "antonio");
                 }
                 else
                 {
                     if (likeNpc4Amount - (suspectNpc4Amount + likeYouAmount) > 0)
                     {
-                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc4Amount - (likeYouAmount + suspectNpc4Amount));
+                        likeYouAmount += moresuspiciousamount * (1 + likeNpc4Amount - (likeYouAmount + suspectNpc4Amount));
                     }
                     else
                     {
-                        suspectYouAmount += moresuspiciousamount;
+                        likeYouAmount += moresuspiciousamount;
                     }
-                    if (suspectYouAmount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("..."));
-
-                    }
-                    else if (suspectYouAmount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("stop lying"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("he's/she's inocent"));
-                    }
+                    writestuff(likeYouAmount, "you");
                 }
             }
-            else if (whoismentiond == 5)
+            else if (whoismentiond1 == 5)
             {
                 if (likeYouAmount + suspectNpc5Amount > suspectYouAmount + likeNpc5Amount)
                 {
@@ -721,76 +518,87 @@ public class ConvoHandler : MonoBehaviour
                     {
                         suspectNpc5Amount += moresuspiciousamount;
                     }
-                    if (suspectNpc5Amount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("(npc 5 namn) is the killer!!"));
-
-                    }
-                    else if (suspectNpc5Amount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("perhaps (npc 5 namn) is the killer?"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("you think (npc 5 namn) is the killer?"));
-                    }
+                    writestuff(suspectYouAmount, "(npc 5 namn)");
                 }
                 else
                 {
                     if (likeNpc5Amount - (suspectNpc5Amount + likeYouAmount) > 0)
                     {
-                        suspectYouAmount += moresuspiciousamount * (1 + likeNpc5Amount - (likeYouAmount + suspectNpc5Amount));
+                        likeYouAmount += moresuspiciousamount * (1 + likeNpc5Amount - (likeYouAmount + suspectNpc5Amount));
                     }
                     else
                     {
-                        suspectYouAmount += moresuspiciousamount;
+                        likeYouAmount += moresuspiciousamount;
                     }
-                    if (suspectYouAmount > 3)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("..."));
-
-                    }
-                    else if (suspectYouAmount > 1.5f)
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("stop lying"));
-                    }
-                    else
-                    {
-                        if (typingCoroutine != null)
-                        {
-                            StopCoroutine(typingCoroutine);
-                        }
-
-                        typingCoroutine = StartCoroutine(TypeSentence("he's/she's inocent"));
-                    }
+                    writestuff(likeYouAmount, "you");
                 }
             }
         }
         evidence = 0;
+    }
+    void writestuff(float suspecthing, string whoismentioned2)
+    {
+        if (whoismentioned2 == "you")
+        {
+            if (suspecthing > 3)
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                }
+
+                typingCoroutine = StartCoroutine(TypeSentence("..."));
+
+            }
+            else if (suspecthing > 1.5f)
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                }
+
+                typingCoroutine = StartCoroutine(TypeSentence("stop lying"));
+            }
+            else
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                }
+
+                typingCoroutine = StartCoroutine(TypeSentence("he's/she's inocent"));
+            }
+        }
+        else
+        {
+            if (suspectNpc4Amount > 3)
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                }
+
+                typingCoroutine = StartCoroutine(TypeSentence(whoismentioned2 + " is the killer!!"));
+
+            }
+            else if (suspectNpc4Amount > 1.5f)
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                }
+
+                typingCoroutine = StartCoroutine(TypeSentence("perhaps " + whoismentioned2 + " is the killer?"));
+            }
+            else
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                }
+
+                typingCoroutine = StartCoroutine(TypeSentence("you think " + whoismentioned2 + " is the killer?"));
+            }
+        }
     }
 }

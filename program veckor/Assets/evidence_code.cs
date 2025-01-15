@@ -22,6 +22,7 @@ public class evidence_code : MonoBehaviour
     public GameObject npc4;
     public GameObject npc5;
     public int evidenceOrItemType = 0;
+    public GameObject ratposionbottle;
 
     void Start()
     {
@@ -62,6 +63,32 @@ public class evidence_code : MonoBehaviour
             {
                 playerinventory.money += 1;
                 Destroy(gameObject);
+            }
+            if (evidenceOrItemType == 3)
+            {
+                npc1convo.ratpoisonevidence = 1;
+                npc2convo.ratpoisonevidence = 1;
+                npc3convo.ratpoisonevidence = 1;
+                npc4convo.ratpoisonevidence = 1;
+                npc5convo.ratpoisonevidence = 1;
+                playerinventory.ratpoison += 1;
+                Instantiate(ratposionbottle, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            if (evidenceOrItemType == 4)
+            {
+                playerinventory.ratpoisonbottle += 1;
+                Destroy(gameObject);
+            }
+            if (evidenceOrItemType == 5)
+            {
+                npc1convo.ratholevidence = 1;
+                npc2convo.ratholevidence = 1;
+                npc3convo.ratholevidence = 1;
+                npc4convo.ratholevidence = 1;
+                npc5convo.ratholevidence = 1;
+                playerinventory.rats = 1;
+                evidenceOrItemType = 0;
             }
         }
     }
