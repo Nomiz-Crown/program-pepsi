@@ -50,15 +50,12 @@ public class cutscenescript : MonoBehaviour
 
         isTyping = false;
 
-        if (currentLine.triggerEvent)
+        if (currentLine.triggerEvent && currentLine.eventObjectToActivate != null)
         {
-            if (currentLine.eventObjectToActivate != null)
-                currentLine.eventObjectToActivate.SetActive(true);
+            currentLine.eventObjectToActivate.SetActive(true);
         }
-        else
-        {
-            continueButton.gameObject.SetActive(true);
-        }
+
+        continueButton.gameObject.SetActive(true);
     }
 
     private void OnContinueClicked()
