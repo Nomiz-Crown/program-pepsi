@@ -12,6 +12,7 @@ class DialogueLine
     public RawImage imageToDisable;
     public RawImage imageToEnable;
     public bool triggerEvent;
+    public GameObject eventObjectToActivate; // New field for event GameObject
 }
 
 public class cutscenescript : MonoBehaviour
@@ -49,7 +50,12 @@ public class cutscenescript : MonoBehaviour
 
         isTyping = false;
 
-        if (!currentLine.triggerEvent)
+        if (currentLine.triggerEvent)
+        {
+            if (currentLine.eventObjectToActivate != null)
+                currentLine.eventObjectToActivate.SetActive(true);
+        }
+        else
         {
             continueButton.gameObject.SetActive(true);
         }
