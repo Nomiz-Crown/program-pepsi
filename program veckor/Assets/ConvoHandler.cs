@@ -48,6 +48,9 @@ public class ConvoHandler : MonoBehaviour
     static string npc3says;
     static string npc4says;
     static string npc5says;
+    public int currentmood = 1;
+    static int npc1mood;
+    static int npc2mood;
     public float likeYouAmount = 1;
     public float suspectYouAmount = 0;
     public float suspectNpc1Amount = 0;
@@ -61,6 +64,15 @@ public class ConvoHandler : MonoBehaviour
     public float suspectNpc5Amount = 0;
     public float likeNpc5Amount = 0;
 
+    public GameObject donnaportrait1;
+    public GameObject donnaportrait2;
+    public GameObject donnaportrait3;
+    public GameObject donnaportrait4;
+    public GameObject donnaportrait5;
+    public GameObject donnaportrait6;
+
+    public GameObject sabrinaportrait1;
+    public GameObject sabrinaportrait2;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -154,15 +166,47 @@ public class ConvoHandler : MonoBehaviour
 
     private IEnumerator TypeSentence(string sentence)
     {
+        if (currentmood == 1 && sabrinaportrait1 != null)
+        {
+            sabrinaportrait1.SetActive(true);
+        }
+        if (currentmood ==2 && sabrinaportrait2 != null)
+        {
+            sabrinaportrait2.SetActive(true);
+        }
+        if (currentmood == 3 && donnaportrait1 != null)
+        {
+            donnaportrait1.SetActive(true);
+        }
+        if (currentmood == 4 && donnaportrait2 != null)
+        {
+            donnaportrait2.SetActive(true);
+        }
+        if (currentmood == 5 && donnaportrait3 != null)
+        {
+            donnaportrait3.SetActive(true);
+        }
+        if (currentmood == 6 && donnaportrait4 != null)
+        {
+            donnaportrait4.SetActive(true);
+        }
+        if (currentmood == 7 && donnaportrait5 != null)
+        {
+            donnaportrait4.SetActive(true);
+        }
+        if (currentmood == 8 && donnaportrait6 != null)
+        {
+            donnaportrait4.SetActive(true);
+        }
         if (whoistalking != witchNpcIsThis) // om en npc inte är den som pratar så blir vad den säger till en statci variable.
         {
             if (witchNpcIsThis == 1)
             {
-                npc1says = sentence + "  (npc 1)"; // texten "(npc 1)" är temporär och ska bytas ut nån gång
+                npc1says = sentence;
             }
             else if (witchNpcIsThis == 2)
             {
-                npc2says = sentence + "  (npc 2)";
+                npc2says = sentence;
             }
             else if (witchNpcIsThis == 3)
             {
@@ -177,6 +221,10 @@ public class ConvoHandler : MonoBehaviour
                 npc5says = sentence + "  (npc 5)";
             }
         }
+        else
+        {
+
+        }
         dialogueText.text = ""; // Clear the text before typing
          foreach (char letter in sentence.ToCharArray())
        {
@@ -187,9 +235,20 @@ public class ConvoHandler : MonoBehaviour
     
        yield return new WaitForSeconds(1f); // Adjust the time here (2 seconds)
 
-       typingCoroutine = null; // Reset the coroutine
+        typingCoroutine = null; // Reset the coroutine
+        if (donnaportrait1 != null)
+        {
+            donnaportrait1.SetActive(false);
+            donnaportrait2.SetActive(false);
+            donnaportrait3.SetActive(false);
+            donnaportrait4.SetActive(false);
+            donnaportrait5.SetActive(false);
+            donnaportrait6.SetActive(false);
+            sabrinaportrait1.SetActive(false);
+            sabrinaportrait2.SetActive(false);
+        }
 
-       if (showingStartingMessage)
+        if (showingStartingMessage)
        {
         // After the starting message, show buttons for path selection
         ShowButtons(true, true);
@@ -223,12 +282,45 @@ public class ConvoHandler : MonoBehaviour
                 if (npc1says != null)
                 {
                     typingCoroutine = StartCoroutine(TypeSentence(npc1says));
+                    if (npc1mood  == 1)
+                    {
+                        currentmood = 1;
+                    }
+                    if (npc1mood == 2)
+                    {
+                        currentmood = 2;
+                    }
                     npc1says = null;
+                    
                 }
                 else if (npc2says != null)
                 {
                     typingCoroutine = StartCoroutine(TypeSentence(npc2says));
                     npc2says = null;
+                    if (npc2mood == 1)
+                    {
+                        currentmood = 3;
+                    }
+                    if (npc2mood == 2)
+                    {
+                        currentmood = 4;
+                    }
+                    if (npc2mood == 3)
+                    {
+                        currentmood = 5;
+                    }
+                    if (npc2mood == 4)
+                    {
+                        currentmood = 6;
+                    }
+                    if (npc2mood == 5)
+                    {
+                        currentmood = 7;
+                    }
+                    if (npc2mood == 6)
+                    {
+                        currentmood = 8;
+                    }
                 }
                 else if (npc3says != null)
                 {
@@ -321,7 +413,7 @@ public class ConvoHandler : MonoBehaviour
             if (ratpoisonevidence > 0)
             {
                 evidence = 0.5f;
-                corpsevidence = 0; // so npc can only hear the same evidence once
+                ratpoisonevidence = 0; // so npc can only hear the same evidence once
             }
         }
         if (isPlayerInTrigger == true)
@@ -394,6 +486,14 @@ public class ConvoHandler : MonoBehaviour
         {
             likeYouAmount -= 1.2f;
             suspectYouAmount += 0.3f;
+            if (witchNpcIsThis == 1)
+            {
+                npc1mood = 2;
+            }
+            if (witchNpcIsThis == 2)
+            {
+                npc2mood = 1;
+            }
             typingCoroutine = StartCoroutine(TypeSentence("how dare you acuse me"));
         }
         else if (whoistalikng == 0)

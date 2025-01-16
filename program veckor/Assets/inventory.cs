@@ -25,6 +25,10 @@ public class inventory : MonoBehaviour
     public Button ratpoisonevidence;
     public int ratpoisonbottle;
     public Button ratpoisonitem;
+    public int ventilation;
+    public Button ventilationevidence;
+    int blackout = 0;
+    public GameObject cantsee;
 
     void Start()
     {
@@ -34,6 +38,11 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0)
+        {
+            blackout = 1;
+            Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity);
+        }
         if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false && caseFileOpen == false) // öppnar inventory om inventory och case file är stängt
         {
             inventoryopen = true; 
@@ -41,7 +50,7 @@ public class inventory : MonoBehaviour
             openCasefile.gameObject.SetActive(true);
             page = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == true) // stänger inventory om inventory är öppet
+        else if (Input.GetKeyDown(KeyCode.I) && inventoryopen == true) // stänger inventory om inventory är öppet 
         {
             inventoryopen = false; 
             backpack.SetActive(false);
@@ -61,6 +70,7 @@ public class inventory : MonoBehaviour
             corpsevidence.gameObject.SetActive(false);
             ratpoisonevidence.gameObject.SetActive(false);
             ratsevidence.gameObject.SetActive(false);
+            ventilationevidence.gameObject.SetActive(false);
             page = 0;
             nextPageCaseFile.gameObject.SetActive(false);
         }
@@ -97,6 +107,16 @@ public class inventory : MonoBehaviour
             else
             {
                 ratpoisonevidence.gameObject.SetActive(false);
+            }
+            if (ventilation > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            {
+                ventilationevidence.gameObject.SetActive(true);
+                ventilationevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
+                position -= 30;
+            }
+            else
+            {
+                ventilationevidence.gameObject.SetActive(false);
             }
             if (position < -40) 
             {
