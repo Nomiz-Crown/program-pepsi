@@ -103,10 +103,7 @@ public class ConvoHandler : MonoBehaviour
             isPlayerInTrigger = true;
 
             // Show the interaction UI when player enters the trigger
-            if (interactUi != null)
-            {
-                interactUi.SetActive(true);
-            }
+
         }
     }
 
@@ -115,12 +112,7 @@ public class ConvoHandler : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-
             // Hide both UIs and reset dialogue state
-            if (interactUi != null)
-            {
-                interactUi.SetActive(false);
-            }
 
             if (gregerUi != null)
             {
@@ -143,6 +135,17 @@ public class ConvoHandler : MonoBehaviour
 
     void Update()
     {
+        if (isPlayerInTrigger && whoisclosest == witchNpcIsThis)
+        {
+            if (interactUi != null)
+            {
+                interactUi.SetActive(true);
+            }
+        }
+        else
+        {
+            interactUi.SetActive(false);
+        }
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && whoisclosest == witchNpcIsThis)
         {
             // Hide interact UI and show greger UI

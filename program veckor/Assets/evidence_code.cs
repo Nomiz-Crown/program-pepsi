@@ -56,7 +56,7 @@ public class evidence_code : MonoBehaviour
             }
             if (evidenceOrItemType == 1)
             {
-                playerinventory.corpse += 1;
+                playerinventory.corpse = 1;
                 if (gregerUi != null)
                 {
                     gregerUi.SetActive(true);
@@ -75,7 +75,7 @@ public class evidence_code : MonoBehaviour
             }
             if (evidenceOrItemType == 3)
             {
-                playerinventory.ratpoison += 1;
+                playerinventory.ratpoison = 1;
                 Instantiate(ratpoison, transform.position, Quaternion.identity);
                 if (gregerUi != null)
                 {

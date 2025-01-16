@@ -49,7 +49,7 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0 && (transform.position.y > 2 || transform.position.y < -9)) // det här behöver finnas i case files innan strömavbrott
+        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0 && (transform.position.y > 2 || transform.position.y < -12)) // det här behöver finnas i case files innan strömavbrott
         {
             blackout = 1;
             Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity); // placerar en fyrkant framför hela kartan 
@@ -89,6 +89,7 @@ public class inventory : MonoBehaviour
             caseFileOpen = false;
             casefile.SetActive(false);
             corpsevidence.gameObject.SetActive(false);
+            corpsevidence2.gameObject.SetActive(false);
             ratpoisonevidence.gameObject.SetActive(false);
             ratsevidence.gameObject.SetActive(false);
             ventilationevidence.gameObject.SetActive(false);
@@ -204,11 +205,8 @@ public class inventory : MonoBehaviour
         backpack.SetActive(false);
         openCasefile.gameObject.SetActive(false);
         page = 0;
-        if (money > 0)
-        {
-            moneyItem.gameObject.SetActive(false);
-        }
         ratpoisonitem.gameObject.SetActive(false);
+        moneyItem.gameObject.SetActive(false);
 
         caseFileOpen = true;
         casefile.SetActive(true);
