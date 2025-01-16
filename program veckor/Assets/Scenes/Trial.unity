@@ -2445,6 +2445,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1429314368}
   - {fileID: 1720218047}
   - {fileID: 789855674}
   - {fileID: 1382596347}
@@ -3970,6 +3971,78 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423301365}
+  m_CullTransparentMesh: 1
+--- !u!1 &1429314367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429314368}
+  - component: {fileID: 1429314370}
+  - component: {fileID: 1429314369}
+  m_Layer: 5
+  m_Name: blackscreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1429314368
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429314367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7.91, y: 7.91, z: 7.91}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 811909303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -4, y: -1}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1429314369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429314367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1429314370
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429314367}
   m_CullTransparentMesh: 1
 --- !u!1 &1441155648
 GameObject:
@@ -5779,10 +5852,86 @@ MonoBehaviour:
     imageToEnable: {fileID: 428321537}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: 
+  - lineText: in that case, where were you guys at 9:34?
+    changeImage: 1
+    imageToDisable: {fileID: 428321537}
+    imageToEnable: {fileID: 390754954}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: I was with donna in the living room.
+    changeImage: 1
+    imageToDisable: {fileID: 390754954}
+    imageToEnable: {fileID: 944120472}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: that means both me and char5 are innocent
+    changeImage: 1
+    imageToDisable: {fileID: 944120472}
+    imageToEnable: {fileID: 1695748932}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: how did you know that you were in the same room together if the lights
+      were out?
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 390754954}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: we could hear eachother clearly.
+    changeImage: 1
+    imageToDisable: {fileID: 390754954}
+    imageToEnable: {fileID: 1695748932}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: I see, lets discuss the blood drops located right outside the storage
+      room.
+    changeImage: 0
+    imageToDisable: {fileID: 1695748932}
+    imageToEnable: {fileID: 390754954}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: Lucia didnt appear to have any wounds which means that the killers
+      has to have gotten hurt during the attack.
+    changeImage: 1
+    imageToDisable: {fileID: 1695748932}
+    imageToEnable: {fileID: 305662994}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: Everyone, show your arms.
+    changeImage: 1
+    imageToDisable: {fileID: 305662994}
+    imageToEnable: {fileID: 1429314369}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: '*no one has any sign of injury*'
+    changeImage: 1
+    imageToDisable: {fileID: 1429314369}
+    imageToEnable: {fileID: 2139097634}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: Ugh, the killer must've covered up their wounds with something
+    changeImage: 1
+    imageToDisable: {fileID: 2139097634}
+    imageToEnable: {fileID: 1448011922}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: Or maybe the blood was just wine from the feast. how do we know for
+      sure that this "blood" means anything.
+    changeImage: 1
+    imageToDisable: {fileID: 1448011922}
+    imageToEnable: {fileID: 305662994}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: why would anyone carry wine over to the storage room.
+    changeImage: 1
+    imageToDisable: {fileID: 305662994}
+    imageToEnable: {fileID: 1695748932}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: why would anyone carry wine over to the storage room.
+    changeImage: 1
+    imageToDisable: {fileID: 305662994}
+    imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
 --- !u!4 &2023766131
