@@ -33,11 +33,14 @@ public class ConvoHandler : MonoBehaviour
     public string startingMessage;    // Message displayed before paths
     [TextArea(3, 10)]
     public List<string> dialogueLines1 = new List<string>(); // Dialogue path 1
+    public List <int> dialoug1portraits = new List<int>();
     [TextArea(3, 10)]
     public List<string> dialogueLines2 = new List<string>(); // Dialogue path 2
+    public List<int> dialoug2portraits = new List<int>();
     public float typingSpeed = 0.05f; // Time delay between letters
 
     private int currentLineIndex = 0; // Tracks the current dialogue line
+    List<int> activeportrait;
     private List<string> activeDialogue; // Holds the current dialogue path
     private Coroutine typingCoroutine; // Tracks the typing coroutine
     private bool isPlayerInTrigger = false;
@@ -48,9 +51,10 @@ public class ConvoHandler : MonoBehaviour
     static string npc3says;
     static string npc4says;
     static string npc5says;
-    public int currentmood = 1;
-    static int npc1mood;
-    static int npc2mood;
+    public int currentportrait = 1;
+    static int npc1portrait;
+    static int npc2portrait;
+    static int npc3portrait;
     public float likeYouAmount = 1;
     public float suspectYouAmount = 0;
     public float suspectNpc1Amount = 0;
@@ -73,6 +77,12 @@ public class ConvoHandler : MonoBehaviour
 
     public GameObject sabrinaportrait1;
     public GameObject sabrinaportrait2;
+    public GameObject sabrinaportrait3;
+
+    public GameObject lucinaportrait1;
+    public GameObject lucinaportrait2;
+
+    public GameObject playerportrait1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -105,7 +115,7 @@ public class ConvoHandler : MonoBehaviour
                 gregerUi.SetActive(false);
             }
             npcbuttons(false);
-
+            removeportrait();
             ShowButtons(false, false); // Hide both buttons
 
             // Reset dialogue state
@@ -154,6 +164,7 @@ public class ConvoHandler : MonoBehaviour
     {
         activeDialogue = dialogueLines; // Set the current dialogue path
         currentLineIndex = 0; // Start at the first line
+        
         ShowButtons(false, false); // Hide the buttons initially
 
         if (typingCoroutine != null)
@@ -162,55 +173,30 @@ public class ConvoHandler : MonoBehaviour
         }
 
         typingCoroutine = StartCoroutine(TypeSentence(activeDialogue[currentLineIndex]));
+        if (activeportrait != null)
+        {
+            currentportrait = activeportrait[currentLineIndex];
+        }
     }
 
     private IEnumerator TypeSentence(string sentence)
     {
-        if (currentmood == 1 && sabrinaportrait1 != null)
-        {
-            sabrinaportrait1.SetActive(true);
-        }
-        if (currentmood ==2 && sabrinaportrait2 != null)
-        {
-            sabrinaportrait2.SetActive(true);
-        }
-        if (currentmood == 3 && donnaportrait1 != null)
-        {
-            donnaportrait1.SetActive(true);
-        }
-        if (currentmood == 4 && donnaportrait2 != null)
-        {
-            donnaportrait2.SetActive(true);
-        }
-        if (currentmood == 5 && donnaportrait3 != null)
-        {
-            donnaportrait3.SetActive(true);
-        }
-        if (currentmood == 6 && donnaportrait4 != null)
-        {
-            donnaportrait4.SetActive(true);
-        }
-        if (currentmood == 7 && donnaportrait5 != null)
-        {
-            donnaportrait4.SetActive(true);
-        }
-        if (currentmood == 8 && donnaportrait6 != null)
-        {
-            donnaportrait4.SetActive(true);
-        }
         if (whoistalking != witchNpcIsThis) // om en npc inte är den som pratar så blir vad den säger till en statci variable.
         {
             if (witchNpcIsThis == 1)
             {
                 npc1says = sentence;
+                npc1portrait = currentportrait;
             }
             else if (witchNpcIsThis == 2)
             {
                 npc2says = sentence;
+                npc2portrait = currentportrait;
             }
             else if (witchNpcIsThis == 3)
             {
-                npc3says = sentence + "  (npc 3)";
+                npc3says = sentence;
+                npc3portrait = currentportrait;
             }
             else if (witchNpcIsThis == 4)
             {
@@ -223,6 +209,54 @@ public class ConvoHandler : MonoBehaviour
         }
         else
         {
+            if (currentportrait == 1 && sabrinaportrait1 != null)
+            {
+                sabrinaportrait1.SetActive(true);
+            }
+            if (currentportrait == 2 && sabrinaportrait2 != null)
+            {
+                sabrinaportrait2.SetActive(true);
+            }
+            if (currentportrait == 3 && donnaportrait1 != null)
+            {
+                donnaportrait1.SetActive(true);
+            }
+            if (currentportrait == 4 && donnaportrait2 != null)
+            {
+                donnaportrait2.SetActive(true);
+            }
+            if (currentportrait == 5 && donnaportrait3 != null)
+            {
+                donnaportrait3.SetActive(true);
+            }
+            if (currentportrait == 6 && donnaportrait4 != null)
+            {
+                donnaportrait4.SetActive(true);
+            }
+            if (currentportrait == 7 && donnaportrait5 != null)
+            {
+                donnaportrait5.SetActive(true);
+            }
+            if (currentportrait == 8 && donnaportrait6 != null)
+            {
+                donnaportrait6.SetActive(true);
+            }
+            if (currentportrait == 9 && donnaportrait6 != null)
+            {
+                sabrinaportrait3.SetActive(true);
+            }
+            if (currentportrait == 10 && donnaportrait6 != null)
+            {
+                lucinaportrait1.SetActive(true);
+            }
+            if (currentportrait == 11 && donnaportrait6 != null)
+            {
+                lucinaportrait2.SetActive(true);
+            }
+            if (currentportrait == 12 && donnaportrait6 != null)
+            {
+                playerportrait1.SetActive(true);
+            }
 
         }
         dialogueText.text = ""; // Clear the text before typing
@@ -236,17 +270,7 @@ public class ConvoHandler : MonoBehaviour
        yield return new WaitForSeconds(1f); // Adjust the time here (2 seconds)
 
         typingCoroutine = null; // Reset the coroutine
-        if (donnaportrait1 != null)
-        {
-            donnaportrait1.SetActive(false);
-            donnaportrait2.SetActive(false);
-            donnaportrait3.SetActive(false);
-            donnaportrait4.SetActive(false);
-            donnaportrait5.SetActive(false);
-            donnaportrait6.SetActive(false);
-            sabrinaportrait1.SetActive(false);
-            sabrinaportrait2.SetActive(false);
-        }
+
 
         if (showingStartingMessage)
        {
@@ -261,9 +285,14 @@ public class ConvoHandler : MonoBehaviour
             {
                 if (currentLineIndex + 1 < activeDialogue.Count)
                 {
+                    removeportrait();
                     currentLineIndex++;
                     if (currentLineIndex < activeDialogue.Count)
                     {
+                        if (activeportrait != null)
+                        {
+                            currentportrait = activeportrait[currentLineIndex];
+                        }
                         if (typingCoroutine != null)
                         {
                             StopCoroutine(typingCoroutine);
@@ -275,21 +304,17 @@ public class ConvoHandler : MonoBehaviour
                 {
                     ShowButtons(false, false); // No buttons if dialogue is finished
                     gregerUi.SetActive(false); // Hide the UI
+                    showingStartingMessage = true;
+                    removeportrait();
                 }
             }
             else if (npc1says != null || npc2says != null || npc3says != null || npc4says != null || npc5says != null) // den npc som pratar säger vad dom andar npc skulle säga
             {
+                removeportrait();
                 if (npc1says != null)
                 {
                     typingCoroutine = StartCoroutine(TypeSentence(npc1says));
-                    if (npc1mood  == 1)
-                    {
-                        currentmood = 1;
-                    }
-                    if (npc1mood == 2)
-                    {
-                        currentmood = 2;
-                    }
+                    currentportrait = npc1portrait;
                     npc1says = null;
                     
                 }
@@ -297,30 +322,7 @@ public class ConvoHandler : MonoBehaviour
                 {
                     typingCoroutine = StartCoroutine(TypeSentence(npc2says));
                     npc2says = null;
-                    if (npc2mood == 1)
-                    {
-                        currentmood = 3;
-                    }
-                    if (npc2mood == 2)
-                    {
-                        currentmood = 4;
-                    }
-                    if (npc2mood == 3)
-                    {
-                        currentmood = 5;
-                    }
-                    if (npc2mood == 4)
-                    {
-                        currentmood = 6;
-                    }
-                    if (npc2mood == 5)
-                    {
-                        currentmood = 7;
-                    }
-                    if (npc2mood == 6)
-                    {
-                        currentmood = 8;
-                    }
+                    currentportrait = npc2portrait;
                 }
                 else if (npc3says != null)
                 {
@@ -342,6 +344,8 @@ public class ConvoHandler : MonoBehaviour
             {
                 ShowButtons(false, false); // No buttons if dialogue is finished
                 gregerUi.SetActive(false); // Hide the UI
+                showingStartingMessage = true;
+                removeportrait();
             }
         }
     }
@@ -363,6 +367,10 @@ public class ConvoHandler : MonoBehaviour
     // Button 1 click event to proceed to the next line of dialogue or start path 1
     public void OnButton1Click()
     {
+        if (dialoug1portraits != null)
+        {
+            activeportrait = dialoug1portraits;
+        }
         if (!showingStartingMessage && activeDialogue == null)
         {
             StartDialogue(dialogueLines1); // Start path 1 dialogue
@@ -381,6 +389,24 @@ public class ConvoHandler : MonoBehaviour
             }
         }
     }
+    void removeportrait()
+    {
+        if (donnaportrait1 != null)
+        {
+            donnaportrait1.SetActive(false);
+            donnaportrait2.SetActive(false);
+            donnaportrait3.SetActive(false);
+            donnaportrait4.SetActive(false);
+            donnaportrait5.SetActive(false);
+            donnaportrait6.SetActive(false);
+            sabrinaportrait1.SetActive(false);
+            sabrinaportrait2.SetActive(false);
+            sabrinaportrait3.SetActive(false);
+            lucinaportrait1.SetActive(false);
+            lucinaportrait2.SetActive(false);
+            playerportrait1.SetActive(false);
+        }
+    }
 
     public void giveMoney()
     {
@@ -396,6 +422,10 @@ public class ConvoHandler : MonoBehaviour
         if (!showingStartingMessage && activeDialogue == null)
         {
             StartDialogue(dialogueLines2); // Start path 2 dialogue
+        }
+        if (dialoug2portraits != null)
+        {
+            activeportrait = dialoug2portraits;
         }
     }
     public void corpse(int evidencetype)
@@ -488,11 +518,11 @@ public class ConvoHandler : MonoBehaviour
             suspectYouAmount += 0.3f;
             if (witchNpcIsThis == 1)
             {
-                npc1mood = 2;
+                npc1portrait = 2;
             }
             if (witchNpcIsThis == 2)
             {
-                npc2mood = 1;
+                npc2portrait = 1;
             }
             typingCoroutine = StartCoroutine(TypeSentence("how dare you acuse me"));
         }
