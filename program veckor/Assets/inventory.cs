@@ -34,6 +34,7 @@ public class inventory : MonoBehaviour
     public GameObject corpse3;
     public GameObject npc1;
     public GameObject npc2;
+    public GameObject npc3;
     public GameObject npc4;
     ConvoHandler npc1convo;
     ConvoHandler npc2convo;
@@ -48,17 +49,19 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0) // det här behöver finnas i case files innan strömavbrott
+        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0 && (transform.position.y > 2 || transform.position.y < -9)) // det här behöver finnas i case files innan strömavbrott
         {
             blackout = 1;
             Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity); // placerar en fyrkant framför hela kartan 
             Instantiate(corpse3, new Vector2(10.5f, -9.5f), Quaternion.identity); // placerar liket 
-            npc1.transform.position = new Vector2(10.5f, -3); // flyttar karaktärerna 
+            npc1.transform.position = new Vector2(9.5f, -3); // flyttar karaktärerna 
             npc2.transform.position = new Vector2(12 , 0);
+            npc3.transform.position = new Vector2(-100, -100);
             npc4.transform.position = new Vector2(9.5f, 1);
             npc1convo.poweroutage = 1; // npc bytter dialog
             npc1convo.currentportrait = 9;
             npc2convo.poweroutage = 1;
+            npc2convo.currentportrait = 7;
             npc4convo.poweroutage = 1;
         }
         if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false && caseFileOpen == false) // öppnar inventory om inventory och case file är stängt

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.UI;
@@ -13,7 +14,6 @@ public class evidence_code : MonoBehaviour
     ConvoHandler npc2convo;
     ConvoHandler npc3convo;
     ConvoHandler npc4convo;
-    ConvoHandler npc5convo;
     inventory playerinventory;
     public GameObject player;
     public GameObject npc1;
@@ -21,6 +21,13 @@ public class evidence_code : MonoBehaviour
     public GameObject npc3;
     public GameObject npc4;
     public int evidenceOrItemType = 0;
+    public GameObject ratpoison;
+    public GameObject gregerUi;
+    public Text dialogueText;
+    private Coroutine typingCoroutine;
+    [TextArea(3, 10)]
+    public string text = "e";
+    public bool consume;
 
     void Start()
     {
@@ -40,58 +47,78 @@ public class evidence_code : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && typingCoroutine == null)
         {
+            
             if (interactUi != null)
             {
                 interactUi.SetActive(false);
             }
             if (evidenceOrItemType == 1)
             {
-                npc1convo.corpsevidence = 1;
-                npc2convo.corpsevidence = 1;
-                npc3convo.corpsevidence = 1;
-                npc4convo.corpsevidence = 1;
                 playerinventory.corpse += 1;
-                evidenceOrItemType = 0;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
             if (evidenceOrItemType == 2)
             {
                 playerinventory.money += 1;
-                Destroy(gameObject);
+                evidenceOrItemType = 0;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
             if (evidenceOrItemType == 3)
             {
-                npc1convo.ratpoisonevidence = 1;
-                npc2convo.ratpoisonevidence = 1;
-                npc3convo.ratpoisonevidence = 1;
-                npc4convo.ratpoisonevidence = 1;
                 playerinventory.ratpoison += 1;
-                evidenceOrItemType = 4;
+                Instantiate(ratpoison, transform.position, Quaternion.identity);
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
             if (evidenceOrItemType == 4)
             {
                 playerinventory.ratpoisonbottle += 1;
-                Destroy(gameObject);
+                evidenceOrItemType = 0;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
             if (evidenceOrItemType == 5)
             {
-                npc1convo.ratholevidence = 1;
-                npc2convo.ratholevidence = 1;
-                npc3convo.ratholevidence = 1;
-                npc4convo.ratholevidence = 1;
                 playerinventory.rats = 1;
-                evidenceOrItemType = 0;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
             if (evidenceOrItemType == 6)
             {
                 playerinventory.ventilation = 1;
-                evidenceOrItemType = 0;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
             if (evidenceOrItemType == 7)
             {
                 playerinventory.corpse2 = 1;
-                evidenceOrItemType = 0;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
             }
         }
     }
@@ -118,6 +145,46 @@ public class evidence_code : MonoBehaviour
             {
                 interactUi.SetActive(false);
             }
+            gregerUi.SetActive(false);
+            if (typingCoroutine != null)
+            {
+                if (consume)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+            }
+            typingCoroutine = null;
         }
+    }
+
+    private IEnumerator TypeSentence()
+    {
+        KeyCode[] ignoredKeys =
+        {
+            KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D,
+            KeyCode.RightArrow, KeyCode.LeftArrow,
+            KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.I
+        };
+        dialogueText.text = ""; // Clear the text before typing
+        foreach (char letter in text.ToCharArray())
+        {
+            dialogueText.text += letter; // Add one letter at a time
+            yield return new WaitForSeconds(0.05f); // Wait for the next letter
+        }
+
+        while (!Input.anyKeyDown || ignoredKeys.Any(Input.GetKey))
+        {
+            yield return null; // Wait for the next frame
+        }
+        gregerUi.SetActive(false);
+        if (consume)
+        {
+            Destroy(gameObject);
+        }
+        typingCoroutine = null;
     }
 }
