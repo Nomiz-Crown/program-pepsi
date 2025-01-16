@@ -141,7 +141,7 @@ public class EnemyAI : MonoBehaviour
                 // Fienden ska nu flytta bort från hindret
                 Vector2 avoidDirection = Vector2.Perpendicular(hit.normal); // Vinkelrätt riktning för att undvika hindret
                 Vector3 newPosition = Vector2.MoveTowards(transform.position, transform.position + (Vector3)avoidDirection, chaseSpeed * Time.deltaTime);
-                newPosition.z = 2; // Set Z to 2
+                newPosition.z = 0; // Set Z to 2
                 transform.position = newPosition;
             }
         }
