@@ -149,15 +149,15 @@ RectTransform:
   m_GameObject: {fileID: 18654925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0602908, y: 1.8642353, z: 1.6}
+  m_LocalScale: {x: 0.6, y: 1.0549381, z: 0.905412}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1353141558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.209568, y: 8.105362}
-  m_SizeDelta: {x: 354.5, y: 100}
+  m_AnchoredPosition: {x: -94, y: 4}
+  m_SizeDelta: {x: 217, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18654927
 MonoBehaviour:
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b54a0cc04e578e049b12c4a8066a704a, type: 3}
+  m_Texture: {fileID: 2800000, guid: 61b075f9ad151c843a355fc5ffd92568, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -642,7 +642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270.27026, y: 137.23407}
+  m_AnchoredPosition: {x: 66, y: 137.23407}
   m_SizeDelta: {x: 212.78, y: 78.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340126476
@@ -678,7 +678,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sabrina
+  m_Text: char2
 --- !u!222 &340126477
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -830,78 +830,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376592397}
-  m_CullTransparentMesh: 1
---- !u!1 &390754952
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 390754953}
-  - component: {fileID: 390754955}
-  - component: {fileID: 390754954}
-  m_Layer: 5
-  m_Name: charr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &390754953
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390754952}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1419622483}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 2}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &390754954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390754952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f9b699bcb49220041a9246768da8c85d, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &390754955
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390754952}
   m_CullTransparentMesh: 1
 --- !u!1 &397385811
 GameObject:
@@ -1277,15 +1205,15 @@ RectTransform:
   m_GameObject: {fileID: 428690141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0602909, y: 1.8642353, z: 1.6}
+  m_LocalScale: {x: 0.6, y: 1.054938, z: 0.9054119}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2134731163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.53476, y: 8.105362}
-  m_SizeDelta: {x: 354.5, y: 100}
+  m_AnchoredPosition: {x: -102, y: 5}
+  m_SizeDelta: {x: 217.3, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428690143
 MonoBehaviour:
@@ -1307,7 +1235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bd196096b42411743812c700cf3dab2a, type: 3}
+  m_Texture: {fileID: 2800000, guid: f5a4168f14bc3d34b80323b831d05081, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2449,7 +2377,6 @@ RectTransform:
   - {fileID: 1720218047}
   - {fileID: 789855674}
   - {fileID: 1382596347}
-  - {fileID: 1419622483}
   - {fileID: 1269196654}
   - {fileID: 397385812}
   - {fileID: 1743692973}
@@ -3864,42 +3791,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396625471}
   m_CullTransparentMesh: 1
---- !u!1 &1419622482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1419622483}
-  m_Layer: 5
-  m_Name: char5 Reactions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1419622483
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419622482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.22, y: 3.22, z: 3.22}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 390754953}
-  m_Father: {fileID: 811909303}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1423301365
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,7 +4041,7 @@ RectTransform:
   m_GameObject: {fileID: 1441166848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7846152, y: 1.7523811, z: 1.6}
+  m_LocalScale: {x: 0.49999997, y: 1.1167136, z: 1.019608}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1989672595}
@@ -4158,8 +4049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 99, y: 37}
-  m_SizeDelta: {x: 354.5, y: 100}
+  m_AnchoredPosition: {x: 80, y: 36}
+  m_SizeDelta: {x: 210, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441166850
 MonoBehaviour:
@@ -4181,7 +4072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bd196096b42411743812c700cf3dab2a, type: 3}
+  m_Texture: {fileID: 2800000, guid: f5a4168f14bc3d34b80323b831d05081, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4943,7 +4834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1739369787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5330,7 +5221,7 @@ GameObject:
   - component: {fileID: 1859546405}
   - component: {fileID: 1859546404}
   m_Layer: 5
-  m_Name: sabrina
+  m_Name: char2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5345,15 +5236,15 @@ RectTransform:
   m_GameObject: {fileID: 1859546402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0602908, y: 1.8642353, z: 1.6}
+  m_LocalScale: {x: 0.6, y: 1.0549381, z: 0.905412}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1396625472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.209568, y: 8.105362}
-  m_SizeDelta: {x: 354.5, y: 100}
+  m_AnchoredPosition: {x: -2, y: 8.105362}
+  m_SizeDelta: {x: 217, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859546404
 MonoBehaviour:
@@ -5375,7 +5266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b54a0cc04e578e049b12c4a8066a704a, type: 3}
+  m_Texture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5737,12 +5628,12 @@ MonoBehaviour:
   - lineText: I didn't kill Lucia I swear!
     changeImage: 1
     imageToDisable: {fileID: 305662994}
-    imageToEnable: {fileID: 390754954}
+    imageToEnable: {fileID: 1007249199}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: stop playing innocent and confess! we already know it was you.
     changeImage: 1
-    imageToDisable: {fileID: 390754954}
+    imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 305662994}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
@@ -5825,24 +5716,24 @@ MonoBehaviour:
   - lineText: which means that the killing happend at the time the clock tells us.
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
-    imageToEnable: {fileID: 390754954}
+    imageToEnable: {fileID: 376592399}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: well? when did the murder happen?
     changeImage: 1
-    imageToDisable: {fileID: 390754954}
+    imageToDisable: {fileID: 376592399}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: uhm..
     changeImage: 0
-    imageToDisable: {fileID: 390754954}
+    imageToDisable: {fileID: 428321537}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: ...
     changeImage: 0
-    imageToDisable: {fileID: 390754954}
+    imageToDisable: {fileID: 2139097634}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 1
     eventObjectToActivate: {fileID: 742387911}
@@ -5855,12 +5746,12 @@ MonoBehaviour:
   - lineText: in that case, where were you guys at 9:34?
     changeImage: 1
     imageToDisable: {fileID: 428321537}
-    imageToEnable: {fileID: 390754954}
+    imageToEnable: {fileID: 305662994}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: I was with donna in the living room.
     changeImage: 1
-    imageToDisable: {fileID: 390754954}
+    imageToDisable: {fileID: 305662994}
     imageToEnable: {fileID: 944120472}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
@@ -5874,12 +5765,12 @@ MonoBehaviour:
       were out?
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
-    imageToEnable: {fileID: 390754954}
+    imageToEnable: {fileID: 305662994}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: we could hear eachother clearly.
     changeImage: 1
-    imageToDisable: {fileID: 390754954}
+    imageToDisable: {fileID: 305662994}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
@@ -5887,7 +5778,7 @@ MonoBehaviour:
       room.
     changeImage: 0
     imageToDisable: {fileID: 1695748932}
-    imageToEnable: {fileID: 390754954}
+    imageToEnable: {fileID: 428321537}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
   - lineText: Lucia didnt appear to have any wounds which means that the killers
@@ -5915,7 +5806,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 1448011922}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: Or maybe the blood was just wine from the feast. how do we know for
+  - lineText: Or maybe the "blood" was just wine from the feast. how do we know for
       sure that this "blood" means anything.
     changeImage: 1
     imageToDisable: {fileID: 1448011922}
@@ -5928,12 +5819,31 @@ MonoBehaviour:
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: why would anyone carry wine over to the storage room.
+  - lineText: i've got it! the killer mustve used make up to cover their wound.
     changeImage: 1
-    imageToDisable: {fileID: 305662994}
+    imageToDisable: {fileID: 1695748932}
+    imageToEnable: {fileID: 2139097634}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: make up!? you would need some serious skill to cover a wound with make
+      up.
+    changeImage: 1
+    imageToDisable: {fileID: 2139097634}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
+  - lineText: who is the best at make up here...
+    changeImage: 0
+    imageToDisable: {fileID: 1695748932}
+    imageToEnable: {fileID: 2139097634}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: ...
+    changeImage: 0
+    imageToDisable: {fileID: 1695748932}
+    imageToEnable: {fileID: 2139097634}
+    triggerEvent: 1
+    eventObjectToActivate: {fileID: 1739369786}
 --- !u!4 &2023766131
 Transform:
   m_ObjectHideFlags: 0
