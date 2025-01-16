@@ -19,6 +19,8 @@ public class inventory : MonoBehaviour
     public Button moneyItem;
     public int corpse = 0;
     public Button corpsevidence;
+    public int corpse2 = 0;
+    public Button corpsevidence2;
     public int rats;
     public Button ratsevidence;
     public int ratpoison;
@@ -29,19 +31,35 @@ public class inventory : MonoBehaviour
     public Button ventilationevidence;
     int blackout = 0;
     public GameObject cantsee;
-
+    public GameObject corpse3;
+    public GameObject npc1;
+    public GameObject npc2;
+    public GameObject npc4;
+    ConvoHandler npc1convo;
+    ConvoHandler npc2convo;
+    ConvoHandler npc4convo;
     void Start()
     {
-        
+        npc1convo = npc1.GetComponent<ConvoHandler>();
+        npc2convo = npc2.GetComponent<ConvoHandler>();
+        npc4convo = npc4.GetComponent<ConvoHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0)
+        if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0) // det här behöver finnas i case files innan strömavbrott
         {
             blackout = 1;
-            Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity);
+            Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity); // placerar en fyrkant framför hela kartan 
+            Instantiate(corpse3, new Vector2(10.5f, -9.5f), Quaternion.identity); // placerar liket 
+            npc1.transform.position = new Vector2(10.5f, -3); // flyttar karaktärerna 
+            npc2.transform.position = new Vector2(12 , 0);
+            npc4.transform.position = new Vector2(9.5f, 1);
+            npc1convo.poweroutage = 1; // npc bytter dialog
+            npc1convo.currentportrait = 9;
+            npc2convo.poweroutage = 1;
+            npc4convo.poweroutage = 1;
         }
         if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false && caseFileOpen == false) // öppnar inventory om inventory och case file är stängt
         {
@@ -87,6 +105,16 @@ public class inventory : MonoBehaviour
             else
             {
                 corpsevidence.gameObject.SetActive(false);
+            }
+            if (corpse2 > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            {
+                corpsevidence2.gameObject.SetActive(true);
+                corpsevidence2.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
+                position -= 30;
+            }
+            else
+            {
+                corpsevidence2.gameObject.SetActive(false);
             }
             if (rats > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
             {

@@ -17,12 +17,13 @@ public class ConvoHandler : MonoBehaviour
     public Button npc2button;
     public Button npc3button;
     public Button npc4button;
-    public Button npc5button;
     public Button corpsevidencebutton;
 
     public int ratholevidence = 0;
     public int ratpoisonevidence = 0;
     public int corpsevidence = 0;
+
+    public int poweroutage;
 
     public int npcroom;
     public int witchNpcIsThis;
@@ -32,11 +33,19 @@ public class ConvoHandler : MonoBehaviour
     [TextArea(3, 10)]
     public string startingMessage;    // Message displayed before paths
     [TextArea(3, 10)]
+    public string part2startingMessage;    // Message displayed before paths
+    [TextArea(3, 10)]
     public List<string> dialogueLines1 = new List<string>(); // Dialogue path 1
-    public List <int> dialoug1portraits = new List<int>();
+    public List <int> dialoug1Portraits = new List<int>();
     [TextArea(3, 10)]
     public List<string> dialogueLines2 = new List<string>(); // Dialogue path 2
-    public List<int> dialoug2portraits = new List<int>();
+    public List<int> dialouge2Portraits = new List<int>();
+    [TextArea(3, 10)]
+    public List<string> part2DialogueLines2 = new List<string>(); // Dialogue path 2 post power outage
+    public List<int> part2Dialouge2Portraits = new List<int>();
+    [TextArea(3, 10)]
+    public List<string> part2DialogueLines1 = new List<string>(); // Dialogue path 1 post power outage
+    public List<int> part2Dialouge1Portraits = new List<int>();
     public float typingSpeed = 0.05f; // Time delay between letters
 
     private int currentLineIndex = 0; // Tracks the current dialogue line
@@ -65,8 +74,6 @@ public class ConvoHandler : MonoBehaviour
     public float likeNpc3Amount = 0;
     public float suspectNpc4Amount = 0;
     public float likeNpc4Amount = 0;
-    public float suspectNpc5Amount = 0;
-    public float likeNpc5Amount = 0;
 
     public GameObject donnaportrait1;
     public GameObject donnaportrait2;
@@ -83,10 +90,12 @@ public class ConvoHandler : MonoBehaviour
     public GameObject lucinaportrait2;
 
     public GameObject playerportrait1;
+    static int whoisclosest;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            whoisclosest = witchNpcIsThis;
             playeroom = npcroom;   
             isPlayerInTrigger = true;
 
@@ -131,7 +140,7 @@ public class ConvoHandler : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && whoisclosest == witchNpcIsThis)
         {
             // Hide interact UI and show greger UI
             whoistalking = witchNpcIsThis;
@@ -153,8 +162,14 @@ public class ConvoHandler : MonoBehaviour
                     {
                         StopCoroutine(typingCoroutine);
                     }
-
-                    typingCoroutine = StartCoroutine(TypeSentence(startingMessage));
+                    if (poweroutage == 0)
+                    {
+                        typingCoroutine = StartCoroutine(TypeSentence(startingMessage));
+                    }
+                    else if (poweroutage == 1)
+                    {
+                        typingCoroutine = StartCoroutine(TypeSentence(part2startingMessage));
+                    }
                 }
             }
         }
@@ -367,13 +382,21 @@ public class ConvoHandler : MonoBehaviour
     // Button 1 click event to proceed to the next line of dialogue or start path 1
     public void OnButton1Click()
     {
-        if (dialoug1portraits != null)
+        if (dialoug1Portraits != null && poweroutage == 0)
         {
-            activeportrait = dialoug1portraits;
+            activeportrait = dialoug1Portraits;
         }
-        if (!showingStartingMessage && activeDialogue == null)
+        else if (part2Dialouge1Portraits != null && poweroutage == 1)
+        {
+            activeportrait = part2Dialouge1Portraits;
+        }
+        if (!showingStartingMessage && activeDialogue == null && poweroutage == 0)
         {
             StartDialogue(dialogueLines1); // Start path 1 dialogue
+        }
+        else if(!showingStartingMessage && activeDialogue == null && poweroutage == 1)
+        {
+            StartDialogue(part2DialogueLines1); // Start path 1 dialogue
         }
         else if (activeDialogue != null)
         {
@@ -419,13 +442,20 @@ public class ConvoHandler : MonoBehaviour
     // Button 2 click event to start path 2 dialogue
     public void OnButton2Click()
     {
-        if (!showingStartingMessage && activeDialogue == null)
+        if (!showingStartingMessage && activeDialogue == null && poweroutage == 0)
         {
             StartDialogue(dialogueLines2); // Start path 2 dialogue
-        }
-        if (dialoug2portraits != null)
+        }else if (!showingStartingMessage && activeDialogue == null && poweroutage == 1)
         {
-            activeportrait = dialoug2portraits;
+            StartDialogue(part2DialogueLines2); // Start path 2 dialogue
+        }
+        if (dialouge2Portraits != null && poweroutage == 0)
+        {
+            activeportrait = dialouge2Portraits;
+        }
+        else if (part2Dialouge2Portraits != null && poweroutage == 1)
+        {
+            activeportrait = part2Dialouge2Portraits;
         }
     }
     public void corpse(int evidencetype)
@@ -468,10 +498,6 @@ public class ConvoHandler : MonoBehaviour
         if (npc4button != null)
         {
             npc4button.gameObject.SetActive(e);
-        }
-        if (npc5button != null)
-        {
-            npc5button.gameObject.SetActive(e);
         }
     }
     public void npc1buttonpress()
@@ -636,33 +662,6 @@ public class ConvoHandler : MonoBehaviour
                     writestuff(likeYouAmount, "you");
                 }
             }
-            else if (whoismentiond1 == 5)
-            {
-                if (likeYouAmount + suspectNpc5Amount > suspectYouAmount + likeNpc5Amount)
-                {
-                    if (likeYouAmount - (suspectYouAmount + likeNpc5Amount) > 0)
-                    {
-                        suspectNpc5Amount += moresuspiciousamount * (1 + likeYouAmount - (suspectYouAmount + likeNpc5Amount));
-                    }
-                    else
-                    {
-                        suspectNpc5Amount += moresuspiciousamount;
-                    }
-                    writestuff(suspectYouAmount, "(npc 5 namn)");
-                }
-                else
-                {
-                    if (likeNpc5Amount - (suspectNpc5Amount + likeYouAmount) > 0)
-                    {
-                        likeYouAmount += moresuspiciousamount * (1 + likeNpc5Amount - (likeYouAmount + suspectNpc5Amount));
-                    }
-                    else
-                    {
-                        likeYouAmount += moresuspiciousamount;
-                    }
-                    writestuff(likeYouAmount, "you");
-                }
-            }
         }
         evidence = 0;
     }
@@ -727,7 +726,7 @@ public class ConvoHandler : MonoBehaviour
                     StopCoroutine(typingCoroutine);
                 }
 
-                typingCoroutine = StartCoroutine(TypeSentence("you think " + whoismentioned2 + " is the killer?"));
+                typingCoroutine = StartCoroutine(TypeSentence("why do you think " + whoismentioned2 + " is the killer?"));
             }
         }
     }

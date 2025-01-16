@@ -6,6 +6,7 @@ public class blackout : MonoBehaviour
 {
     // Start is called before the first frame update
     float timer = 0;
+    
     void Start()
     {
         

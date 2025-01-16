@@ -20,7 +20,6 @@ public class evidence_code : MonoBehaviour
     public GameObject npc2;
     public GameObject npc3;
     public GameObject npc4;
-    public GameObject npc5;
     public int evidenceOrItemType = 0;
 
     void Start()
@@ -35,7 +34,6 @@ public class evidence_code : MonoBehaviour
             npc2convo = npc2.GetComponent<ConvoHandler>();
             npc3convo = npc3.GetComponent<ConvoHandler>();
             npc4convo = npc4.GetComponent<ConvoHandler>();
-            npc5convo = npc5.GetComponent<ConvoHandler>();
         }
     }
 
@@ -54,7 +52,6 @@ public class evidence_code : MonoBehaviour
                 npc2convo.corpsevidence = 1;
                 npc3convo.corpsevidence = 1;
                 npc4convo.corpsevidence = 1;
-                npc5convo.corpsevidence = 1;
                 playerinventory.corpse += 1;
                 evidenceOrItemType = 0;
             }
@@ -69,7 +66,6 @@ public class evidence_code : MonoBehaviour
                 npc2convo.ratpoisonevidence = 1;
                 npc3convo.ratpoisonevidence = 1;
                 npc4convo.ratpoisonevidence = 1;
-                npc5convo.ratpoisonevidence = 1;
                 playerinventory.ratpoison += 1;
                 evidenceOrItemType = 4;
             }
@@ -84,13 +80,17 @@ public class evidence_code : MonoBehaviour
                 npc2convo.ratholevidence = 1;
                 npc3convo.ratholevidence = 1;
                 npc4convo.ratholevidence = 1;
-                npc5convo.ratholevidence = 1;
                 playerinventory.rats = 1;
                 evidenceOrItemType = 0;
             }
             if (evidenceOrItemType == 6)
             {
                 playerinventory.ventilation = 1;
+                evidenceOrItemType = 0;
+            }
+            if (evidenceOrItemType == 7)
+            {
+                playerinventory.corpse2 = 1;
                 evidenceOrItemType = 0;
             }
         }
