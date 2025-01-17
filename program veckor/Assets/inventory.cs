@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class inventory : MonoBehaviour
 {
     // Start is called before the first frame update
     bool inventoryopen = false;
+    float timer = 0;
     int page = 0;
     bool caseFileOpen;
     public Button nextPageInventory;
+    public Button previousPage;
     public Button nextPageCaseFile;
     public GameObject backpack;
     public GameObject casefile;
@@ -31,10 +34,17 @@ public class inventory : MonoBehaviour
     public Button ventilationevidence;
     public int watch;
     public Button watchevidence;
+    public int bloood;
+    public Button bloodevidence;
+    public int fusebox;
+    public Button fuseboxevidence;
     int blackout = 0;
     public GameObject cantsee;
     public GameObject corpse3;
     public GameObject Watch;
+    public GameObject ratPoison;
+    public GameObject musicthing;
+    public GameObject blooood;
     public GameObject npc1;
     public GameObject npc2;
     public GameObject npc3;
@@ -42,6 +52,8 @@ public class inventory : MonoBehaviour
     ConvoHandler npc1convo;
     ConvoHandler npc2convo;
     ConvoHandler npc4convo;
+    public GameObject blackouttext;
+    float timer2;
     void Start()
     {
         npc1convo = npc1.GetComponent<ConvoHandler>();
@@ -52,21 +64,41 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (blackout== 1)
+        {
+            timer2 += Time.deltaTime;
+        }
+        if (timer2 > 5)
+        {
+            blackouttext.SetActive(false);
+        }
         if (rats == 1 && corpse == 1 && ventilation == 1 && blackout == 0 && (transform.position.y > 2 || transform.position.y < -12)) // det här behöver finnas i case files innan strömavbrott
         {
             blackout = 1;
             Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity); // placerar en fyrkant framför hela kartan 
             corpse3.SetActive(true);
+            musicthing.SetActive(false);
             Watch.SetActive(true);
-            npc1.transform.position = new Vector2(9.5f, -3); // flyttar karaktärerna 
+            ratPoison.SetActive(true);
+            blackouttext.SetActive(true);
+            blooood.SetActive(true);
+            npc1.transform.position = new Vector2(8.5f, -1.8f); // flyttar karaktärerna 
             npc2.transform.position = new Vector2(12 , 0);
             npc3.transform.position = new Vector2(-100, -100);
-            npc4.transform.position = new Vector2(9.5f, 1);
+            npc4.transform.position = new Vector2(7, 0.5f);
             npc1convo.poweroutage = 1; // npc bytter dialog
             npc1convo.currentportrait = 9;
             npc2convo.poweroutage = 1;
             npc2convo.currentportrait = 7;
             npc4convo.poweroutage = 1;
+        }
+        if (blackout == 1 && corpse2 == 1 && ratpoison == 1 && watch == 1)
+        {
+            timer += Time.deltaTime;
+        }
+        if (timer > 5)
+        {
+            SceneManager.LoadScene("Trial");
         }
         if (Input.GetKeyDown(KeyCode.I) && inventoryopen == false && caseFileOpen == false) // öppnar inventory om inventory och case file är stängt
         {
@@ -81,6 +113,7 @@ public class inventory : MonoBehaviour
             backpack.SetActive(false);
             page = 0;
             nextPageInventory.gameObject.SetActive(false);
+            previousPage.gameObject.SetActive(false);
             openCasefile.gameObject.SetActive(false);
             if (money > 0)
             {
@@ -98,6 +131,7 @@ public class inventory : MonoBehaviour
             ratsevidence.gameObject.SetActive(false);
             ventilationevidence.gameObject.SetActive(false);
             watchevidence.gameObject.SetActive(false);
+            previousPage.gameObject.SetActive(false);
             page = 0;
             nextPageCaseFile.gameObject.SetActive(false);
         }
@@ -165,9 +199,27 @@ public class inventory : MonoBehaviour
             {
                 watchevidence.gameObject.SetActive(false);
             }
+            if (bloood > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            {
+                bloodevidence.gameObject.SetActive(true);
+                bloodevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
+                position -= 30;
+            }
+            else
+            {
+                bloodevidence.gameObject.SetActive(false);
+            }
             if (position < -40) 
             {
                 nextPageCaseFile.gameObject.SetActive(true);
+            }
+            if (page > 0)
+            {
+                previousPage.gameObject.SetActive(true);
+            }
+            else
+            {
+                previousPage.gameObject.SetActive(false);
             }
         }
         if (inventoryopen == true)
@@ -199,20 +251,17 @@ public class inventory : MonoBehaviour
             }
         }
     }
-    public void nextpage()
+    public void nextpage(int e)
     {
-        page += 1;
+        page += e;
     }
-    public void useitem(int witchitem)
+    public void turnoffmusic()
     {
-        if (witchitem == 1)
-        {
-            money -= 1;
-        }
-        if (witchitem == 2)
-        {
-            ratpoisonbottle -= 1;
-        }
+
+    }
+    public void turnonmusic()
+    {
+
     }
     public void openingCaseFile()
     {
@@ -222,9 +271,17 @@ public class inventory : MonoBehaviour
         page = 0;
         ratpoisonitem.gameObject.SetActive(false);
         moneyItem.gameObject.SetActive(false);
-
+        previousPage.gameObject.SetActive(false);
         caseFileOpen = true;
         casefile.SetActive(true);
         nextPageInventory.gameObject.SetActive(false);
+    }
+    public void ratpoisonclick()
+    {
+        if (transform.position.x > -12.5f && transform.position.y > 5.25f && transform.position.x < -7.5f && transform.position.y < 10)
+        {
+            ratPoison.SetActive(true);
+            ratpoisonbottle = 0;
+        }
     }
 }

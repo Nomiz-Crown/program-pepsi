@@ -22,6 +22,7 @@ public class evidence_code : MonoBehaviour
     public bool spawnsomething;
     public bool consume;
     static int whatisclosest = 0;
+    static int queue = 0;
 
     void Start()
     {
@@ -87,7 +88,7 @@ public class evidence_code : MonoBehaviour
             if (evidenceOrItemType == 4)
             {
                 playerinventory.ratpoisonbottle += 1;
-                evidenceOrItemType = 0;
+                transform.position = new Vector3(transform.position.x, transform.position.y, 2);
                 if (gregerUi != null)
                 {
                     gregerUi.SetActive(true);
@@ -130,6 +131,15 @@ public class evidence_code : MonoBehaviour
                     typingCoroutine = StartCoroutine(TypeSentence());
                 }
             }
+            if (evidenceOrItemType == 9)
+            {
+                playerinventory.bloood = 1;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -138,6 +148,7 @@ public class evidence_code : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
+                queue = whatisclosest;
                 whatisclosest = evidenceOrItemType;
                 isPlayerInTrigger = true;
             }
@@ -147,6 +158,10 @@ public class evidence_code : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (whatisclosest == evidenceOrItemType)
+            {
+                whatisclosest = queue;
+            }
             isPlayerInTrigger = false;
             gregerUi.SetActive(false);
             if (typingCoroutine != null)
@@ -155,9 +170,14 @@ public class evidence_code : MonoBehaviour
                 {
                     if (spawnsomething)
                     {
-                        Instantiate(spawnthing, transform.position, Quaternion.identity);
+                        spawnthing.SetActive(true);
+                        spawnthing.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                     }
-                    Destroy(gameObject);
+                    if (interactUi != null)
+                    {
+                        interactUi.SetActive(false);
+                    }
+                    gameObject.SetActive(false);
                 }
             }
             if (typingCoroutine != null)
@@ -167,6 +187,7 @@ public class evidence_code : MonoBehaviour
             typingCoroutine = null;
         }
     }
+
 
     private IEnumerator TypeSentence()
     {
@@ -192,9 +213,13 @@ public class evidence_code : MonoBehaviour
         {
             if (spawnsomething)
             {
-                Instantiate(spawnthing, transform.position, Quaternion.identity);
+                spawnthing.SetActive(true);
             }
-            Destroy(gameObject);
+            if (interactUi != null)
+            {
+                interactUi.SetActive(false);
+            }
+            gameObject.SetActive(false);
         }
         typingCoroutine = null;
     }

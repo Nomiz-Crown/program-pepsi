@@ -103,11 +103,19 @@ public class ConvoHandler : MonoBehaviour
     public GameObject antonioportrait2;
 
     public GameObject playerportrait1;
-    static int whoisclosest;
+    static int whoisclosest = 0;
+    static int queue = 0;
+    public GameObject player;
+    inventory playerinventory;
+    private void Start()
+    {
+        playerinventory = player.GetComponent<inventory>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            queue = whoisclosest;
             whoisclosest = witchNpcIsThis;
             playeroom = npcroom;   
             isPlayerInTrigger = true;
@@ -121,6 +129,10 @@ public class ConvoHandler : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (whoisclosest == witchNpcIsThis)
+            {
+                whoisclosest = queue;
+            }
             isPlayerInTrigger = false;
             // Hide both UIs and reset dialogue state
             if (whoistalking == witchNpcIsThis)
@@ -475,7 +487,9 @@ public class ConvoHandler : MonoBehaviour
         if (witchNpcIsThis == whoistalking)
         {
             likeYouAmount += 0.5f;
+            StopCoroutine(typingCoroutine);
             typingCoroutine = StartCoroutine(TypeSentence("thanks"));
+            playerinventory.money -= 1;
         }
     }
     // Button 2 click event to start path 2 dialogue

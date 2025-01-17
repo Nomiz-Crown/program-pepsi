@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FramedAsKiller.unity
     guid: 4b276efbafaa13240b1570150cc8ee75
+  - enabled: 1
+    path: Assets/Scenes/Trial.unity
+    guid: 0ffbcca3bd17ec6448158622cb5c2b24
   m_configObjects: {}
