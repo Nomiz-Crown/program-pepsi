@@ -950,6 +950,12 @@ MonoBehaviour:
     imageToEnable: {fileID: 1777494308}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
+  - lineText: ending 2/2 thanks for playing :D
+    changeImage: 1
+    imageToDisable: {fileID: 1534801126}
+    imageToEnable: {fileID: 1777494308}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
 --- !u!4 &1101593841
 Transform:
   m_ObjectHideFlags: 0
