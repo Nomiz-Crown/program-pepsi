@@ -14,6 +14,7 @@ public class MakeupDrag : MonoBehaviour
     [SerializeField] private HeartManager heartManager;
     [SerializeField] private List<RawImage> incorrectMakeupImages;
     [SerializeField] private List<Text> incorrectMakeupTexts;
+    [SerializeField] private List<Text> incorrectMakeupErrorTexts; // New list for wrong text UI elements
 
     private bool isDraggingCorrect = false;
     private List<bool> isDraggingIncorrect = new List<bool>();
@@ -28,6 +29,7 @@ public class MakeupDrag : MonoBehaviour
         for (int i = 0; i < incorrectMakeupImages.Count; i++)
         {
             incorrectMakeupTexts[i].gameObject.SetActive(false);
+            incorrectMakeupErrorTexts[i].gameObject.SetActive(false); // Hide error text initially
             AddHoverEvents(incorrectMakeupImages[i], incorrectMakeupTexts[i]);
             incorrectOriginalPositions.Add(incorrectMakeupImages[i].transform.position);
             isDraggingIncorrect.Add(false);
@@ -137,6 +139,9 @@ public class MakeupDrag : MonoBehaviour
                         heartManager?.DecreaseHeart();
                     }
                     incorrectMakeupImages[i].transform.position = incorrectOriginalPositions[i];
+
+                    // Activate the error text for 2 seconds when a wrong image is dropped
+                    StartCoroutine(ShowErrorText(incorrectMakeupErrorTexts[i], 5f));
                 }
             }
         }
@@ -161,5 +166,12 @@ public class MakeupDrag : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         obj.SetActive(false);
+    }
+
+    private IEnumerator ShowErrorText(Text errorText, float delay)
+    {
+        errorText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        errorText.gameObject.SetActive(false);
     }
 }

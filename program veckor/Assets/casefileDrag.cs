@@ -14,6 +14,7 @@ public class casefileDrag : MonoBehaviour
     [SerializeField] private HeartManager heartManager; // Reference to HeartManager
     [SerializeField] private List<RawImage> wrongRawImages; // List of wrong RawImages
     [SerializeField] private List<Text> wrongTextUIs; // List of Text UIs corresponding to wrong RawImages
+    [SerializeField] private List<Text> wrongFeedbackUIs; // New UI Texts for wrong answers feedback
 
     private bool isDragging1 = false;
     private List<bool> isDraggingWrong = new List<bool>(); // List to track dragging state for wrong options
@@ -29,8 +30,8 @@ public class casefileDrag : MonoBehaviour
         // Setup each wrong RawImage and its corresponding Text UI
         for (int i = 0; i < wrongRawImages.Count; i++)
         {
-            // Attach text UI to the same RawImage in the same list
             wrongTextUIs[i].gameObject.SetActive(false); // Hide the text initially
+            wrongFeedbackUIs[i].gameObject.SetActive(false); // Hide feedback UI initially
             AddHoverEvents(wrongRawImages[i], wrongTextUIs[i]);
             originalWrongPositions.Add(wrongRawImages[i].transform.position);
             isDraggingWrong.Add(false);
@@ -42,10 +43,8 @@ public class casefileDrag : MonoBehaviour
 
     void Update()
     {
-        // Handle dragging logic for the correct RawImage
         HandleDrag(rawImage1, isDragging1);
 
-        // Handle dragging logic for the wrong RawImages
         for (int i = 0; i < wrongRawImages.Count; i++)
         {
             HandleDrag(wrongRawImages[i], isDraggingWrong[i]);
@@ -56,25 +55,21 @@ public class casefileDrag : MonoBehaviour
     {
         EventTrigger trigger = rawImage.gameObject.AddComponent<EventTrigger>();
 
-        // Show Text UI when hovering over RawImage
         EventTrigger.Entry entryEnter = new EventTrigger.Entry();
         entryEnter.eventID = EventTriggerType.PointerEnter;
         entryEnter.callback.AddListener((eventData) => { textUI.gameObject.SetActive(true); });
         trigger.triggers.Add(entryEnter);
 
-        // Hide Text UI when pointer exits RawImage
         EventTrigger.Entry entryExit = new EventTrigger.Entry();
         entryExit.eventID = EventTriggerType.PointerExit;
         entryExit.callback.AddListener((eventData) => { textUI.gameObject.SetActive(false); });
         trigger.triggers.Add(entryExit);
 
-        // Start dragging on pointer down
         EventTrigger.Entry entryDown = new EventTrigger.Entry();
         entryDown.eventID = EventTriggerType.PointerDown;
         entryDown.callback.AddListener((eventData) => { StartDragging(rawImage); });
         trigger.triggers.Add(entryDown);
 
-        // Stop dragging on pointer up
         EventTrigger.Entry entryUp = new EventTrigger.Entry();
         entryUp.eventID = EventTriggerType.PointerUp;
         entryUp.callback.AddListener((eventData) => { StopDragging(rawImage); });
@@ -94,7 +89,7 @@ public class casefileDrag : MonoBehaviour
             {
                 if (rawImage == wrongRawImages[i])
                 {
-                    isDraggingWrong[i] = true; // Update dragging state for wrong options
+                    isDraggingWrong[i] = true;
                     offset = wrongRawImages[i].transform.position - Input.mousePosition;
                 }
             }
@@ -112,13 +107,11 @@ public class casefileDrag : MonoBehaviour
                 newGameObject.SetActive(true);
                 StartCoroutine(DeactivateAfterDelay(toDeactivate, 3f));
 
-                // Deactivate all wrong RawImages when the correct one is dropped
                 foreach (var wrongRawImage in wrongRawImages)
                 {
                     wrongRawImage.gameObject.SetActive(false);
                 }
 
-                // Optionally, deactivate all wrong Text UI as well if needed
                 foreach (var wrongText in wrongTextUIs)
                 {
                     wrongText.gameObject.SetActive(false);
@@ -135,18 +128,26 @@ public class casefileDrag : MonoBehaviour
             {
                 if (rawImage == wrongRawImages[i])
                 {
-                    isDraggingWrong[i] = false; // Stop dragging state for wrong options
+                    isDraggingWrong[i] = false;
                     if (IsOverlapping(wrongRawImages[i], dropTargetImage))
                     {
                         if (heartManager != null)
                         {
                             heartManager.DecreaseHeart();
                         }
+                        StartCoroutine(ShowWrongFeedback(i));
                     }
                     wrongRawImages[i].transform.position = originalWrongPositions[i];
                 }
             }
         }
+    }
+
+    private IEnumerator ShowWrongFeedback(int index)
+    {
+        wrongFeedbackUIs[index].gameObject.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        wrongFeedbackUIs[index].gameObject.SetActive(false);
     }
 
     private bool IsOverlapping(RawImage dragged, RawImage target)
