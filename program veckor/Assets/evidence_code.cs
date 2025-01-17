@@ -10,24 +10,18 @@ public class evidence_code : MonoBehaviour
     // Start is called before the first frame update
     bool isPlayerInTrigger;
     public GameObject interactUi;
-    ConvoHandler npc1convo;
-    ConvoHandler npc2convo;
-    ConvoHandler npc3convo;
-    ConvoHandler npc4convo;
     inventory playerinventory;
     public GameObject player;
-    public GameObject npc1;
-    public GameObject npc2;
-    public GameObject npc3;
-    public GameObject npc4;
     public int evidenceOrItemType = 0;
-    public GameObject ratpoison;
+    public GameObject spawnthing;
     public GameObject gregerUi;
     public Text dialogueText;
     private Coroutine typingCoroutine;
     [TextArea(3, 10)]
     public string text = "e";
+    public bool spawnsomething;
     public bool consume;
+    static int whatisclosest = 0;
 
     void Start()
     {
@@ -35,19 +29,26 @@ public class evidence_code : MonoBehaviour
         {
             playerinventory = player.GetComponent<inventory>();
         }
-        if (npc1 != null)
-        {
-            npc1convo = npc1.GetComponent<ConvoHandler>();
-            npc2convo = npc2.GetComponent<ConvoHandler>();
-            npc3convo = npc3.GetComponent<ConvoHandler>();
-            npc4convo = npc4.GetComponent<ConvoHandler>();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && typingCoroutine == null)
+        if (isPlayerInTrigger && whatisclosest == evidenceOrItemType)
+        {
+            if (interactUi != null)
+            {
+                interactUi.SetActive(true);
+            }
+        }
+        else
+        {
+            if (interactUi != null)
+            {
+                interactUi.SetActive(false);
+            }
+        }
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && typingCoroutine == null && whatisclosest == evidenceOrItemType)
         {
             
             if (interactUi != null)
@@ -77,7 +78,6 @@ public class evidence_code : MonoBehaviour
             if (evidenceOrItemType == 3)
             {
                 playerinventory.ratpoison = 1;
-                Instantiate(ratpoison, transform.position, Quaternion.identity);
                 if (gregerUi != null)
                 {
                     gregerUi.SetActive(true);
@@ -121,6 +121,15 @@ public class evidence_code : MonoBehaviour
                     typingCoroutine = StartCoroutine(TypeSentence());
                 }
             }
+            if (evidenceOrItemType == 8)
+            {
+                playerinventory.watch = 1;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -129,11 +138,8 @@ public class evidence_code : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
+                whatisclosest = evidenceOrItemType;
                 isPlayerInTrigger = true;
-                if (interactUi != null)
-                {
-                    interactUi.SetActive(true);
-                }
             }
         }
     }
@@ -142,15 +148,15 @@ public class evidence_code : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-            if (interactUi != null)
-            {
-                interactUi.SetActive(false);
-            }
             gregerUi.SetActive(false);
             if (typingCoroutine != null)
             {
                 if (consume)
                 {
+                    if (spawnsomething)
+                    {
+                        Instantiate(spawnthing, transform.position, Quaternion.identity);
+                    }
                     Destroy(gameObject);
                 }
             }
@@ -184,6 +190,10 @@ public class evidence_code : MonoBehaviour
         gregerUi.SetActive(false);
         if (consume)
         {
+            if (spawnsomething)
+            {
+                Instantiate(spawnthing, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
         typingCoroutine = null;

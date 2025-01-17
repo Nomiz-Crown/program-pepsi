@@ -29,9 +29,12 @@ public class inventory : MonoBehaviour
     public Button ratpoisonitem;
     public int ventilation;
     public Button ventilationevidence;
+    public int watch;
+    public Button watchevidence;
     int blackout = 0;
     public GameObject cantsee;
     public GameObject corpse3;
+    public GameObject Watch;
     public GameObject npc1;
     public GameObject npc2;
     public GameObject npc3;
@@ -53,7 +56,8 @@ public class inventory : MonoBehaviour
         {
             blackout = 1;
             Instantiate(cantsee, new Vector3(0, 0, -6), Quaternion.identity); // placerar en fyrkant framför hela kartan 
-            Instantiate(corpse3, new Vector2(10.5f, -9.5f), Quaternion.identity); // placerar liket 
+            corpse3.SetActive(true);
+            Watch.SetActive(true);
             npc1.transform.position = new Vector2(9.5f, -3); // flyttar karaktärerna 
             npc2.transform.position = new Vector2(12 , 0);
             npc3.transform.position = new Vector2(-100, -100);
@@ -93,6 +97,7 @@ public class inventory : MonoBehaviour
             ratpoisonevidence.gameObject.SetActive(false);
             ratsevidence.gameObject.SetActive(false);
             ventilationevidence.gameObject.SetActive(false);
+            watchevidence.gameObject.SetActive(false);
             page = 0;
             nextPageCaseFile.gameObject.SetActive(false);
         }
@@ -149,6 +154,16 @@ public class inventory : MonoBehaviour
             else
             {
                 ventilationevidence.gameObject.SetActive(false);
+            }
+            if (watch > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            {
+                watchevidence.gameObject.SetActive(true);
+                watchevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
+                position -= 30;
+            }
+            else
+            {
+                watchevidence.gameObject.SetActive(false);
             }
             if (position < -40) 
             {

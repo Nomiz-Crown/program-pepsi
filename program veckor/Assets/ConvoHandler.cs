@@ -99,6 +99,9 @@ public class ConvoHandler : MonoBehaviour
     public GameObject lucinaportrait1;
     public GameObject lucinaportrait2;
 
+    public GameObject antonioportrait1;
+    public GameObject antonioportrait2;
+
     public GameObject playerportrait1;
     static int whoisclosest;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -293,6 +296,14 @@ public class ConvoHandler : MonoBehaviour
             {
                 playerportrait1.SetActive(true);
             }
+            if (currentportrait == 13 && donnaportrait6 != null)
+            {
+                antonioportrait1.SetActive(true);
+            }
+            if (currentportrait == 14 && donnaportrait6 != null)
+            {
+                antonioportrait2.SetActive(true);
+            }
         }
         dialogueText.text = ""; // Clear the text before typing
          foreach (char letter in sentence.ToCharArray())
@@ -454,6 +465,8 @@ public class ConvoHandler : MonoBehaviour
             lucinaportrait1.SetActive(false);
             lucinaportrait2.SetActive(false);
             playerportrait1.SetActive(false);
+            antonioportrait1.SetActive(false);
+            antonioportrait2.SetActive(false);
         }
     }
 
