@@ -16,6 +16,8 @@ public class ConvoHandler : MonoBehaviour
     public Button button2;            // Second button for alternate dialogue
     public Button part2button1;       
     public Button part2button2;
+    public Button otherButtons1;
+    public Button otherButtons2;
     public Button npc1button;
     public Button npc2button;
     public Button npc3button;
@@ -40,18 +42,23 @@ public class ConvoHandler : MonoBehaviour
     [TextArea(3, 10)]
     public List<string> dialogueLines1 = new List<string>(); // Dialogue path 1
     public List <int> dialoug1Portraits = new List<int>();
+    public int dialouge1NextButtons = 0;
     [TextArea(3, 10)]
     public List<string> dialogueLines2 = new List<string>(); // Dialogue path 2
     public List<int> dialouge2Portraits = new List<int>();
-    [TextArea(3, 10)]
-    public List<string> part2DialogueLines2 = new List<string>(); // Dialogue path 2 post power outage
-    public List<int> part2Dialouge2Portraits = new List<int>();
+    public int dialouge2NextButtons = 0;
     [TextArea(3, 10)]
     public List<string> part2DialogueLines1 = new List<string>(); // Dialogue path 1 post power outage
     public List<int> part2Dialouge1Portraits = new List<int>();
+    public int part2Dialouge1NextButtons = 0;
+    [TextArea(3, 10)]
+    public List<string> part2DialogueLines2 = new List<string>(); // Dialogue path 2 post power outage
+    public List<int> part2Dialouge2Portraits = new List<int>();
+    public int part2Dialouge2NextButtons = 0;
     public float typingSpeed = 0.05f; // Time delay between letters
 
     private int currentLineIndex = 0; // Tracks the current dialogue line
+    int actvienextbuttons = 0;
     List<int> activeportrait;
     private List<string> activeDialogue; // Holds the current dialogue path
     private Coroutine typingCoroutine; // Tracks the typing coroutine
@@ -113,7 +120,10 @@ public class ConvoHandler : MonoBehaviour
         {
             isPlayerInTrigger = false;
             // Hide both UIs and reset dialogue state
-
+            if (whoistalking == witchNpcIsThis)
+            {
+                whoistalking = 0;
+            }
             if (gregerUi != null)
             {
                 gregerUi.SetActive(false);
@@ -146,7 +156,7 @@ public class ConvoHandler : MonoBehaviour
         {
             interactUi.SetActive(false);
         }
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && whoisclosest == witchNpcIsThis)
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E) && whoisclosest == witchNpcIsThis && whoistalking == 0)
         {
             // Hide interact UI and show greger UI
             whoistalking = witchNpcIsThis;
@@ -185,7 +195,6 @@ public class ConvoHandler : MonoBehaviour
     {
         activeDialogue = dialogueLines; // Set the current dialogue path
         currentLineIndex = 0; // Start at the first line
-        
         ShowButtons(false, false); // Hide the buttons initially
 
         if (typingCoroutine != null)
@@ -333,10 +342,18 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
+                    if (actvienextbuttons == 0)
+                    {
+                        gregerUi.SetActive(false); // Hide the UI
+                        showingStartingMessage = true;
+                        whoistalking = 0;
+                    }
+                    else if (actvienextbuttons == 1)
+                    {
+                        
+                    }
                     ShowButtons(false, false); // No buttons if dialogue is finished
-                    gregerUi.SetActive(false); // Hide the UI
                     currentLineIndex = 0;
-                    showingStartingMessage = true;
                     activeDialogue = null;
                     removeportrait();
                 }
@@ -382,6 +399,7 @@ public class ConvoHandler : MonoBehaviour
                 showingStartingMessage = true;
                 activeDialogue = null;
                 removeportrait();
+                whoistalking = 0;
             }
        }
     }
@@ -410,6 +428,7 @@ public class ConvoHandler : MonoBehaviour
     // Button 1 click event to proceed to the next line of dialogue or start path 1
     public void OnButton1Click()
     {
+        actvienextbuttons = dialouge1NextButtons;
         if (dialoug1Portraits != null)
         {
             activeportrait = dialoug1Portraits;
@@ -417,19 +436,6 @@ public class ConvoHandler : MonoBehaviour
         if (!showingStartingMessage && activeDialogue == null)
         {
             StartDialogue(dialogueLines1); // Start path 1 dialogue
-        }
-        else if (activeDialogue != null)
-        {
-            currentLineIndex++;
-            if (currentLineIndex < activeDialogue.Count)
-            {
-                if (typingCoroutine != null)
-                {
-                    StopCoroutine(typingCoroutine);
-                }
-
-                typingCoroutine = StartCoroutine(TypeSentence(activeDialogue[currentLineIndex]));
-            }
         }
     }
     void removeportrait()
@@ -462,35 +468,40 @@ public class ConvoHandler : MonoBehaviour
     // Button 2 click event to start path 2 dialogue
     public void OnButton2Click()
     {
-        if (!showingStartingMessage && activeDialogue == null)
-        {
-            StartDialogue(dialogueLines2); // Start path 2 dialogue
-        }
+        actvienextbuttons = dialouge2NextButtons;
         if (dialouge2Portraits != null)
         {
             activeportrait = dialouge2Portraits;
         }
-    }
-    public void part2button2click()
-    {
         if (!showingStartingMessage && activeDialogue == null)
         {
-            StartDialogue(part2DialogueLines2); // Start path 2 dialogue
+            StartDialogue(dialogueLines2); // Start path 2 dialogue
         }
+    }
+
+    public void part2button2click()
+    {
+        actvienextbuttons = part2Dialouge2NextButtons;
         if (part2Dialouge2Portraits != null)
         {
             activeportrait = part2Dialouge2Portraits;
         }
+        if (!showingStartingMessage && activeDialogue == null)
+        {
+            StartDialogue(part2DialogueLines2); // Start path 2 dialogue
+        }
+
     }
     public void part2button1click()
     {
-        if (!showingStartingMessage && activeDialogue == null)
-        {
-            StartDialogue(part2DialogueLines1); // Start path 2 dialogue
-        }
+        actvienextbuttons = part2Dialouge1NextButtons;
         if (part2Dialouge1Portraits != null)
         {
             activeportrait = part2Dialouge1Portraits;
+        }
+        if (!showingStartingMessage && activeDialogue == null)
+        {
+            StartDialogue(part2DialogueLines1); // Start path 2 dialogue
         }
     }
     public void corpse(int evidencetype)

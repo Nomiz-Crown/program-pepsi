@@ -67,6 +67,7 @@ public class evidence_code : MonoBehaviour
             {
                 playerinventory.money += 1;
                 evidenceOrItemType = 0;
+                transform.position = new Vector3(transform.position.x,transform.position.y, 2);
                 if (gregerUi != null)
                 {
                     gregerUi.SetActive(true);

@@ -21,16 +21,39 @@ public class Movement : MonoBehaviour
 
     private float anxietyIncreaseTimer = 0f; // Timer för att öka ångest
     private float anxietyDecreaseTimer = 0f; // Timer för att minska ångest
+    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         isBeingChased = false;
         isHiding = false;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            animator.Play("backshots");
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            animator.Play("sideprofileplayer1");
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            animator.Play("walking forward player");
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            animator.Play("playersideprofle walking");
+        }
+        else
+        {
+            animator.Play("idle animation");
+        }
+
         // Rörelse
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
