@@ -12,12 +12,19 @@ class DialogueLine
     public RawImage imageToDisable;
     public RawImage imageToEnable;
     public bool triggerEvent;
-    public GameObject eventObjectToActivate; // New field for event GameObject
+    public GameObject eventObjectToActivate;
 }
 
 public class cutscenescript : MonoBehaviour
 {
-    public string scene;
+    [Tooltip("Name of the scene to load after the dialogue ends")]
+    public string sceneToLoad;  // Scene name to load
+
+    [Tooltip("Enable this to load the scene after the dialogue ends")]
+    public bool loadSceneAfterDialogue = true;  // Control whether the scene loads
+
+    [Tooltip("The panel that contains the dialogue UI")]
+    public GameObject dialoguePanel;  // Reference to the dialogue panel
 
     [SerializeField] private Text dialogueText;
     [SerializeField] private Button continueButton;
@@ -90,7 +97,33 @@ public class cutscenescript : MonoBehaviour
         {
             dialogueText.text = "";
             continueButton.gameObject.SetActive(false);
-            SceneManager.LoadScene(scene);
+
+            // Deactivate the dialogue panel when dialogue ends
+            if (dialoguePanel != null)
+            {
+                dialoguePanel.SetActive(false);
+            }
+
+            LoadNextScene();
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        if (loadSceneAfterDialogue)  // Check if scene loading is enabled
+        {
+            if (!string.IsNullOrEmpty(sceneToLoad))
+            {
+                SceneManager.LoadScene(sceneToLoad);
+            }
+            else
+            {
+                Debug.LogWarning("Scene name is not set in the Inspector!");
+            }
+        }
+        else
+        {
+            Debug.Log("Scene loading is disabled.");
         }
     }
 
