@@ -43,6 +43,7 @@ public class inventory : MonoBehaviour
     public GameObject corpse3;
     public GameObject Watch;
     public GameObject ratPoison;
+    public GameObject ratPoison2;
     public GameObject musicthing;
     public GameObject blooood;
     public GameObject npc1;
@@ -280,7 +281,7 @@ public class inventory : MonoBehaviour
     {
         if (transform.position.x > -12.5f && transform.position.y > 5.25f && transform.position.x < -7.5f && transform.position.y < 10)
         {
-            ratPoison.SetActive(true);
+            ratPoison2.SetActive(true);
             ratpoisonbottle = 0;
         }
     }

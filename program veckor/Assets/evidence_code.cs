@@ -97,6 +97,7 @@ public class evidence_code : MonoBehaviour
             }
             if (evidenceOrItemType == 5)
             {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 2);
                 playerinventory.rats = 1;
                 if (gregerUi != null)
                 {
@@ -106,6 +107,7 @@ public class evidence_code : MonoBehaviour
             }
             if (evidenceOrItemType == 6)
             {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 2);
                 playerinventory.ventilation = 1;
                 if (gregerUi != null)
                 {
