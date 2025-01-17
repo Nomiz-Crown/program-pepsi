@@ -1831,7 +1831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &406428790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9247,7 +9247,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 376592399}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: is this even a debate? we clearly found rat poison in Antonio's backpack,
+  - lineText: Is this even a debate? we clearly found rat poison in Antonio's backpack,
       they're the killer!
     changeImage: 1
     imageToDisable: {fileID: 376592399}
@@ -9260,7 +9260,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 1007249199}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: stop playing innocent and confess! we already know it was you.
+  - lineText: Stop playing innocent and confess! we already know it was you.
     changeImage: 1
     imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 827274252}
@@ -9272,26 +9272,26 @@ MonoBehaviour:
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: 'no, Lucia couldnt have died from poison, they clearly died from being
+  - lineText: 'No, Lucia couldnt have died from poison, they clearly died from being
       strangled. '
     changeImage: 0
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 1448011922}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: the swelling on their neck proves it!
+  - lineText: The swelling on their neck proves it!
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 1448011922}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: why would Antonio even carry poison in the first place then?
+  - lineText: Why would Antonio even carry poison in the first place then?
     changeImage: 1
     imageToDisable: {fileID: 1448011922}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: 'hmmm.... '
+  - lineText: 'Hmmm.... '
     changeImage: 0
     imageToDisable: {fileID: 1448011922}
     imageToEnable: {fileID: 1695748932}
@@ -9303,7 +9303,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 1
     eventObjectToActivate: {fileID: 596057024}
-  - lineText: there was a hole in the wall in the dining hall, maybe theres a rat
+  - lineText: There was a hole in the wall in the dining hall, maybe theres a rat
       infestation that needed treatment.
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
@@ -9322,38 +9322,38 @@ MonoBehaviour:
     imageToEnable: {fileID: 827274252}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: ugh...
+  - lineText: Ugh...
     changeImage: 1
     imageToDisable: {fileID: 827274252}
     imageToEnable: {fileID: 1423301367}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: lets just start over, you found a broken watch at the scene of the
+  - lineText: Lets just start over, you found a broken watch at the scene of the
       crime, right?
     changeImage: 1
     imageToDisable: {fileID: 1423301367}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: yes, and my educated guess is that it broke during the struggle.
+  - lineText: Yes, and my educated guess is that it broke during the struggle.
     changeImage: 0
     imageToDisable: {fileID: 305662994}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: which means that the killing happend at the time the clock tells us.
+  - lineText: Which means that the killing happend at the time the clock tells us.
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 376592399}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: well? when did the murder happen?
+  - lineText: Well? when did the murder happen?
     changeImage: 1
     imageToDisable: {fileID: 376592399}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: uhm..
+  - lineText: Uhm..
     changeImage: 0
     imageToDisable: {fileID: 428321537}
     imageToEnable: {fileID: 1695748932}
@@ -9371,7 +9371,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 428321537}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: in that case, where were you guys at 9:34?
+  - lineText: In that case, where were you guys at 9:34?
     changeImage: 1
     imageToDisable: {fileID: 428321537}
     imageToEnable: {fileID: 305662994}
@@ -9383,41 +9383,41 @@ MonoBehaviour:
     imageToEnable: {fileID: 944120472}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: that means both me and Antonio are innocent
+  - lineText: That means both me and Antonio are innocent
     changeImage: 1
     imageToDisable: {fileID: 944120472}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: how did you know that you were in the same room together if the lights
+  - lineText: How did you know that you were in the same room together if the lights
       were out?
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 827274252}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: we could hear eachother clearly. we have something called "ears" if
+  - lineText: We could hear eachother clearly. we have something called "ears" if
       you didnt know.
     changeImage: 1
     imageToDisable: {fileID: 827274252}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: I see, lets discuss the blood drops located right outside the storage
-      room.
+  - lineText: 'I see, lets discuss the blood drops located right outside the storage
+      room. '
     changeImage: 0
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 428321537}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: Lucia didnt appear to have any wounds which means that the killers
-      has to have gotten hurt during the attack.
+  - lineText: Lucia's finger tips were covered in blood so she mustve scratched the
+      killer in self defence.
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 305662994}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: So the person with scratch marks on their arms is the killer? Everyone,
+  - lineText: So the person with scratch marks on their arms are the killer? Everyone,
       show your arms.
     changeImage: 1
     imageToDisable: {fileID: 305662994}
@@ -9443,26 +9443,26 @@ MonoBehaviour:
     imageToEnable: {fileID: 305662994}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: why would anyone carry wine over to the storage room.
+  - lineText: Why would anyone carry wine over to the storage room.
     changeImage: 1
     imageToDisable: {fileID: 305662994}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: i've got it! the killer mustve used make up to cover their wound.
+  - lineText: I've got it! the killer mustve used make up to cover their wound.
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 2139097634}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: make up!? you would need some serious skill to cover a wound with make
+  - lineText: Make up!? You would need some serious skill to cover a wound with make
       up.
     changeImage: 1
     imageToDisable: {fileID: 2139097634}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: who is the best at make up here...
+  - lineText: Who is the best at make up here...
     changeImage: 0
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 2139097634}
@@ -9486,7 +9486,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 1809524369}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: what? me?
+  - lineText: What? Me?
     changeImage: 1
     imageToDisable: {fileID: 1809524369}
     imageToEnable: {fileID: 1007249199}
@@ -9498,7 +9498,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 1007249199}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: just because im good at make up it dosnt mean i killed someone!
+  - lineText: Just because im good at make up it dosnt mean I killed someone!
     changeImage: 1
     imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 2139097634}
@@ -9510,7 +9510,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 2038576857}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: uhm... yeah.
+  - lineText: Uhm... Yeah.
     changeImage: 1
     imageToDisable: {fileID: 2038576857}
     imageToEnable: {fileID: 1429314369}
@@ -9528,13 +9528,13 @@ MonoBehaviour:
     imageToEnable: {fileID: 2032769762}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: you got me.
+  - lineText: You got me.
     changeImage: 0
     imageToDisable: {fileID: 944120472}
     imageToEnable: {fileID: 2032769762}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: 'but these wounds are from my latest performance. '
+  - lineText: 'But these wounds are from my latest performance. '
     changeImage: 1
     imageToDisable: {fileID: 2032769762}
     imageToEnable: {fileID: 2139097634}
@@ -9546,8 +9546,8 @@ MonoBehaviour:
     imageToEnable: {fileID: 305662994}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: no, she's right. Donna was with me in the living room at 9:34, remember?
-      im positive it was her voice.
+  - lineText: No, she's right. Donna was with me in the living room at 9:34, remember?
+      Im positive it was her voice.
     changeImage: 1
     imageToDisable: {fileID: 305662994}
     imageToEnable: {fileID: 1423301367}
@@ -9571,7 +9571,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: how could she be heard by char2 in the living room, if she has clear
+  - lineText: How could she be heard by Antonio in the living room, if she has clear
       scratch marks on her arms?
     changeImage: 0
     imageToDisable: {fileID: 1007249199}
@@ -9584,14 +9584,14 @@ MonoBehaviour:
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 1
     eventObjectToActivate: {fileID: 397751317}
-  - lineText: you talked through the ventilation system in the storage room, you
+  - lineText: You talked through the ventilation system in the storage room, you
       can hear everything from the other side of the vent.
     changeImage: 0
     imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 1695748932}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 397751317}
-  - lineText: isn't that right, Donna Giovanni?
+  - lineText: Isn't that right, Donna Giovanni?
     changeImage: 1
     imageToDisable: {fileID: 1695748932}
     imageToEnable: {fileID: 1809524369}
@@ -9603,13 +9603,13 @@ MonoBehaviour:
     imageToEnable: {fileID: 1809524369}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 397751317}
-  - lineText: no... this isn't...
+  - lineText: No... This isn't...
     changeImage: 1
     imageToDisable: {fileID: 1809524369}
     imageToEnable: {fileID: 1007249199}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 397751317}
-  - lineText: SHUT UP!!! my plan was perfect.
+  - lineText: My plan was perfect, you snobby insignificant prick!
     changeImage: 1
     imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 2139097634}
@@ -9621,7 +9621,7 @@ MonoBehaviour:
     imageToEnable: {fileID: 827274252}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 397751317}
-  - lineText: insufferable prick.
+  - lineText: insufferable
     changeImage: 0
     imageToDisable: {fileID: 1007249199}
     imageToEnable: {fileID: 2139097634}
