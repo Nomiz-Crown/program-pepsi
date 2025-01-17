@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/spelet.unity
     guid: 0467e62a6775c904ca1cad4d93b36fe6
+  - enabled: 1
+    path: Assets/Scenes/PoliceEnding.unity
+    guid: e6f99e57087f8ac47a283162bab84876
   m_configObjects: {}
