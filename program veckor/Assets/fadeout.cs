@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +19,7 @@ public class fadeout : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator FadeOutRawImage()
+    private IEnumerator FadeOutRawImage()
     {
         float elapsedTime = 0f;
         Color startColor = uiRawImage.color;
@@ -34,5 +33,8 @@ public class fadeout : MonoBehaviour
         }
 
         uiRawImage.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+        // Deactivate the GameObject after fading
+        uiRawImage.gameObject.SetActive(false);
     }
 }
