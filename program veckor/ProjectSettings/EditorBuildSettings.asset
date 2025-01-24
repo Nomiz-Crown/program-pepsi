@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sumsum.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: a556689b8547d1346addd1ebaafe6c54
   - enabled: 1
+    path: Assets/Scenes/sumsum.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/startCutscene.unity
     guid: e7a48cc9ea2f6564abdb3e0f05118a6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/spelet.unity
     guid: 0467e62a6775c904ca1cad4d93b36fe6
   - enabled: 1
