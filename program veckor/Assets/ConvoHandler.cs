@@ -40,6 +40,14 @@ public class ConvoHandler : MonoBehaviour
     [TextArea(3, 10)]
     public string part2startingMessage;    // Message displayed before paths
     [TextArea(3, 10)]
+    public List <List<string>> dialogueLines; // Dialogue path 1
+    public List <List<int>> dialougPortraits;
+    public List <GameObject> dialougeNextButtons;
+    public List<GameObject> dialougeNextButtons2;
+
+
+
+    [TextArea(3, 10)]
     public List<string> dialogueLines1 = new List<string>(); // Dialogue path 1
     public List <int> dialoug1Portraits = new List<int>();
     public int dialouge1NextButtons = 0;
@@ -58,7 +66,8 @@ public class ConvoHandler : MonoBehaviour
     public float typingSpeed = 0.05f; // Time delay between letters
 
     private int currentLineIndex = 0; // Tracks the current dialogue line
-    int actvienextbuttons = 0;
+    GameObject actvienextbuttons;
+    GameObject actvienextbuttons2;
     List<int> activeportrait;
     private List<string> activeDialogue; // Holds the current dialogue path
     private Coroutine typingCoroutine; // Tracks the typing coroutine
@@ -84,7 +93,7 @@ public class ConvoHandler : MonoBehaviour
     public float likeNpc3Amount = 0;
     public float suspectNpc4Amount = 0;
     public float likeNpc4Amount = 0;
-
+    public List<GameObject> portraits;
     public GameObject donnaportrait1;
     public GameObject donnaportrait2;
     public GameObject donnaportrait3;
@@ -365,15 +374,17 @@ public class ConvoHandler : MonoBehaviour
                 }
                 else
                 {
-                    if (actvienextbuttons == 0)
+                    if (actvienextbuttons == null)
                     {
                         gregerUi.SetActive(false); // Hide the UI
                         showingStartingMessage = true;
                         whoistalking = 0;
+
                     }
-                    else if (actvienextbuttons == 1)
+                    else
                     {
-                        
+                        actvienextbuttons.SetActive(true);
+                        actvienextbuttons2.SetActive(true);
                     }
                     ShowButtons(false, false); // No buttons if dialogue is finished
                     currentLineIndex = 0;
@@ -449,12 +460,12 @@ public class ConvoHandler : MonoBehaviour
     }
 
     // Button 1 click event to proceed to the next line of dialogue or start path 1
-    public void OnButton1Click()
+    public void OnButtonClick(int witchbutton)
     {
-        actvienextbuttons = dialouge1NextButtons;
-        if (dialoug1Portraits != null)
+        actvienextbuttons = dialougeNextButtons[witchbutton];
+        if (dialougPortraits[witchbutton] != null)
         {
-            activeportrait = dialoug1Portraits;
+            activeportrait = dialougPortraits[witchbutton];
         }
         if (!showingStartingMessage && activeDialogue == null)
         {
@@ -493,44 +504,7 @@ public class ConvoHandler : MonoBehaviour
         }
     }
     // Button 2 click event to start path 2 dialogue
-    public void OnButton2Click()
-    {
-        actvienextbuttons = dialouge2NextButtons;
-        if (dialouge2Portraits != null)
-        {
-            activeportrait = dialouge2Portraits;
-        }
-        if (!showingStartingMessage && activeDialogue == null)
-        {
-            StartDialogue(dialogueLines2); // Start path 2 dialogue
-        }
-    }
 
-    public void part2button2click()
-    {
-        actvienextbuttons = part2Dialouge2NextButtons;
-        if (part2Dialouge2Portraits != null)
-        {
-            activeportrait = part2Dialouge2Portraits;
-        }
-        if (!showingStartingMessage && activeDialogue == null)
-        {
-            StartDialogue(part2DialogueLines2); // Start path 2 dialogue
-        }
-
-    }
-    public void part2button1click()
-    {
-        actvienextbuttons = part2Dialouge1NextButtons;
-        if (part2Dialouge1Portraits != null)
-        {
-            activeportrait = part2Dialouge1Portraits;
-        }
-        if (!showingStartingMessage && activeDialogue == null)
-        {
-            StartDialogue(part2DialogueLines1); // Start path 2 dialogue
-        }
-    }
     public void corpse(int evidencetype)
     {
         if (evidencetype == 1)
