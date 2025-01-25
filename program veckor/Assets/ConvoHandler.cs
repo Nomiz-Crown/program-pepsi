@@ -94,24 +94,6 @@ public class ConvoHandler : MonoBehaviour
     public float suspectNpc4Amount = 0;
     public float likeNpc4Amount = 0;
     public List<GameObject> portraits;
-    public GameObject donnaportrait1;
-    public GameObject donnaportrait2;
-    public GameObject donnaportrait3;
-    public GameObject donnaportrait4;
-    public GameObject donnaportrait5;
-    public GameObject donnaportrait6;
-
-    public GameObject sabrinaportrait1;
-    public GameObject sabrinaportrait2;
-    public GameObject sabrinaportrait3;
-
-    public GameObject lucinaportrait1;
-    public GameObject lucinaportrait2;
-
-    public GameObject antonioportrait1;
-    public GameObject antonioportrait2;
-
-    public GameObject playerportrait1;
     static int whoisclosest = 0;
     static int queue = 0;
     public GameObject player;
@@ -269,61 +251,9 @@ public class ConvoHandler : MonoBehaviour
         }
         else
         {
-            if (currentportrait == 1 && sabrinaportrait1 != null)
+            if (portraits[currentportrait] != null)
             {
-                sabrinaportrait1.SetActive(true);
-            }
-            if (currentportrait == 2 && sabrinaportrait2 != null)
-            {
-                sabrinaportrait2.SetActive(true);
-            }
-            if (currentportrait == 3 && donnaportrait1 != null)
-            {
-                donnaportrait1.SetActive(true);
-            }
-            if (currentportrait == 4 && donnaportrait2 != null)
-            {
-                donnaportrait2.SetActive(true);
-            }
-            if (currentportrait == 5 && donnaportrait3 != null)
-            {
-                donnaportrait3.SetActive(true);
-            }
-            if (currentportrait == 6 && donnaportrait4 != null)
-            {
-                donnaportrait4.SetActive(true);
-            }
-            if (currentportrait == 7 && donnaportrait5 != null)
-            {
-                donnaportrait5.SetActive(true);
-            }
-            if (currentportrait == 8 && donnaportrait6 != null)
-            {
-                donnaportrait6.SetActive(true);
-            }
-            if (currentportrait == 9 && donnaportrait6 != null)
-            {
-                sabrinaportrait3.SetActive(true);
-            }
-            if (currentportrait == 10 && donnaportrait6 != null)
-            {
-                lucinaportrait1.SetActive(true);
-            }
-            if (currentportrait == 11 && donnaportrait6 != null)
-            {
-                lucinaportrait2.SetActive(true);
-            }
-            if (currentportrait == 12 && donnaportrait6 != null)
-            {
-                playerportrait1.SetActive(true);
-            }
-            if (currentportrait == 13 && donnaportrait6 != null)
-            {
-                antonioportrait1.SetActive(true);
-            }
-            if (currentportrait == 14 && donnaportrait6 != null)
-            {
-                antonioportrait2.SetActive(true);
+                portraits[currentportrait].SetActive(true);
             }
         }
         dialogueText.text = ""; // Clear the text before typing
@@ -473,7 +403,7 @@ public class ConvoHandler : MonoBehaviour
                 StartDialogue(dialogueLines1); // Start path 1 dialogue
             }
         }
-        if (witchbutton == 1)
+        if (witchbutton == 2)
         {
             if (dialouge2Portraits != null)
             {
@@ -509,22 +439,14 @@ public class ConvoHandler : MonoBehaviour
     }
     void removeportrait()
     {
-        if (donnaportrait1 != null)
+        int i = 0;
+        while(i < portraits.Count)
         {
-            donnaportrait1.SetActive(false);
-            donnaportrait2.SetActive(false);
-            donnaportrait3.SetActive(false);
-            donnaportrait4.SetActive(false);
-            donnaportrait5.SetActive(false);
-            donnaportrait6.SetActive(false);
-            sabrinaportrait1.SetActive(false);
-            sabrinaportrait2.SetActive(false);
-            sabrinaportrait3.SetActive(false);
-            lucinaportrait1.SetActive(false);
-            lucinaportrait2.SetActive(false);
-            playerportrait1.SetActive(false);
-            antonioportrait1.SetActive(false);
-            antonioportrait2.SetActive(false);
+            if (portraits[i] != null)
+            {
+                portraits[i].SetActive(false);
+            }
+            i += 1;
         }
     }
 

@@ -509,12 +509,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 55231600}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton1Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -717,21 +717,22 @@ MonoBehaviour:
   likeNpc3Amount: 0
   suspectNpc4Amount: 0
   likeNpc4Amount: 0
-  portraits: []
-  donnaportrait1: {fileID: 737519722}
-  donnaportrait2: {fileID: 863395910}
-  donnaportrait3: {fileID: 317174812}
-  donnaportrait4: {fileID: 1996726331}
-  donnaportrait5: {fileID: 670563719}
-  donnaportrait6: {fileID: 503834336}
-  sabrinaportrait1: {fileID: 437356788}
-  sabrinaportrait2: {fileID: 1733909779}
-  sabrinaportrait3: {fileID: 1859179469}
-  lucinaportrait1: {fileID: 1294159023}
-  lucinaportrait2: {fileID: 367824084}
-  antonioportrait1: {fileID: 2020217845}
-  antonioportrait2: {fileID: 1151093913}
-  playerportrait1: {fileID: 178625661}
+  portraits:
+  - {fileID: 437356788}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 1151093913}
   player: {fileID: 1864678228}
 --- !u!61 &55231602
 BoxCollider2D:
@@ -959,12 +960,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1174739405}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: part2button1click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1175,13 +1176,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1174739405}
-        m_TargetAssemblyTypeName: gregerhandler, Assembly-CSharp
-        m_MethodName: OnButton2Click
-        m_Mode: 1
+        m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5154,12 +5155,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1174739405}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: part2button2click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5622,12 +5623,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1174739405}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton1Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5888,12 +5889,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1373687616}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton2Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6394,12 +6395,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1373687616}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton1Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7377,12 +7378,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1108783691}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton1Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11610,12 +11611,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1373687616}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: part2button1click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13458,21 +13459,22 @@ MonoBehaviour:
   likeNpc3Amount: 0
   suspectNpc4Amount: 0
   likeNpc4Amount: 0
-  portraits: []
-  donnaportrait1: {fileID: 737519722}
-  donnaportrait2: {fileID: 863395910}
-  donnaportrait3: {fileID: 317174812}
-  donnaportrait4: {fileID: 1996726331}
-  donnaportrait5: {fileID: 670563719}
-  donnaportrait6: {fileID: 503834336}
-  sabrinaportrait1: {fileID: 437356788}
-  sabrinaportrait2: {fileID: 1733909779}
-  sabrinaportrait3: {fileID: 1859179469}
-  lucinaportrait1: {fileID: 1294159023}
-  lucinaportrait2: {fileID: 367824084}
-  antonioportrait1: {fileID: 2020217845}
-  antonioportrait2: {fileID: 1151093913}
-  playerportrait1: {fileID: 178625661}
+  portraits:
+  - {fileID: 0}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 0}
   player: {fileID: 1864678228}
 --- !u!95 &1108783692
 Animator:
@@ -13989,12 +13991,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 55231600}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton2Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14559,21 +14561,22 @@ MonoBehaviour:
   likeNpc3Amount: 0
   suspectNpc4Amount: 0
   likeNpc4Amount: 0
-  portraits: []
-  donnaportrait1: {fileID: 737519722}
-  donnaportrait2: {fileID: 863395910}
-  donnaportrait3: {fileID: 317174812}
-  donnaportrait4: {fileID: 1996726331}
-  donnaportrait5: {fileID: 670563719}
-  donnaportrait6: {fileID: 503834336}
-  sabrinaportrait1: {fileID: 437356788}
-  sabrinaportrait2: {fileID: 1733909779}
-  sabrinaportrait3: {fileID: 1859179469}
-  lucinaportrait1: {fileID: 1294159023}
-  lucinaportrait2: {fileID: 367824084}
-  antonioportrait1: {fileID: 2020217845}
-  antonioportrait2: {fileID: 1151093913}
-  playerportrait1: {fileID: 178625661}
+  portraits:
+  - {fileID: 737519722}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 1151093913}
   player: {fileID: 1864678228}
 --- !u!95 &1174739406
 Animator:
@@ -16299,12 +16302,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 55231600}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: part2button2click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16525,7 +16528,7 @@ MonoBehaviour:
   dialougeNextButtons: []
   dialougeNextButtons2: []
   dialogueLines1:
-  - 'i WILl do something abot it. '
+  - 'i WILL do something abot it. '
   dialoug1Portraits: 0d000000
   dialouge1NextButtons: 0
   dialogueLines2:
@@ -16556,21 +16559,22 @@ MonoBehaviour:
   likeNpc3Amount: 0
   suspectNpc4Amount: 0
   likeNpc4Amount: 0
-  portraits: []
-  donnaportrait1: {fileID: 737519722}
-  donnaportrait2: {fileID: 863395910}
-  donnaportrait3: {fileID: 317174812}
-  donnaportrait4: {fileID: 1996726331}
-  donnaportrait5: {fileID: 670563719}
-  donnaportrait6: {fileID: 503834336}
-  sabrinaportrait1: {fileID: 437356788}
-  sabrinaportrait2: {fileID: 1733909779}
-  sabrinaportrait3: {fileID: 1859179469}
-  lucinaportrait1: {fileID: 1294159023}
-  lucinaportrait2: {fileID: 367824084}
-  antonioportrait1: {fileID: 2020217845}
-  antonioportrait2: {fileID: 1151093913}
-  playerportrait1: {fileID: 178625661}
+  portraits:
+  - {fileID: 437356788}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 1151093913}
   player: {fileID: 1864678228}
 --- !u!70 &1373687617
 CapsuleCollider2D:
@@ -19400,12 +19404,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 55231600}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: part2button1click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19533,12 +19537,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1108783691}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: OnButton2Click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23434,12 +23438,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1373687616}
         m_TargetAssemblyTypeName: ConvoHandler, Assembly-CSharp
-        m_MethodName: part2button2click
-        m_Mode: 1
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
