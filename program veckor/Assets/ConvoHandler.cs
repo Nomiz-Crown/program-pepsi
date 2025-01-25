@@ -462,14 +462,49 @@ public class ConvoHandler : MonoBehaviour
     // Button 1 click event to proceed to the next line of dialogue or start path 1
     public void OnButtonClick(int witchbutton)
     {
-        actvienextbuttons = dialougeNextButtons[witchbutton];
-        if (dialougPortraits[witchbutton] != null)
+        if (witchbutton == 1)
         {
-            activeportrait = dialougPortraits[witchbutton];
+            if (dialoug1Portraits != null)
+            {
+                activeportrait = dialoug1Portraits;
+            }
+            if (!showingStartingMessage && activeDialogue == null)
+            {
+                StartDialogue(dialogueLines1); // Start path 1 dialogue
+            }
         }
-        if (!showingStartingMessage && activeDialogue == null)
+        if (witchbutton == 1)
         {
-            StartDialogue(dialogueLines1); // Start path 1 dialogue
+            if (dialouge2Portraits != null)
+            {
+                activeportrait = dialouge2Portraits;
+            }
+            if (!showingStartingMessage && activeDialogue == null)
+            {
+                StartDialogue(dialogueLines2); // Start path 1 dialogue
+            }
+        }
+        if (witchbutton == 3)
+        {
+            if (part2Dialouge1Portraits != null)
+            {
+                activeportrait = part2Dialouge1Portraits;
+            }
+            if (!showingStartingMessage && activeDialogue == null)
+            {
+                StartDialogue(part2DialogueLines1); // Start path 1 dialogue
+            }
+        }
+        if (witchbutton == 4)
+        {
+            if (part2Dialouge2Portraits != null)
+            {
+                activeportrait = part2Dialouge2Portraits;
+            }
+            if (!showingStartingMessage && activeDialogue == null)
+            {
+                StartDialogue(part2DialogueLines2); // Start path 1 dialogue
+            }
         }
     }
     void removeportrait()
