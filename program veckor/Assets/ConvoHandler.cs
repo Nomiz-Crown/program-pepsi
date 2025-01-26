@@ -8,6 +8,8 @@ using UnityEngine.UI; // Required for UI components
 
 public class ConvoHandler : MonoBehaviour
 {
+    [SerializeField] private string titletext; // Set this in the Inspector
+    [SerializeField] private Text title; // Assign the Text UI component in Inspector
     public GameObject gregerUi;       // The main UI that activates with E
     public GameObject interactUi;     // "Press E to Interact" UI
     public Text dialogueText;         // Text component for dialogue
@@ -101,6 +103,7 @@ public class ConvoHandler : MonoBehaviour
     private void Start()
     {
         playerinventory = player.GetComponent<inventory>();
+        title.text = titletext;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -175,6 +178,7 @@ public class ConvoHandler : MonoBehaviour
             if (gregerUi != null)
             {
                 gregerUi.SetActive(true);
+                title.text = titletext;
 
                 if (showingStartingMessage)
                 {

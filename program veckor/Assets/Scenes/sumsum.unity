@@ -657,6 +657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titletext: Donna
+  title: {fileID: 511905577}
   gregerUi: {fileID: 2025914447}
   interactUi: {fileID: 1753713457}
   dialogueText: {fileID: 1109273197}
@@ -13332,9 +13334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gregerUi: {fileID: 1106358729}
+  titletext: Lucia
+  title: {fileID: 511905577}
+  gregerUi: {fileID: 2025914447}
   interactUi: {fileID: 1310250650}
-  dialogueText: {fileID: 1828448965}
+  dialogueText: {fileID: 1109273197}
   caseFile: {fileID: 2114065163}
   button1: {fileID: 659812678}
   button2: {fileID: 1733579119}
@@ -14431,6 +14435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titletext: Sabrina
+  title: {fileID: 511905577}
   gregerUi: {fileID: 2025914447}
   interactUi: {fileID: 2015758584}
   dialogueText: {fileID: 1109273197}
@@ -16426,6 +16432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titletext: Antonio
+  title: {fileID: 511905577}
   gregerUi: {fileID: 2025914447}
   interactUi: {fileID: 575110418}
   dialogueText: {fileID: 1109273197}
