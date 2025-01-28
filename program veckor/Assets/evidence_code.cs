@@ -142,6 +142,15 @@ public class evidence_code : MonoBehaviour
                     typingCoroutine = StartCoroutine(TypeSentence());
                 }
             }
+            if (evidenceOrItemType == 10)
+            {
+                playerinventory.trapdoor = true;
+                if (gregerUi != null)
+                {
+                    gregerUi.SetActive(true);
+                    typingCoroutine = StartCoroutine(TypeSentence());
+                }
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

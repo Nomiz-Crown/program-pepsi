@@ -473,6 +473,17 @@ public class ConvoHandler : MonoBehaviour
             playerinventory.money -= 1;
         }
     }
+    public void giveratpoison()
+    {
+        if (witchNpcIsThis == whoistalking)
+        {
+            playerinventory.whoHasRatPoison = witchNpcIsThis;
+            likeYouAmount += 0.5f;
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = StartCoroutine(TypeSentence("thanks"));
+            playerinventory.ratpoisonbottle -= 1;
+        }
+    }
     // Button 2 click event to start path 2 dialogue
 
     public void corpse(int evidencetype)
