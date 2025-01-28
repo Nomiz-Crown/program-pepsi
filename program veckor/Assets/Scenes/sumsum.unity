@@ -736,6 +736,7 @@ MonoBehaviour:
   - {fileID: 2020217845}
   - {fileID: 1151093913}
   player: {fileID: 1864678228}
+  nextNpc: {fileID: 418959325}
 --- !u!61 &55231602
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4573,6 +4574,284 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385369472}
   m_CullTransparentMesh: 1
+--- !u!1 &418959325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418959331}
+  - component: {fileID: 418959330}
+  - component: {fileID: 418959329}
+  - component: {fileID: 418959328}
+  - component: {fileID: 418959327}
+  - component: {fileID: 418959326}
+  m_Layer: 0
+  m_Name: Giovane Donna (npc 2) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!70 &418959326
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418959325}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!95 &418959327
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418959325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29fb154eaa9657c46837ff230bceec45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &418959328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418959325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titletext: Donna
+  title: {fileID: 511905577}
+  gregerUi: {fileID: 2025914447}
+  interactUi: {fileID: 1753713457}
+  dialogueText: {fileID: 1109273197}
+  caseFile: {fileID: 2114065163}
+  button1: {fileID: 48512322}
+  button2: {fileID: 1134652704}
+  part2button1: {fileID: 1721247544}
+  part2button2: {fileID: 1347522148}
+  otherButtons1: {fileID: 0}
+  otherButtons2: {fileID: 0}
+  npc1button: {fileID: 2143719298}
+  npc2button: {fileID: 765107346}
+  npc3button: {fileID: 1986776477}
+  npc4button: {fileID: 693400490}
+  corpsevidencebutton: {fileID: 1632062887}
+  ratholevidence: 0
+  ratpoisonevidence: 0
+  corpsevidence: 0
+  poweroutage: 0
+  npcroom: 0
+  witchNpcIsThis: 2
+  startingMessage: would you mind stealing antonios rat poision
+  part2startingMessage: 
+  dialougeNextButtons: []
+  dialougeNextButtons2: []
+  dialogueLines1:
+  - 
+  dialoug1Portraits: 06000000
+  dialouge1NextButtons: 0
+  dialogueLines2:
+  - 
+  dialouge2Portraits: 06000000
+  dialouge2NextButtons: 0
+  part2DialogueLines1:
+  - antonio did it, i saw him get some ratpoison earlier
+  - 'i''d never do that! '
+  - it was sabrina she walked to the storage room staright away
+  - becouse thats my JOB!
+  - lies!
+  part2Dialouge1Portraits: 070000000e0000000d0000000200000001000000
+  part2Dialouge1NextButtons: 0
+  part2DialogueLines2:
+  - why would an psycho want to kill her?
+  part2Dialouge2Portraits: 07000000
+  part2Dialouge2NextButtons: 0
+  typingSpeed: 0.05
+  currentportrait: 4
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  portraits:
+  - {fileID: 437356788}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 1151093913}
+  player: {fileID: 1864678228}
+  nextNpc: {fileID: 0}
+--- !u!61 &418959329
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418959325}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.25, y: 4}
+    newSize: {x: 16.8, y: 9.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6, y: 6}
+  m_EdgeRadius: 0
+--- !u!212 &418959330
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418959325}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -328616677, guid: cee3248c468e48c47993d201ac91265c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16.8, y: 9.15}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &418959331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418959325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -22.6, y: -17.9, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &430303574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,6 +5159,317 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &466476307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466476314}
+  - component: {fileID: 466476313}
+  - component: {fileID: 466476312}
+  - component: {fileID: 466476311}
+  - component: {fileID: 466476310}
+  - component: {fileID: 466476309}
+  - component: {fileID: 466476308}
+  m_Layer: 0
+  m_Name: antonio (npc 4) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!70 &466476308
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!95 &466476309
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7cb8c1286f9b4c143afa313855a7f5e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &466476310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titletext: Antonio
+  title: {fileID: 511905577}
+  gregerUi: {fileID: 2025914447}
+  interactUi: {fileID: 575110418}
+  dialogueText: {fileID: 1109273197}
+  caseFile: {fileID: 2114065163}
+  button1: {fileID: 582719387}
+  button2: {fileID: 537278160}
+  part2button1: {fileID: 923525712}
+  part2button2: {fileID: 2118571791}
+  otherButtons1: {fileID: 0}
+  otherButtons2: {fileID: 0}
+  npc1button: {fileID: 2143719298}
+  npc2button: {fileID: 765107346}
+  npc3button: {fileID: 1986776477}
+  npc4button: {fileID: 693400490}
+  corpsevidencebutton: {fileID: 1632062887}
+  ratholevidence: 0
+  ratpoisonevidence: 0
+  corpsevidence: 0
+  poweroutage: 0
+  npcroom: 3
+  witchNpcIsThis: 4
+  startingMessage: i'm finaly gonna do something about the rats
+  part2startingMessage: give me my rat poison back
+  dialougeNextButtons: []
+  dialougeNextButtons2: []
+  dialogueLines1:
+  - "\rto kill obviously"
+  dialoug1Portraits: 0d000000
+  dialouge1NextButtons: 0
+  dialogueLines2:
+  - 
+  dialouge2Portraits: 0e000000
+  dialouge2NextButtons: 0
+  part2DialogueLines1:
+  - im not gonna kill anybody
+  - exept the rats of course
+  part2Dialouge1Portraits: 0d000000020000000e000000020000000e000000
+  part2Dialouge1NextButtons: 0
+  part2DialogueLines2:
+  - 
+  part2Dialouge2Portraits: 0d000000
+  part2Dialouge2NextButtons: 0
+  typingSpeed: 0.05
+  currentportrait: 13
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  portraits:
+  - {fileID: 437356788}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 1151093913}
+  player: {fileID: 1864678228}
+  nextNpc: {fileID: 0}
+--- !u!70 &466476311
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!61 &466476312
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.875, y: 3.75}
+    newSize: {x: 16.8, y: 9.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.93, y: 9.34}
+  m_EdgeRadius: 0
+--- !u!212 &466476313
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 753134680, guid: 472482df02755134c80e9431f9c19993, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16.8, y: 9.15}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &466476314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466476307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -5.5, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &503834336
 GameObject:
   m_ObjectHideFlags: 0
@@ -13404,6 +13994,7 @@ MonoBehaviour:
   - {fileID: 2020217845}
   - {fileID: 0}
   player: {fileID: 1864678228}
+  nextNpc: {fileID: 0}
 --- !u!95 &1108783692
 Animator:
   serializedVersion: 5
@@ -14508,6 +15099,7 @@ MonoBehaviour:
   - {fileID: 2020217845}
   - {fileID: 1151093913}
   player: {fileID: 1864678228}
+  nextNpc: {fileID: 1661854128}
 --- !u!95 &1174739406
 Animator:
   serializedVersion: 5
@@ -16508,6 +17100,7 @@ MonoBehaviour:
   - {fileID: 2020217845}
   - {fileID: 1151093913}
   player: {fileID: 1864678228}
+  nextNpc: {fileID: 466476307}
 --- !u!70 &1373687617
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18855,6 +19448,281 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632062885}
   m_CullTransparentMesh: 1
+--- !u!1 &1661854128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661854134}
+  - component: {fileID: 1661854133}
+  - component: {fileID: 1661854132}
+  - component: {fileID: 1661854131}
+  - component: {fileID: 1661854130}
+  - component: {fileID: 1661854129}
+  m_Layer: 0
+  m_Name: Sabrina Bellagamba (npc 1) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!70 &1661854129
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854128}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!95 &1661854130
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854128}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a8e87ede9d053a40a5a3e0f51617ede, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1661854131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac04ed87aa9eba447a0649755bf253ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titletext: Sabrina
+  title: {fileID: 511905577}
+  gregerUi: {fileID: 2025914447}
+  interactUi: {fileID: 2015758584}
+  dialogueText: {fileID: 1109273197}
+  caseFile: {fileID: 2114065163}
+  button1: {fileID: 530488510}
+  button2: {fileID: 93396504}
+  part2button1: {fileID: 69249083}
+  part2button2: {fileID: 515655614}
+  otherButtons1: {fileID: 0}
+  otherButtons2: {fileID: 0}
+  npc1button: {fileID: 2143719298}
+  npc2button: {fileID: 765107346}
+  npc3button: {fileID: 1986776477}
+  npc4button: {fileID: 693400490}
+  corpsevidencebutton: {fileID: 1632062887}
+  ratholevidence: 0
+  ratpoisonevidence: 0
+  corpsevidence: 0
+  poweroutage: 0
+  npcroom: 2
+  witchNpcIsThis: 1
+  startingMessage: take antonios rat poison and make sure he dosent get it back
+  part2startingMessage: 
+  dialougeNextButtons: []
+  dialougeNextButtons2: []
+  dialogueLines1:
+  - if we don't take it he might kill one of us with it.
+  dialoug1Portraits: 02000000
+  dialouge1NextButtons: 0
+  dialogueLines2:
+  - thanks
+  dialouge2Portraits: 09000000
+  dialouge2NextButtons: 0
+  part2DialogueLines1:
+  - 
+  part2Dialouge1Portraits: 09000000
+  part2Dialouge1NextButtons: 0
+  part2DialogueLines2:
+  - i went here to fix the power!...
+  - becouse that's my... job.
+  part2Dialouge2Portraits: 0200000001000000
+  part2Dialouge2NextButtons: 0
+  typingSpeed: 0.05
+  currentportrait: 1
+  likeYouAmount: 1
+  suspectYouAmount: 0
+  suspectNpc1Amount: 0
+  likeNpc1Amount: 0
+  suspectNpc2Amount: 0
+  likeNpc2Amount: 0
+  suspectNpc3Amount: 0
+  likeNpc3Amount: 0
+  suspectNpc4Amount: 0
+  likeNpc4Amount: 0
+  portraits:
+  - {fileID: 737519722}
+  - {fileID: 437356788}
+  - {fileID: 1733909779}
+  - {fileID: 737519722}
+  - {fileID: 863395910}
+  - {fileID: 317174812}
+  - {fileID: 1996726331}
+  - {fileID: 670563719}
+  - {fileID: 503834336}
+  - {fileID: 1859179469}
+  - {fileID: 1294159023}
+  - {fileID: 367824084}
+  - {fileID: 178625661}
+  - {fileID: 2020217845}
+  - {fileID: 1151093913}
+  player: {fileID: 1864678228}
+  nextNpc: {fileID: 0}
+--- !u!61 &1661854132
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854128}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.2857144, y: 4.571429}
+    newSize: {x: 16.8, y: 9.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.86, y: 5.85}
+  m_EdgeRadius: 0
+--- !u!212 &1661854133
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854128}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1956793369, guid: 321e6238f62f17b4790077a499e66113, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16.8, y: 9.15}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1661854134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661854128}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.4, y: -17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664941946
 GameObject:
   m_ObjectHideFlags: 0
@@ -20949,6 +21817,7 @@ MonoBehaviour:
   npc3: {fileID: 1108783686}
   npc4: {fileID: 1373687613}
   blackouttext: {fileID: 1260682812}
+  talkedToNpc: 0
 --- !u!95 &1864678236
 Animator:
   serializedVersion: 5
@@ -24121,9 +24990,12 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1864678231}
   - {fileID: 1174739402}
+  - {fileID: 1661854134}
   - {fileID: 55231599}
+  - {fileID: 418959331}
   - {fileID: 1108783688}
   - {fileID: 1373687615}
+  - {fileID: 466476314}
   - {fileID: 1999522864}
   - {fileID: 1021563436}
   - {fileID: 1959283297}

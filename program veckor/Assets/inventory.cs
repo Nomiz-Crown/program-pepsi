@@ -55,6 +55,7 @@ public class inventory : MonoBehaviour
     ConvoHandler npc4convo;
     public GameObject blackouttext;
     float timer2;
+    public bool talkedToNpc = false;
     void Start()
     {
         npc1convo = npc1.GetComponent<ConvoHandler>();
@@ -65,6 +66,14 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (talkedToNpc && ((transform.position.y > 4 && transform.position.x > 2) || (transform.position.y < -8)))
+        {
+            ratPoison.SetActive(true);
+            npc1convo.NextNpc();
+            npc2convo.NextNpc();
+            npc4convo.NextNpc();
+            talkedToNpc = false;
+        }
         if (blackout== 1)
         {
             timer2 += Time.deltaTime;
@@ -80,9 +89,9 @@ public class inventory : MonoBehaviour
             corpse3.SetActive(true);
             musicthing.SetActive(false);
             Watch.SetActive(true);
-            ratPoison.SetActive(true);
             blackouttext.SetActive(true);
             blooood.SetActive(true);
+            npc3.SetActive(false);
             npc1.transform.position = new Vector2(8.5f, -1.8f); // flyttar karaktärerna 
             npc2.transform.position = new Vector2(12 , 0);
             npc3.transform.position = new Vector2(-100, -100);

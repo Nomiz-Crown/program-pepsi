@@ -99,7 +99,9 @@ public class ConvoHandler : MonoBehaviour
     static int whoisclosest = 0;
     static int queue = 0;
     public GameObject player;
+    public GameObject nextNpc;
     inventory playerinventory;
+    
     private void Start()
     {
         playerinventory = player.GetComponent<inventory>();
@@ -150,6 +152,11 @@ public class ConvoHandler : MonoBehaviour
                 StopCoroutine(typingCoroutine);
             }
         }
+    }
+    public void NextNpc()
+    {
+        nextNpc.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -227,7 +234,7 @@ public class ConvoHandler : MonoBehaviour
     KeyCode.RightArrow, KeyCode.LeftArrow,
                KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.I
              };
-        if (whoistalking != witchNpcIsThis) // om en npc inte är den som pratar så blir vad den säger till en statci variable.
+        if (1 == 2)
         {
             if (witchNpcIsThis == 1)
             {
@@ -375,7 +382,7 @@ public class ConvoHandler : MonoBehaviour
 
     private void ShowButtons(bool showButton1, bool showButton2)
     {
-        if (button1 != null && poweroutage == 0)
+        if (button1 != null && poweroutage == 0 && playerinventory.ratpoisonbottle == 1)
         {
             button1.gameObject.SetActive(showButton1);
         }else if (part2button1 != null)
@@ -383,7 +390,7 @@ public class ConvoHandler : MonoBehaviour
             part2button1.gameObject.SetActive(showButton1);
         }
 
-        if (button2 != null && poweroutage == 0)
+        if (button2 != null && poweroutage == 0 &&  playerinventory.ratpoisonbottle == 1)
         {
             button2.gameObject.SetActive(showButton2);
         }
@@ -420,6 +427,7 @@ public class ConvoHandler : MonoBehaviour
         }
         if (witchbutton == 3)
         {
+            playerinventory.talkedToNpc = true;
             if (part2Dialouge1Portraits != null)
             {
                 activeportrait = part2Dialouge1Portraits;
@@ -431,6 +439,7 @@ public class ConvoHandler : MonoBehaviour
         }
         if (witchbutton == 4)
         {
+            playerinventory.talkedToNpc = true;
             if (part2Dialouge2Portraits != null)
             {
                 activeportrait = part2Dialouge2Portraits;
@@ -618,6 +627,7 @@ public class ConvoHandler : MonoBehaviour
             }
             else if (whoismentiond1 == 3)
             {
+                playerinventory.talkedToNpc = true;
                 if (likeYouAmount + suspectNpc3Amount > suspectYouAmount + likeNpc3Amount)
                 {
                     if (likeYouAmount - (suspectYouAmount + likeNpc3Amount) > 0)
@@ -645,6 +655,7 @@ public class ConvoHandler : MonoBehaviour
             }
             else if (whoismentiond1 == 4)
             {
+                playerinventory.talkedToNpc = true;
                 if (likeYouAmount + suspectNpc4Amount > suspectYouAmount + likeNpc4Amount)
                 {
                     if (likeYouAmount - (suspectYouAmount + likeNpc4Amount) > 0)

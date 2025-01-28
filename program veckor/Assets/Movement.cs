@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     private float anxietyIncreaseTimer = 0f; // Timer för att öka ångest
     private float anxietyDecreaseTimer = 0f; // Timer för att minska ångest
     Animator animator;
+    int idledirection;
 
     void Start()
     {
@@ -36,22 +37,41 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             animator.Play("backshots");
+            idledirection = 1;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             animator.Play("sideprofileplayer1");
+            idledirection = 2;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             animator.Play("walking forward player");
+            idledirection = 3;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             animator.Play("playersideprofle walking");
+            idledirection = 4;
         }
         else
         {
-            animator.Play("idle animation");
+            if (idledirection == 3)
+            {
+                animator.Play("idle animation");
+            }
+            if (idledirection == 4)
+            {
+                animator.Play("rightidle");
+            }
+            if (idledirection == 1)
+            {
+                animator.Play("backidle");
+            }
+            if (idledirection == 2)
+            {
+                animator.Play("idleleft");
+            }
         }
 
         // Rörelse
