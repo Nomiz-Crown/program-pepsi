@@ -462,54 +462,11 @@ MonoBehaviour:
   continueButton: {fileID: 1484451554}
   typingSpeed: 0.05
   dialogueLines:
-  - lineText: After what feels like hours, the cadillac stops and youre greeted by
-      a marvelous mansion.
+  - lineText: After having prepared for the uppcoming invited to an old mansion in
+      Venice to attend a party you finally
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: only 5 people were invited to the party, it feels almost unreal.
-    changeImage: 1
-    imageToDisable: {fileID: 119511254}
-    imageToEnable: {fileID: 2105593141}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: with such a wealthy host, nothing could go wrong.
-    changeImage: 1
-    imageToDisable: {fileID: 0}
-    imageToEnable: {fileID: 8398960}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: Welcome, everyone! Im happy you all could arrive
-    changeImage: 0
-    imageToDisable: {fileID: 8398960}
-    imageToEnable: {fileID: 119511254}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: all the horrors of the second world war was finaly over. we can all
-      finaly relax together.
-    changeImage: 1
-    imageToDisable: {fileID: 2105593141}
-    imageToEnable: {fileID: 119511254}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: ...
-    changeImage: 1
-    imageToDisable: {fileID: 2105593141}
-    imageToEnable: {fileID: 8398960}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: AHHH!!!!
-    changeImage: 1
-    imageToDisable: {fileID: 8398960}
-    imageToEnable: {fileID: 119511254}
-    triggerEvent: 0
-    eventObjectToActivate: {fileID: 0}
-  - lineText: there they laid.... the host was dead, murderd in cold blood...
-    changeImage: 0
-    imageToDisable: {fileID: 2105593141}
-    imageToEnable: {fileID: 119511254}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
 --- !u!4 &465737598
