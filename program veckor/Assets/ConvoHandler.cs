@@ -382,7 +382,7 @@ public class ConvoHandler : MonoBehaviour
 
     private void ShowButtons(bool showButton1, bool showButton2)
     {
-        if (button1 != null && poweroutage == 0 && playerinventory.ratpoisonbottle == 1)
+        if (button1 != null && poweroutage == 0 && playerinventory.ratpoisonbottle != 1)
         {
             button1.gameObject.SetActive(showButton1);
         }else if (part2button1 != null)
@@ -390,7 +390,7 @@ public class ConvoHandler : MonoBehaviour
             part2button1.gameObject.SetActive(showButton1);
         }
 
-        if (button2 != null && poweroutage == 0 &&  playerinventory.ratpoisonbottle == 1)
+        if (button2 != null && poweroutage == 0 &&  playerinventory.ratpoisonbottle != 1)
         {
             button2.gameObject.SetActive(showButton2);
         }
@@ -471,6 +471,17 @@ public class ConvoHandler : MonoBehaviour
             StopCoroutine(typingCoroutine);
             typingCoroutine = StartCoroutine(TypeSentence("thanks"));
             playerinventory.money -= 1;
+        }
+    }
+    public void giveratpoison()
+    {
+        if (witchNpcIsThis == whoistalking)
+        {
+            playerinventory.whoHasRatPoison = witchNpcIsThis;
+            likeYouAmount += 0.5f;
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = StartCoroutine(TypeSentence("thanks"));
+            playerinventory.ratpoisonbottle -= 1;
         }
     }
     // Button 2 click event to start path 2 dialogue

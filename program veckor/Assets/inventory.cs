@@ -56,6 +56,9 @@ public class inventory : MonoBehaviour
     public GameObject blackouttext;
     float timer2;
     public bool talkedToNpc = false;
+    public int whoHasRatPoison = 0;
+    bool ratpoisontime = true;
+    public bool trapdoor = false;
     void Start()
     {
         npc1convo = npc1.GetComponent<ConvoHandler>();
@@ -66,6 +69,12 @@ public class inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (whoHasRatPoison != 0 && ratpoisontime && (transform.position.x > 0 || (transform.position.y < 0 && transform.position.y > -3)))
+        {
+            npc1convo.NextNpc();
+            npc2convo.NextNpc();
+            npc4convo.NextNpc();
+        }
         if (talkedToNpc && ((transform.position.y > 4 && transform.position.x > 2) || (transform.position.y < -8)))
         {
             ratPoison.SetActive(true);
@@ -102,7 +111,7 @@ public class inventory : MonoBehaviour
             npc2convo.currentportrait = 7;
             npc4convo.poweroutage = 1;
         }
-        if (blackout == 1 && corpse2 == 1 && ratpoison == 1 && watch == 1)
+        if (blackout == 1 && corpse2 == 1 && ratpoison == 1 && watch == 1 && 1 == 2)
         {
             timer += Time.deltaTime;
         }
