@@ -1032,6 +1032,7 @@ MonoBehaviour:
   - {fileID: 240105985}
   - {fileID: 82387218}
   player: {fileID: 1012271340}
+  nextNpc: {fileID: 0}
 --- !u!70 &99890566
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2676,16 +2677,16 @@ MonoBehaviour:
   poweroutage: 0
   npcroom: 2
   witchNpcIsThis: 1
-  startingMessage: he really had it comming. the world's better off without him
-  part2startingMessage: 'i went to fix the power and found her dead body. '
+  startingMessage: wine wow
+  part2startingMessage: rahh
   dialougeNextButtons: []
   dialougeNextButtons2: []
   dialogueLines1:
-  - greedy men like him defile everything they touch
+  - i fw wine
   dialoug1Portraits: 02000000
   dialouge1NextButtons: 0
   dialogueLines2:
-  - i'm glad we agree
+  - yuh
   dialouge2Portraits: 09000000
   dialouge2NextButtons: 0
   part2DialogueLines1:
@@ -2726,6 +2727,7 @@ MonoBehaviour:
   - {fileID: 240105985}
   - {fileID: 82387218}
   player: {fileID: 1012271340}
+  nextNpc: {fileID: 0}
 --- !u!70 &272854689
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9116,6 +9118,7 @@ MonoBehaviour:
   npc3: {fileID: 2124811390}
   npc4: {fileID: 99890564}
   blackouttext: {fileID: 273601546}
+  talkedToNpc: 0
 --- !u!4 &1012271342
 Transform:
   m_ObjectHideFlags: 0
@@ -14550,6 +14553,7 @@ MonoBehaviour:
   - {fileID: 240105985}
   - {fileID: 82387218}
   player: {fileID: 1012271340}
+  nextNpc: {fileID: 0}
 --- !u!61 &1677393263
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15799,85 +15803,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1728240594
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1728240595}
-  - component: {fileID: 1728240597}
-  - component: {fileID: 1728240596}
-  m_Layer: 5
-  m_Name: hiding 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1728240595
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728240594}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871362806}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 128}
-  m_SizeDelta: {x: 170.68, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1728240596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728240594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: press E to hide
---- !u!222 &1728240597
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728240594}
-  m_CullTransparentMesh: 1
 --- !u!1 &1746935306
 GameObject:
   m_ObjectHideFlags: 0
@@ -17077,7 +17002,6 @@ RectTransform:
   - {fileID: 1338811038}
   - {fileID: 1746935307}
   - {fileID: 1560813599}
-  - {fileID: 1728240595}
   - {fileID: 677861313}
   - {fileID: 1507969296}
   - {fileID: 1682646020}
@@ -20075,6 +19999,7 @@ MonoBehaviour:
   - {fileID: 240105985}
   - {fileID: 0}
   player: {fileID: 1012271340}
+  nextNpc: {fileID: 0}
 --- !u!70 &2124811392
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

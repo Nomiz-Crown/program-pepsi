@@ -265,7 +265,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: year-1946
+  m_Text: year-1947
 --- !u!222 &23197814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -273,6 +273,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23197811}
+  m_CullTransparentMesh: 1
+--- !u!1 &53519000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53519001}
+  - component: {fileID: 53519003}
+  - component: {fileID: 53519002}
+  m_Layer: 5
+  m_Name: NameOfTalker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &53519001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53519000}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 4.2699995, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1962101409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.5800066, y: -6.3199944}
+  m_SizeDelta: {x: 98.6, y: 19.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &53519002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53519000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Lucia
+--- !u!222 &53519003
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53519000}
   m_CullTransparentMesh: 1
 --- !u!1 &119511251
 GameObject:
@@ -462,8 +541,129 @@ MonoBehaviour:
   continueButton: {fileID: 1484451554}
   typingSpeed: 0.05
   dialogueLines:
-  - lineText: After having prepared for the uppcoming invited to an old mansion in
-      Venice to attend a party you finally
+  - lineText: After being invited to a celebration party in Venice you spend the
+      weeks packing and preparing for the party.
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: "After all that anticipation you're finally greeted by a lavish mansion,
+      it looks seemingly antique.\r"
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: 'You step out of the Cadillac feeling the cold evening air brush up
+      against your skin, quickly scurrying over to the entrance doors. '
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: You step inside the hallway and make your way to the dining room.
+    changeImage: 1
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: "In front of you are five mysterious guests all unique from each other,
+      \r"
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: but they all had one thing in common, grieving the ones they lost in
+      the second world war.
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: A guy in a suit clears his throat and welcomes you enthusiastically,
+      almost too enthusiastically.
+    changeImage: 1
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 8398960}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: Well well, greetings. The host pauses up mid sentence clearly processing
+      a sudden thought.
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: Excuse my forgetfulness, what is your name again?
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: 'A tired looking woman comments with slight agitation looking down
+      at her clock: Lucia- Despite the wait.'
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: My sincerest apologies. We're glad to finally have you with us
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
@@ -1163,6 +1363,7 @@ RectTransform:
   - {fileID: 789796662}
   - {fileID: 1484451553}
   - {fileID: 8398962}
+  - {fileID: 1962101409}
   - {fileID: 1523988758}
   m_Father: {fileID: 1290524361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1287,6 +1488,79 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757499563}
+  m_CullTransparentMesh: 1
+--- !u!1 &1962101408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962101409}
+  - component: {fileID: 1962101411}
+  - component: {fileID: 1962101410}
+  m_Layer: 5
+  m_Name: lucia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1962101409
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962101408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 53519001}
+  m_Father: {fileID: 1561255197}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -789, y: 707}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1962101410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962101408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.7647059}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1962101411
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962101408}
   m_CullTransparentMesh: 1
 --- !u!1 &2105593139
 GameObject:
