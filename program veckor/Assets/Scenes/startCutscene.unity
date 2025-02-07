@@ -615,55 +615,104 @@ MonoBehaviour:
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: "Sabrina- Nice to gaze upon a new face, especially one that isn't of
+      a greedy, rich man. \r\n"
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: Sabrina clears her throat and stares intently at the host.
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: 'Host- Now we are all here because we grieve but mainly because we''re
+      all trying to move forward. '
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: ' Now everyone, shall we get to celebrating the two year anniversary
+      of the end of terrors?'
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: At the mention of the war the room tenses up. One of the guests in
+      particular- a postboy looking man- looking away in discomfort. The silence
+      seeps into the room.
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: 'You step closer to the dining table and pull out the tired and worn
+      out wooden chair. (The chair is surprisingly sturdy despite the wear and tear,
+      very impressive craftsmanship.)
+
+'
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: You- Excuse me sir but may I ask who constructed these fascinating
+      chairs?
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: "Host- Uhhh, that is a very\u2026 unique question but I'm afraid I
+      do not have the answer.  What I do know however is that both the mansion and
+      everything including the furniture belong to the mansion's previous owners
+      also known as the royal family. "
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
     triggerEvent: 0
     eventObjectToActivate: {fileID: 0}
-  - lineText: My sincerest apologies. We're glad to finally have you with us
+  - lineText: 'Host- As for why I specifically was able to take ownership  of such
+      extravagant beauty just happens to be because the royal family happen to be
+      distant relatives to me.He then adds: who have been dead for a while now, chuckling. '
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: 'He then adds: who have been dead for a while now, chuckling. '
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: "After the speech the other guests begin to dig in. As the guests finish
+      their meals the activities begin. \r\n"
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: "After the speech the other guests begin to dig in. As the guests finish
+      their meals the activities begin. \r\n"
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: "After the speech the other guests begin to dig in. As the guests finish
+      their meals the activities begin. \r\n"
+    changeImage: 0
+    imageToDisable: {fileID: 119511254}
+    imageToEnable: {fileID: 2105593141}
+    triggerEvent: 0
+    eventObjectToActivate: {fileID: 0}
+  - lineText: "After the speech the other guests begin to dig in. As the guests finish
+      their meals the activities begin. \r\n"
     changeImage: 0
     imageToDisable: {fileID: 119511254}
     imageToEnable: {fileID: 2105593141}
