@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             animator.Play("backshots");

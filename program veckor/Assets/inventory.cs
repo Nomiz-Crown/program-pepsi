@@ -50,9 +50,9 @@ public class inventory : MonoBehaviour
     public GameObject npc2;
     public GameObject npc3;
     public GameObject npc4;
-    ConvoHandler npc1convo;
-    ConvoHandler npc2convo;
-    ConvoHandler npc4convo;
+    public ConvoHandler npc1convo;
+    public ConvoHandler npc2convo;
+    public ConvoHandler npc4convo;
     public GameObject blackouttext;
     float timer2;
     public bool talkedToNpc = false;
@@ -111,7 +111,7 @@ public class inventory : MonoBehaviour
             npc2convo.currentportrait = 7;
             npc4convo.poweroutage = 1;
         }
-        if (blackout == 1 && corpse2 == 1 && ratpoison == 1 && watch == 1 && 1 == 2)
+        if (blackout == 1 && corpse2 == 1 && ratpoison == 1 && watch == 1)
         {
             timer += Time.deltaTime;
         }
@@ -157,72 +157,72 @@ public class inventory : MonoBehaviour
         
         if (caseFileOpen == true)
         {
-            int position = 80;
-            if (corpse > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40) 
+            int position = 335;
+            if (corpse > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40) 
             {
                 corpsevidence.gameObject.SetActive(true);
-                corpsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                corpsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-685f, position + page * 150);
+                position -= 100;
             }
             else
             {
                 corpsevidence.gameObject.SetActive(false);
             }
-            if (corpse2 > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (corpse2 > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40)
             {
                 corpsevidence2.gameObject.SetActive(true);
-                corpsevidence2.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                corpsevidence2.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 150);
+                position -= 100;
             }
             else
             {
                 corpsevidence2.gameObject.SetActive(false);
             }
-            if (rats > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (rats > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40)
             {
                 ratsevidence.gameObject.SetActive(true);
-                ratsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                ratsevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 150);
+                position -= 100;
             }
             else
             {
                 ratsevidence.gameObject.SetActive(false);
             }
-            if (ratpoison > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (ratpoison > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40)
             {
                 ratpoisonevidence.gameObject.SetActive(true);
-                ratpoisonevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                ratpoisonevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 150);
+                position -= 100;
             }
             else
             {
                 ratpoisonevidence.gameObject.SetActive(false);
             }
-            if (ventilation > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (ventilation > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40)
             {
                 ventilationevidence.gameObject.SetActive(true);
-                ventilationevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                ventilationevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 150);
+                position -= 100;
             }
             else
             {
                 ventilationevidence.gameObject.SetActive(false);
             }
-            if (watch > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (watch > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40)
             {
                 watchevidence.gameObject.SetActive(true);
-                watchevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                watchevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 150);
+                position -= 100;
             }
             else
             {
                 watchevidence.gameObject.SetActive(false);
             }
-            if (bloood > 0 && position + (page * 150) <= 80 && position + (page * 150) >= -40)
+            if (bloood > 0 && position + (page * 150) <= 335 && position + (page * 150) >= -40)
             {
                 bloodevidence.gameObject.SetActive(true);
-                bloodevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 150);
-                position -= 30;
+                bloodevidence.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 150);
+                position -= 100;
             }
             else
             {
@@ -243,22 +243,22 @@ public class inventory : MonoBehaviour
         }
         if (inventoryopen == true)
         {
-            int position = 55;
-            if (money > 0 && position + (page * 120) <= 55 && position + (page * 120) >= -35)
+            int position = 270;
+            if (money > 0 && position + (page * 120) <= 300 && position + (page * 120) >= -35)
             {
                 moneyItem.gameObject.SetActive(true);
-                moneyItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 120);
-                position -= 30;
+                moneyItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 120);
+                position -= 100;
             }
             else
             {
                 moneyItem.gameObject.SetActive(false);
             }
-            if (ratpoisonbottle > 0 && position + (page * 120) <= 55 && position + (page * 120) >= -35)
+            if (ratpoisonbottle > 0 && position + (page * 120) <= 300 && position + (page * 120) >= -35)
             {
                 ratpoisonitem.gameObject.SetActive(true);
-                ratpoisonitem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-284f, position + page * 120);
-                position -= 30;
+                ratpoisonitem.GetComponent<RectTransform>().anchoredPosition = new Vector2(-684f, position + page * 120);
+                position -= 100;
             }
             else
             {
