@@ -968,7 +968,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.86}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &56128305
@@ -5140,7 +5140,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.5}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!95 &418959327
@@ -5998,7 +5998,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.8}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!61 &466476312
@@ -15609,7 +15609,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.4}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &1109273196
@@ -16718,7 +16718,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.76}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &1175371529
@@ -19274,11 +19274,11 @@ MonoBehaviour:
   npcroom: 3
   witchNpcIsThis: 4
   startingMessage: there are rats coming out of a hole somewhere in this room.
-  part2startingMessage: what an horrible thing to do
+  part2startingMessage: what a horrible thing to do
   dialougeNextButtons: []
   dialougeNextButtons2: []
   dialogueLines1:
-  - 'i WILL do something abot it. '
+  - 'i WILL do something about it. '
   dialoug1Portraits: 0d000000
   dialouge1NextButtons: 0
   dialogueLines2:
@@ -19359,7 +19359,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.79}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!61 &1373687618
@@ -19460,7 +19460,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.69}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &1377654271
@@ -21939,7 +21939,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.5}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!95 &1661854130
