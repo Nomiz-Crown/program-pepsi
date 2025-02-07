@@ -902,7 +902,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3}
+  m_Offset: {x: 0, y: -1.14}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -968,7 +968,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.86}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &56128305
@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a678995b90b67cf4c80c6df7c4bc2466, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5344,8 +5344,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a678995b90b67cf4c80c6df7c4bc2466, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5415,7 +5415,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.5}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!95 &418959327
@@ -6273,7 +6273,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.8}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!61 &466476312
@@ -6982,8 +6982,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -49}
-  m_SizeDelta: {x: 1119.42, y: 356.3}
+  m_AnchoredPosition: {x: 24.495, y: -58.083}
+  m_SizeDelta: {x: 1148.4, y: 374.466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511905577
 MonoBehaviour:
@@ -16195,7 +16195,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.4}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &1109273196
@@ -17152,7 +17152,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.21}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17304,7 +17304,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.76}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &1175371529
@@ -19860,11 +19860,11 @@ MonoBehaviour:
   npcroom: 3
   witchNpcIsThis: 4
   startingMessage: there are rats coming out of a hole somewhere in this room.
-  part2startingMessage: what an horrible thing to do
+  part2startingMessage: what a horrible thing to do
   dialougeNextButtons: []
   dialougeNextButtons2: []
   dialogueLines1:
-  - 'i WILL do something abot it. '
+  - 'i WILL do something about it. '
   dialoug1Portraits: 0d000000
   dialouge1NextButtons: 0
   dialogueLines2:
@@ -19945,7 +19945,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.79}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!61 &1373687618
@@ -19980,7 +19980,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3.5}
+  m_Offset: {x: 0, y: -1.42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19991,7 +19991,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.93, y: 9.34}
+  m_Size: {x: 6.05, y: 6.01}
   m_EdgeRadius: 0
 --- !u!95 &1373687619
 Animator:
@@ -20046,7 +20046,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.69}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &1377654271
@@ -22801,7 +22801,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.5}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!95 &1661854130
@@ -27592,14 +27592,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.67058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a678995b90b67cf4c80c6df7c4bc2466, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
