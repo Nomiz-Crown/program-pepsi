@@ -120,7 +120,24 @@ public class ConvoHandler : MonoBehaviour
 
         }
     }
-
+    private void OnEnable()
+    {
+        if (playerinventory != null)
+        {
+            if (witchNpcIsThis == 1)
+            {
+                playerinventory.npc1convo = gameObject.GetComponent<ConvoHandler>();
+            }
+            if (witchNpcIsThis == 2)
+            {
+                playerinventory.npc2convo = gameObject.GetComponent<ConvoHandler>();
+            }
+            if (witchNpcIsThis == 4)
+            {
+                playerinventory.npc4convo = gameObject.GetComponent<ConvoHandler>();
+            }
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -479,7 +496,10 @@ public class ConvoHandler : MonoBehaviour
         {
             playerinventory.whoHasRatPoison = witchNpcIsThis;
             likeYouAmount += 0.5f;
-            StopCoroutine(typingCoroutine);
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+            }
             typingCoroutine = StartCoroutine(TypeSentence("thanks"));
             playerinventory.ratpoisonbottle -= 1;
         }

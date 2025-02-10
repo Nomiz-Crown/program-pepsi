@@ -32,6 +32,7 @@ public class evidence_code : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -87,7 +88,7 @@ public class evidence_code : MonoBehaviour
             }
             if (evidenceOrItemType == 4)
             {
-                playerinventory.ratpoisonbottle += 1;
+                playerinventory.ratpoisonbottle = 1;
                 transform.position = new Vector3(transform.position.x, transform.position.y, 2);
                 if (gregerUi != null)
                 {
