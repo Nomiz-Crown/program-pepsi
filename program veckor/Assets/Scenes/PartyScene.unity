@@ -14499,19 +14499,21 @@ MonoBehaviour:
   poweroutage: 0
   npcroom: 0
   witchNpcIsThis: 2
-  startingMessage: 'did you like yesterdays performance '
+  startingMessage: "Salutations dear guest, Perhaps you've already heard of me, my
+    dear?\r\n\r"
   part2startingMessage: why would anyone want to kill her?
   dialougeNextButtons: []
   dialougeNextButtons2: []
   dialogueLines1:
-  - one time doing the "throwing knife thing" i almost hit someone
-  - he paniced when i trew my knife and jumped away.
-  - but SOMEHOW, he almost jumped into my dagger. luckily for both of us it didn't
-    hit him
+  - "Oh sweetie, that is most unfortunate for you.\r"
+  - "I\u2019ll tell you one thing, without me people would\u2019ve lost their minds.
+    Right after losing their dearest."
+  - Im a professional clown ofcourse, dear.
   dialoug1Portraits: 060000000600000005000000
   dialouge1NextButtons: 0
   dialogueLines2:
-  - ...
+  - Well my dear I think it is the perfect opportunity to take a seat and be entertained
+  - Being a professional clown was never intended to be easy, my dear.
   dialouge2Portraits: 06000000
   dialouge2NextButtons: 0
   part2DialogueLines1:
